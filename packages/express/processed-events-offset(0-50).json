@@ -1,0 +1,2594 @@
+{
+  "metadata": {
+    "processedAt": "2025-08-04T16:25:16.028Z",
+    "sourceFile": "polymarket-events-offset(0-50)-2025-08-04T06-24-51-546Z.json",
+    "originalEvents": 50,
+    "processedEvents": 50,
+    "totalActiveMarkets": 125,
+    "totalTags": 282,
+    "filters": {
+      "markets": "active: true, closed: false",
+      "fields": "id, slug, description, tags.id, tags.slug, markets.id, markets.question, markets.slug, markets.endDate, markets.enableOrderBook, markets.liquidityClob"
+    }
+  },
+  "events": [
+    {
+      "id": "15042",
+      "slug": "when-will-gpt-5-be-released",
+      "description": "This is a market on predicting the release date of GPT-5.",
+      "tags": [
+        {
+          "id": "537",
+          "slug": "openai"
+        },
+        {
+          "id": "439",
+          "slug": "ai"
+        },
+        {
+          "id": "74",
+          "slug": "science"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "285",
+          "slug": "sam-altman"
+        },
+        {
+          "id": "1401",
+          "slug": "tech"
+        },
+        {
+          "id": "198",
+          "slug": "breaking-news"
+        }
+      ],
+      "markets": [
+        {
+          "id": "517603",
+          "question": "Will GPT-5 be released by December 31?",
+          "slug": "will-gpt-5-be-released-by-december-31-923-627-955-573-951",
+          "endDate": "2025-06-30T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 123056.1314
+        },
+        {
+          "id": "565367",
+          "question": "Will GPT-5 be released by August 31?",
+          "slug": "will-gpt-5-be-released-by-august-31-311-427-749-283-198",
+          "endDate": "2025-08-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 21798.0553
+        },
+        {
+          "id": "568122",
+          "question": "Will GPT-5 be released by August 15?",
+          "slug": "will-gpt-5-be-released-by-august-15-556-581-443",
+          "endDate": "2025-08-15T00:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 31069.593
+        },
+        {
+          "id": "570815",
+          "question": "Will GPT-5 be released by August 10?",
+          "slug": "will-gpt-5-be-released-by-august-10-893-173",
+          "endDate": "2025-08-10T00:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 26365.7506
+        },
+        {
+          "id": "570817",
+          "question": "Will GPT-5 be released by August 5?",
+          "slug": "will-gpt-5-be-released-by-august-5-178",
+          "endDate": "2025-08-05T00:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 18010.7843
+        }
+      ]
+    },
+    {
+      "id": "16084",
+      "slug": "fed-rate-hike-in-2025",
+      "description": "This market will resolve to “Yes” if the upper bound of the target federal funds rate is increased at any point between January 1, 2025 and the Fed's December 2025 meeting, currently scheduled for December 9-10. Otherwise, this market will resolve to “No”.\n\nThis market may not resolve to \"No\" until the Fed has released its rate changes information following its December meeting.\n\nThe primary resolution source for this market will be the official website of the Federal Reserve (https://www.federalreserve.gov/monetarypolicy/openmarket.htm), however a consensus of credible reporting may also be used.",
+      "tags": [
+        {
+          "id": "100196",
+          "slug": "fed-rates"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "101800",
+          "slug": "economic-policy"
+        },
+        {
+          "id": "101250",
+          "slug": "macro-single"
+        },
+        {
+          "id": "101550",
+          "slug": "jerome-powell"
+        },
+        {
+          "id": "159",
+          "slug": "fed"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516706",
+          "question": "Fed rate hike in 2025?",
+          "slug": "fed-rate-hike-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 26134.6594
+        }
+      ]
+    },
+    {
+      "id": "16085",
+      "slug": "how-many-fed-rate-cuts-in-2025",
+      "description": "This is a market group over how many Fed rate cuts will happen in 2025.",
+      "tags": [
+        {
+          "id": "100196",
+          "slug": "fed-rates"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "101800",
+          "slug": "economic-policy"
+        },
+        {
+          "id": "101550",
+          "slug": "jerome-powell"
+        },
+        {
+          "id": "159",
+          "slug": "fed"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516723",
+          "question": "Will no Fed rate cuts happen in 2025?",
+          "slug": "will-no-fed-rate-cuts-happen-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 98447.9652
+        },
+        {
+          "id": "516730",
+          "question": "Will 7 Fed rate cuts happen in 2025?",
+          "slug": "will-7-fed-rate-cuts-happen-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 130608.964
+        },
+        {
+          "id": "516724",
+          "question": "Will 1 Fed rate cut happen in 2025?",
+          "slug": "will-1-fed-rate-cut-happen-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 63276.7247
+        },
+        {
+          "id": "516725",
+          "question": "Will 2 Fed rate cuts happen in 2025?",
+          "slug": "will-2-fed-rate-cuts-happen-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 50081.7861
+        },
+        {
+          "id": "516731",
+          "question": "Will 6 Fed rate cuts happen in 2025?",
+          "slug": "will-6-fed-rate-cuts-happen-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 185340.23586
+        },
+        {
+          "id": "516726",
+          "question": "Will 3 Fed rate cuts happen in 2025?",
+          "slug": "will-3-fed-rate-cuts-happen-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 59608.847
+        },
+        {
+          "id": "516727",
+          "question": "Will 4 Fed rate cuts happen in 2025?",
+          "slug": "will-4-fed-rate-cuts-happen-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 87362.8322
+        },
+        {
+          "id": "516728",
+          "question": "Will 5 Fed rate cuts happen in 2025?",
+          "slug": "will-5-fed-rate-cuts-happen-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 174805.8711
+        },
+        {
+          "id": "516729",
+          "question": "Will 8+ Fed rate cuts happen in 2025?",
+          "slug": "will-8plus-fed-rate-cuts-happen-in-2025",
+          "endDate": "2025-12-10T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 161443.12901
+        }
+      ]
+    },
+    {
+      "id": "16086",
+      "slug": "which-ceos-will-be-out-in-2025",
+      "description": "This is a market group over which CEOs will be out of their position by December 31, 2025.",
+      "tags": [
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "100328",
+          "slug": "economy"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "439",
+          "slug": "ai"
+        },
+        {
+          "id": "101999",
+          "slug": "big-tech"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516838",
+          "question": "Tim Cook out as Apple CEO in 2025?",
+          "slug": "tim-cook-out-as-apple-ceo-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 3358.4811
+        },
+        {
+          "id": "516840",
+          "question": "Dan Clancy out as Twitch CEO in 2025?",
+          "slug": "dan-clancy-out-as-twitch-ceo-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 2275.2662
+        },
+        {
+          "id": "516837",
+          "question": "Sundar Pichai out as Google CEO in 2025?",
+          "slug": "sundar-pichai-out-as-google-ceo-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 2828.4202
+        },
+        {
+          "id": "516841",
+          "question": "Andy Jassy out as Amazon CEO in 2025?",
+          "slug": "andy-jassy-out-as-amazon-ceo-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 3957.4012
+        },
+        {
+          "id": "516842",
+          "question": "Brian Armstrong out as Coinbase CEO in 2025?",
+          "slug": "brian-armstrong-out-as-coinbase-ceo-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 1398.7298
+        },
+        {
+          "id": "516847",
+          "question": "Sam Altman out as OpenAI CEO in 2025?",
+          "slug": "sam-altman-out-as-openai-ceo-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 5341.1999
+        }
+      ]
+    },
+    {
+      "id": "16087",
+      "slug": "largest-company-end-of-2025",
+      "description": "This is a market on predicting which company will be the largest by market capitalization on December 31, 2025.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "439",
+          "slug": "ai"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "100328",
+          "slug": "economy"
+        },
+        {
+          "id": "101734",
+          "slug": "deepseek"
+        },
+        {
+          "id": "101999",
+          "slug": "big-tech"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516818",
+          "question": "Will NVIDIA be the largest company in the world by market cap on December 31?",
+          "slug": "will-nvidia-be-the-largest-company-in-the-world-by-market-cap-on-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 64830.4393
+        },
+        {
+          "id": "516820",
+          "question": "Will Microsoft be the largest company in the world by market cap on December 31?",
+          "slug": "will-microsoft-be-the-largest-company-in-the-world-by-market-cap-on-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 40052.9332
+        },
+        {
+          "id": "516821",
+          "question": "Will Apple be the largest company in the world by market cap on December 31?",
+          "slug": "will-apple-be-the-largest-company-in-the-world-by-market-cap-on-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 61863.6535
+        },
+        {
+          "id": "516822",
+          "question": "Will Alphabet be the largest company in the world by market cap on December 31?",
+          "slug": "will-alphabet-be-the-largest-company-in-the-world-by-market-cap-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 113892.39104
+        },
+        {
+          "id": "516824",
+          "question": "Will Tesla be the largest company in the world by market cap on December 31?",
+          "slug": "will-tesla-be-the-largest-company-in-the-world-by-market-cap-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 118871.78574
+        },
+        {
+          "id": "516845",
+          "question": "Will Amazon be the largest company in the world by market cap on December 31?",
+          "slug": "will-amazon-be-the-largest-company-in-the-world-by-market-cap-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 110861.15231
+        },
+        {
+          "id": "516846",
+          "question": "Will Saudi Aramco be the largest company in the world by market cap on December 31?",
+          "slug": "will-saudi-aramco-be-the-largest-company-in-the-world-by-market-cap-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 90685.1991
+        }
+      ]
+    },
+    {
+      "id": "16092",
+      "slug": "us-recession-in-2025",
+      "description": "This market will resolve to “Yes”, if either of the following conditions are met:\n\n1.  The National Bureau of Economic Research (NBER) publicly announces that a recession has occurred in the United States, at any point in 2025, with the announcement made by December 31, 2025, 11:59 PM ET.\n\n2.  The seasonally adjusted annualized percent change in quarterly U.S. real GDP from the previous quarter is less than 0.0 for two consecutive quarters between Q4 2024 and Q4 2025 (inclusive), as reported by the Bureau of Economic Analysis (BEA). \n\nOtherwise, this market will resolve to \"No\". \n\nNote that advance estimates will be considered. For example, if upon release, the advance estimate for Q2 2025 was negative, and the Q1 2025's most recent, up-to-date estimate was also negative, this market would resolve to \"Yes\". If on December 31, 2025 the latest estimate for quarterly GDP in Q3 2025 was negative, this market will stay open until the Advance estimate of Q4 2025 is published, at which point it will resolve to \"Yes\" if Q4 2025 was negative or if the NBER declares a recession by then.\n\nThe resolution source will be the official announcements from the NBER and the BEA’s estimate of seasonally adjusted annualized percent change in quarterly US real GDP from previous quarters as released by the Bureau of Economic Analysis (BEA), https://www.bea.gov/data/gdp/gross-domestic-product",
+      "tags": [
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "100328",
+          "slug": "economy"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "102022",
+          "slug": "xtrd-1"
+        },
+        {
+          "id": "101247",
+          "slug": "macro-graph"
+        },
+        {
+          "id": "101800",
+          "slug": "economic-policy"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516710",
+          "question": "US recession in 2025?",
+          "slug": "us-recession-in-2025",
+          "endDate": "2026-02-28T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 105188.3421
+        }
+      ]
+    },
+    {
+      "id": "16093",
+      "slug": "fed-emergency-rate-cut-in-2025",
+      "description": "This market will resolve to \"Yes\" if the Federal Open Market Committee (FOMC) holds an emergency meeting after which the upper bound of the target federal funds rate is lowered between January 1 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn emergency meeting is defined as any unscheduled meeting called by the Federal Reserve Board or the Federal Open Market Committee (FOMC) apart from the regular eight pre-scheduled meetings for 2025.\n\nThe resolution source will be official announcements from the Federal Reserve’s website (federalreserve.gov) or credible news sources reporting on the emergency meeting.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "100328",
+          "slug": "economy"
+        },
+        {
+          "id": "100196",
+          "slug": "fed-rates"
+        },
+        {
+          "id": "101800",
+          "slug": "economic-policy"
+        },
+        {
+          "id": "101550",
+          "slug": "jerome-powell"
+        },
+        {
+          "id": "159",
+          "slug": "fed"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516711",
+          "question": "Fed emergency rate cut in 2025?",
+          "slug": "fed-emergency-rate-cut-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 36743.2348
+        }
+      ]
+    },
+    {
+      "id": "16095",
+      "slug": "which-company-has-best-ai-model-end-of-2025",
+      "description": "qqThis is a negrisk market group over which will be the top AI model on December 31, 2025, 12:00 PM ET.",
+      "tags": [
+        {
+          "id": "101734",
+          "slug": "deepseek"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "439",
+          "slug": "ai"
+        },
+        {
+          "id": "540",
+          "slug": "grok"
+        },
+        {
+          "id": "1401",
+          "slug": "tech"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516960",
+          "question": "Will Google have the top AI model on December 31?",
+          "slug": "which-company-has-best-ai-model-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 27457.0412
+        },
+        {
+          "id": "516961",
+          "question": "Will OpenAI have the top AI model on December 31?",
+          "slug": "will-openai-have-the-top-ai-model-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 16808.4274
+        },
+        {
+          "id": "516967",
+          "question": "Will Alibaba have the top AI model on December 31?",
+          "slug": "will-alibaba-have-the-top-ai-model-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 20229.62205
+        },
+        {
+          "id": "516962",
+          "question": "Will xAI have the top AI model on December 31?",
+          "slug": "will-xai-have-the-top-ai-model-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 19754.489
+        },
+        {
+          "id": "516963",
+          "question": "Will Anthropic have the top AI model on December 31?",
+          "slug": "will-anthropic-have-the-top-ai-model-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 61660.8491
+        },
+        {
+          "id": "516964",
+          "question": "Will Meta have the top AI model on December 31?",
+          "slug": "will-meta-have-the-top-ai-model-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 21023.57527
+        },
+        {
+          "id": "516965",
+          "question": "Will DeepSeek have the top AI model on December 31?",
+          "slug": "will-deepseek-have-the-top-ai-model-on-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 58156.34379
+        }
+      ]
+    },
+    {
+      "id": "16096",
+      "slug": "what-price-will-bitcoin-hit-in-2025",
+      "description": "This is a market group over whit prices Bitcoin will hit in 2025.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "21",
+          "slug": "crypto"
+        },
+        {
+          "id": "1312",
+          "slug": "crypto-prices"
+        },
+        {
+          "id": "235",
+          "slug": "bitcoin"
+        },
+        {
+          "id": "620",
+          "slug": "btc"
+        },
+        {
+          "id": "102134",
+          "slug": "hit-price"
+        },
+        {
+          "id": "102144",
+          "slug": "monthly"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516861",
+          "question": "Will Bitcoin reach $1,000,000 by December 31, 2025?",
+          "slug": "will-bitcoin-reach-1000000-by-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 123503.24533
+        },
+        {
+          "id": "516862",
+          "question": "Will Bitcoin reach $250,000 by December 31, 2025?",
+          "slug": "will-bitcoin-reach-250000-by-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 171971.2355
+        },
+        {
+          "id": "516863",
+          "question": "Will Bitcoin reach $200,000 by December 31, 2025?",
+          "slug": "will-bitcoin-reach-200000-by-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 153459.3031
+        },
+        {
+          "id": "516864",
+          "question": "Will Bitcoin reach $150,000 by December 31, 2025?",
+          "slug": "will-bitcoin-reach-150000-by-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 116686.1915
+        },
+        {
+          "id": "516865",
+          "question": "Will Bitcoin reach $130,000 by December 31, 2025?",
+          "slug": "will-bitcoin-reach-130000-by-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 105760.9317
+        },
+        {
+          "id": "516872",
+          "question": "Will Bitcoin dip to $50,000 by December 31, 2025?",
+          "slug": "will-bitcoin-dip-to-50000-by-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 97482.5456
+        },
+        {
+          "id": "516871",
+          "question": "Will Bitcoin dip to $70,000 by December 31, 2025?",
+          "slug": "will-bitcoin-dip-to-70000-by-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 92921.76
+        },
+        {
+          "id": "516873",
+          "question": "Will Bitcoin dip to $20,000 by December 31, 2025?",
+          "slug": "will-bitcoin-dip-to-20000-by-december-31-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 70056.17963
+        }
+      ]
+    },
+    {
+      "id": "16097",
+      "slug": "what-price-will-ethereum-hit-in-2025",
+      "description": "This is a market group over what prices Ethereum will hit in 2025.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "21",
+          "slug": "crypto"
+        },
+        {
+          "id": "1312",
+          "slug": "crypto-prices"
+        },
+        {
+          "id": "157",
+          "slug": "eth"
+        },
+        {
+          "id": "39",
+          "slug": "ethereum"
+        },
+        {
+          "id": "102134",
+          "slug": "hit-price"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516876",
+          "question": "Will Ethereum hit $7,000 by December 31?",
+          "slug": "will-ethereum-hit-7000-by-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 112949.5497
+        },
+        {
+          "id": "516874",
+          "question": "Will Ethereum hit $10,000 by December 31?",
+          "slug": "will-ethereum-hit-10000-by-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 119996.1795
+        },
+        {
+          "id": "516875",
+          "question": "Will Ethereum hit $8,000 by December 31?",
+          "slug": "will-ethereum-hit-8000-by-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 144640.6471
+        },
+        {
+          "id": "516877",
+          "question": "Will Ethereum hit $6,000 by December 31?",
+          "slug": "will-ethereum-hit-6000-by-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 122512.325
+        },
+        {
+          "id": "516878",
+          "question": "Will Ethereum hit $5,000 by December 31?",
+          "slug": "will-ethereum-hit-5000-by-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 89864.45
+        },
+        {
+          "id": "516879",
+          "question": "Will Ethereum hit $4,000 by December 31?",
+          "slug": "will-ethereum-hit-4000-by-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 152749.6376
+        },
+        {
+          "id": "516884",
+          "question": "Will Ethereum dip to $1,000 by December 31?",
+          "slug": "will-ethereum-dip-to-1000-by-december-31",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 74209.0438
+        }
+      ]
+    },
+    {
+      "id": "16098",
+      "slug": "tether-insolvent-in-2025",
+      "description": "This market will resolve to \"Yes\" if official information released by Tether Limited Inc., official representatives of Tether Limited Inc. (e.g. lawyers, spokespeople, etc.), or a consensus of credible reporting announces by December 31, 2025, 11:59 PM ET that Tether Limited Inc. is insolvent or is filing/has filed for any variety of bankruptcy. Otherwise, this market will resolve to \"No\".",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "1312",
+          "slug": "crypto-prices"
+        },
+        {
+          "id": "21",
+          "slug": "crypto"
+        },
+        {
+          "id": "100171",
+          "slug": "stablecoins"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516712",
+          "question": "Tether insolvent in 2025?",
+          "slug": "tether-insolvent-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 25622.82426
+        }
+      ]
+    },
+    {
+      "id": "16099",
+      "slug": "usdt-depeg-in-2025",
+      "description": "This market will resolve to “Yes” immediately if all Coinbase 1 minute candles for USDT-USD for any 24 hour period are below 98 cents, for candles between 01 Jan '25 00:00 and 31 Dec '25 23:59 in the ET timezone. Otherwise, this market will resolve to “No”.\n\nBelow 98 cents means all candles in the period have a final “High” price below 0.98000 (i.e. 0.97999 or lower). A 24h period of USDT below 98 cents that starts on the last day in 2025 will count.\n\nThe resolution source for this market is https://www.coinbase.com/, specifically the USDT-USD “High” prices currently available at https://www.coinbase.com/advanced-trade/spot/USDT-USD with “1m” and “Candles” selected on the top bar. To see the “High” prices, mouse over particular candles and look at the value after “H” at the top of the chart.\n\nPlease note that this market is about the price according to Coinbase USDT-USD. If Coinbase stops having the necessary USDT information to resolve this market, a consensus of credible sources for whether USDT was below 98 cents for 24h+ may be used to resolve this market.",
+      "tags": [
+        {
+          "id": "100171",
+          "slug": "stablecoins"
+        },
+        {
+          "id": "100170",
+          "slug": "depeg"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "21",
+          "slug": "crypto"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516713",
+          "question": "USDT depeg in 2025?",
+          "slug": "usdt-depeg-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 57086.1892
+        }
+      ]
+    },
+    {
+      "id": "16100",
+      "slug": "highest-grossing-movie-in-2025",
+      "description": "This is a market on which movie will have the highest box office earnings in the year 2025.",
+      "tags": [
+        {
+          "id": "51",
+          "slug": "box-office"
+        },
+        {
+          "id": "1164",
+          "slug": "hollywood"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "53",
+          "slug": "movies"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        }
+      ],
+      "markets": [
+        {
+          "id": "517011",
+          "question": "Will Avatar 3 be the top grossing movie of 2025?",
+          "slug": "will-avatar-3-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 66945.19524
+        },
+        {
+          "id": "517012",
+          "question": "Will Wicked: For Good be the top grossing movie of 2025?",
+          "slug": "will-wicked-for-good-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 95785.01966
+        },
+        {
+          "id": "517013",
+          "question": "Will Superman be the top grossing movie of 2025?",
+          "slug": "will-superman-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 87121.412
+        },
+        {
+          "id": "517018",
+          "question": "Will Thunderbolts be the top grossing movie of 2025?",
+          "slug": "will-thunderbolts-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 168399.37995
+        },
+        {
+          "id": "517014",
+          "question": "Will The Fantastic Four: First Steps be the top grossing movie of 2025?",
+          "slug": "will-the-fantastic-four-first-steps-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 109718.76031
+        },
+        {
+          "id": "517015",
+          "question": "Will Jurassic World: Rebirth be the top grossing movie of 2025?",
+          "slug": "will-jurassic-world-rebirth-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 127708.65187
+        },
+        {
+          "id": "517016",
+          "question": "Will Captain America: Brave New World be the top grossing movie of 2025?",
+          "slug": "will-captain-america-new-world-order-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 205101.0242
+        },
+        {
+          "id": "517017",
+          "question": "Will Zootopia 2 be the top grossing movie of 2025?",
+          "slug": "will-zootopia-2-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 39800.90292
+        },
+        {
+          "id": "517019",
+          "question": "Will How to Train Your Dragon be the top grossing movie of 2025?",
+          "slug": "will-how-to-train-your-dragon-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 182551.6275
+        },
+        {
+          "id": "517020",
+          "question": "Will A Minecraft Movie be the top grossing movie of 2025?",
+          "slug": "will-a-minecraft-movie-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 26943.75709
+        },
+        {
+          "id": "517021",
+          "question": "Will Lilo & Stitch be the top grossing movie of 2025?",
+          "slug": "will-movie-a-be-the-top-grossing-movie-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 77525.32198
+        }
+      ]
+    },
+    {
+      "id": "16102",
+      "slug": "how-many-spacex-launches-in-2025",
+      "description": "This is a market on predicting the total number of SpaceX launches scheduled for the year 2025.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "63",
+          "slug": "spacex"
+        },
+        {
+          "id": "74",
+          "slug": "science"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516732",
+          "question": "Will SpaceX have less than 100 launches in 2025?",
+          "slug": "will-spacex-have-less-than-100-launches-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 2298.15751
+        },
+        {
+          "id": "516733",
+          "question": "Will SpaceX have between 100-119 launches in 2025?",
+          "slug": "will-spacex-have-between-100-119-launches-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 5742.20314
+        },
+        {
+          "id": "516734",
+          "question": "Will SpaceX have between 120-139 launches in 2025?",
+          "slug": "will-spacex-have-between-120-139-launches-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 2282.46126
+        },
+        {
+          "id": "516811",
+          "question": "Will SpaceX have 200 or more launches in 2025?",
+          "slug": "will-spacex-have-200-or-more-launches-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 34412.80868
+        },
+        {
+          "id": "516808",
+          "question": "Will SpaceX have between 140-159 launches in 2025?",
+          "slug": "will-spacex-have-between-140-159-launches-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 4933.6278
+        },
+        {
+          "id": "516809",
+          "question": "Will SpaceX have between 160-179 launches in 2025?",
+          "slug": "will-spacex-have-between-160-179-launches-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 2515.6366
+        },
+        {
+          "id": "516810",
+          "question": "Will SpaceX have between 180-199 launches in 2025?",
+          "slug": "will-spacex-have-between-180-199-launches-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 3673.1464
+        }
+      ]
+    },
+    {
+      "id": "16103",
+      "slug": "weed-rescheduled-in-2025",
+      "description": "This market will resolve to \"Yes\" if marijuana is rescheduled down from I to any other level (or is unscheduled completely) by the Drug Enforcement Agency of the United States (https://www.dea.gov/drug-information/drug-scheduling), by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for this market will be official information from the US government, however a consensus of credible reporting will also be used.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516714",
+          "question": "Weed rescheduled in 2025?",
+          "slug": "weed-rescheduled-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 2622.7428
+        }
+      ]
+    },
+    {
+      "id": "16104",
+      "slug": "ukraine-joins-nato-in-2025",
+      "description": "If Ukraine has officially joined NATO as a full member state at any point by December 31, 2025, 11:59 PM ET this market will resolve to “Yes”. Otherwise, this market will resolve to \"No.\"\n\nThe primary settlement source for this market will be the official NATO website (https://www.nato.int/cps/en/natohq/nato_countries.htm), however other credible sources may be used.",
+      "tags": [
+        {
+          "id": "270",
+          "slug": "putin"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "96",
+          "slug": "ukraine"
+        },
+        {
+          "id": "192",
+          "slug": "nato"
+        },
+        {
+          "id": "100265",
+          "slug": "geopolitics"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "95",
+          "slug": "russia"
+        },
+        {
+          "id": "101970",
+          "slug": "world"
+        },
+        {
+          "id": "101794",
+          "slug": "foreign-policy"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516715",
+          "question": "Ukraine joins NATO in 2025?",
+          "slug": "ukraine-joins-nato-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 24696.82355
+        }
+      ]
+    },
+    {
+      "id": "16105",
+      "slug": "khamenei-out-as-supreme-leader-of-iran-in-2025",
+      "description": "This market will resolve to \"Yes\" if Iran's Supreme leader, Ali Khamenei, is removed from power for any length of time between December 28, 2024, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nKhamenei will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as Supreme Leader of Iran within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "154",
+          "slug": "middle-east"
+        },
+        {
+          "id": "100265",
+          "slug": "geopolitics"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "101970",
+          "slug": "world"
+        },
+        {
+          "id": "180",
+          "slug": "israel"
+        },
+        {
+          "id": "78",
+          "slug": "iran"
+        },
+        {
+          "id": "102304",
+          "slug": "khamenei"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516716",
+          "question": "Khamenei out as Supreme Leader of Iran in 2025?",
+          "slug": "khamenei-out-as-supreme-leader-of-iran-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 177400.4148
+        }
+      ]
+    },
+    {
+      "id": "16106",
+      "slug": "nuclear-weapon-detonation-in-2025",
+      "description": "This market will resolve to \"Yes\" if a nuclear weapon is detonated anywhere in the world between January 1  and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nFor the purpose of this market's resolution, any detonation of a nuclear weapon anywhere on the planet Earth or in space will be sufficient to trigger a \"Yes\" resolution. This includes offensive usages, nuclear tests, and accidental detonations.\n\nUse/launch of a nuclear weapon that fails to detonate, a fake weapon that never detonates, or a dirty bomb that distributes radioactive material by means of a conventional explosion are not sufficient to trigger a \"Yes\" resolution of this market. Only a successful nuclear detonation will result in a \"Yes\" resolution.\n\nThis market may resolve to \"Yes\" as soon as a nuclear detonation is confirmed by a preponderance of credible reporting.\n\nFor the purpose of this market's resolution, determination as to whether a detonation was nuclear will be made by a preponderance of credible reporting.\n",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "100265",
+          "slug": "geopolitics"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "102083",
+          "slug": "india-pakistan"
+        },
+        {
+          "id": "101970",
+          "slug": "world"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516717",
+          "question": "Nuclear weapon detonation in 2025?",
+          "slug": "nuclear-weapon-detonation-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 32496.3531
+        }
+      ]
+    },
+    {
+      "id": "16108",
+      "slug": "russia-x-ukraine-ceasefire-in-2025",
+      "description": "This market will resolve to \"Yes\" if there is an official ceasefire agreement, defined as a publicly announced and mutually agreed halt in military engagement, between Russia and Ukraine by December 31, 2025, 11:59 PM ET.\n\nIf the agreement is officially reached before the resolution date, this market will resolve to \"Yes,\" regardless of whether the ceasefire officially starts afterward.\n\nAny form of informal agreement will not be considered an official ceasefire. Humanitarian pauses will not count toward the resolution of this market.\n\nThis market's resolution will be based on official announcements from both Russia and Ukraine; however, a wide consensus of credible media reporting stating an official ceasefire agreement between Russia and Ukraine has been reached will suffice.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "96",
+          "slug": "ukraine"
+        },
+        {
+          "id": "100265",
+          "slug": "geopolitics"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "101253",
+          "slug": "macro-geopolitics"
+        },
+        {
+          "id": "101970",
+          "slug": "world"
+        },
+        {
+          "id": "101794",
+          "slug": "foreign-policy"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516719",
+          "question": "Russia x Ukraine ceasefire in 2025?",
+          "slug": "russia-x-ukraine-ceasefire-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 234042.7087
+        }
+      ]
+    },
+    {
+      "id": "16109",
+      "slug": "putin-out-as-president-of-russia-in-2025",
+      "description": "This market will resolve to \"Yes\" if Russia's president, Vladimir Putin, is removed from power for any length of time between December 28, 2024, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPresident Vladimir Putin will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as President of Russia within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "95",
+          "slug": "russia"
+        },
+        {
+          "id": "100265",
+          "slug": "geopolitics"
+        },
+        {
+          "id": "96",
+          "slug": "ukraine"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "101970",
+          "slug": "world"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516720",
+          "question": "Putin out as President of Russia in 2025?",
+          "slug": "putin-out-as-president-of-russia-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 41913.9599
+        }
+      ]
+    },
+    {
+      "id": "16110",
+      "slug": "netanyahu-out-in-2025",
+      "description": "This market will resolve to \"Yes\" if Benjamin Netanyahu announces that he will resign as Prime Minister of Israel, or otherwise steps down from/is removed from this position by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nNote that an announcement of Benjamin Netanyahu's resignation or removal before the resolution date will suffice to resolve this market to \"Yes\" regardless of if/when he actually steps down.\n\nThe primary resolution source for this market will be official information from the government of the State of Israel, however a consensus of credible reporting will also be used.\n",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "100265",
+          "slug": "geopolitics"
+        },
+        {
+          "id": "154",
+          "slug": "middle-east"
+        },
+        {
+          "id": "180",
+          "slug": "israel"
+        },
+        {
+          "id": "101970",
+          "slug": "world"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516721",
+          "question": "Netanyahu out in 2025?",
+          "slug": "netanyahu-out-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 17397.7324
+        }
+      ]
+    },
+    {
+      "id": "16137",
+      "slug": "one-direction-reunion-in-2025",
+      "description": "This market will resolve to \"Yes\" if One Direction either performs together, releases new music as a group, or publicly announces they will do either of these things by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement that One Direction will perform together or release new music as a group before the resolution date will suffice to resolve this market to \"Yes\" regardless of if/when they actually do so.\n\nQualifying performances include live events, televised appearances, online streaming, etc. Releases include any single, EP, or album credited to \"One Direction.\" All living members of the group must be part of an event for it to qualify as a reunion.\n\nThe resolution source will be an announcement from One Direction or its official representatives, or a consensus of credible reporting.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "100",
+          "slug": "music"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516886",
+          "question": "One Direction reunion in 2025?",
+          "slug": "one-direction-reunion-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 1039.2213
+        }
+      ]
+    },
+    {
+      "id": "16138",
+      "slug": "britney-spears-tour-in-2025",
+      "description": "This market will resolve to \"Yes\" if Britney Spears announces a new tour between December 29, 2024, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement that Britney Spears will go on tour within the stated timeframe will suffice to resolve this market to \"Yes\" regardless of if/when she actually does so.\n\nThe resolution source will be an announcement from Britney Spears or her official representatives, or a consensus of credible reporting.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "100",
+          "slug": "music"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516887",
+          "question": "Britney Spears tour in 2025?",
+          "slug": "britney-spears-tour-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 2252.7617
+        }
+      ]
+    },
+    {
+      "id": "16139",
+      "slug": "nara-lucky-divorce-in-2025",
+      "description": "This market will resolve to \"Yes\" if Nara Smith and/or Lucky Blue Smith announce their intention to divorce between December 29, 2024 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement by December 31, 2025 of their intention to divorce will be sufficient for a \"Yes\" resolution, regardless of whether the divorce later actually occurs, or whether the actual divorce occurs outside of the timeframe of this market.\n\nThe resolution source will be statements from Nara Smith and/or Lucky Blue Smith, and their representatives, however a definitive consensus of credible media reporting may be considered.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        },
+        {
+          "id": "1087",
+          "slug": "internet"
+        },
+        {
+          "id": "127",
+          "slug": "social-media"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516888",
+          "question": "Nara & Lucky divorce in 2025?",
+          "slug": "nara-lucky-divorce-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 864.48
+        }
+      ]
+    },
+    {
+      "id": "16145",
+      "slug": "selena-gomez-married-in-2025",
+      "description": "This market will resolve to \"Yes\" if Selena Gomez gets married to Benny Blanco by December 31, 2025, 11:59 PM ET. Otherwise this market will resolve to \"No\".\n\nIf Gomez and/or Blanco announce that they are ending their relationship or engagement within the stated timeframe, this market will resolve to \"No\".\n\nThe resolution source will be information from Selena Gomez, Benny Blanco, and/or their official representatives. A consensus of credible reporting will also be used.",
+      "tags": [
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        },
+        {
+          "id": "100",
+          "slug": "music"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "286",
+          "slug": "celebrities"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516904",
+          "question": "Selena Gomez married in 2025?",
+          "slug": "selena-gomez-married-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 2629.35473
+        }
+      ]
+    },
+    {
+      "id": "16146",
+      "slug": "lana-del-rey-divorce-in-2025",
+      "description": "This market will resolve to \"Yes\" if Lana Del Rey and/or Jeremy Dufrene announce their intention to divorce between December 29, 2024 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement by December 31, 2025 of their intention to divorce will be sufficient for a \"Yes\" resolution, regardless of whether the divorce later actually occurs, or whether the actual divorce occurs outside of the timeframe of this market.\n\nThe resolution source will be statements from Lana Del Rey and/or Jeremy Dufrene or their representatives, however a definitive consensus of credible media reporting may be considered.",
+      "tags": [
+        {
+          "id": "100",
+          "slug": "music"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "286",
+          "slug": "celebrities"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516905",
+          "question": "Lana Del Rey divorce in 2025?",
+          "slug": "lana-del-rey-divorce-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 7372.7477
+        }
+      ]
+    },
+    {
+      "id": "16147",
+      "slug": "taylor-swift-and-travis-kelce-engaged-in-2025",
+      "description": "This market will resolve to \"Yes\" if it is announced that Taylor Swift and Travis Kelce are engaged to be married by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nIf it is announced that Swift and Kelce have married, it will qualify for a \"Yes\" resolution. \n\nThe primary resolution source for this market will be information from Taylor Swift and/or Travis Kelce or one of their official representatives, however a consensus of credible reporting will also be used.\n",
+      "tags": [
+        {
+          "id": "100",
+          "slug": "music"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        },
+        {
+          "id": "595",
+          "slug": "taylor-swift"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516906",
+          "question": "Taylor Swift and Travis Kelce engaged in 2025?",
+          "slug": "taylor-swift-and-travis-kelce-engaged-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 8613.1571
+        }
+      ]
+    },
+    {
+      "id": "16148",
+      "slug": "hailey-bieber-pregnant-in-2025",
+      "description": "This market will resolve to \"Yes\" if Hailey Bieber announces that she is pregnant between January 1, 2025, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe resolution source will be statements from Hailey Bieber or her representatives, however a definitive consensus of credible media reporting may be considered.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516907",
+          "question": "Hailey Bieber pregnant in 2025?",
+          "slug": "hailey-bieber-pregnant-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 92.4259
+        }
+      ]
+    },
+    {
+      "id": "16150",
+      "slug": "ripple-etf-approved-in-2025",
+      "description": "This market will resolve to \"Yes\" if any spot Ripple (XRP) ETF receives approval from the SEC by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nApproval under Rule 19-4b will qualify for a \"Yes\" resolution, even if there has not been an S-1 approval. Similarly, an S-1 approval without a 19-4b approval will also qualify for a \"Yes\" resolution.\n\nThe primary resolution source for this market will be information from the SEC, however a consensus of credible reporting may also be used.\n",
+      "tags": [
+        {
+          "id": "101267",
+          "slug": "xrp"
+        },
+        {
+          "id": "120",
+          "slug": "finance"
+        },
+        {
+          "id": "101312",
+          "slug": "ripple"
+        },
+        {
+          "id": "21",
+          "slug": "crypto"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "102204",
+          "slug": "other"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516909",
+          "question": "Ripple ETF approved in 2025?",
+          "slug": "ripple-etf-approved-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 8413.12601
+        }
+      ]
+    },
+    {
+      "id": "16151",
+      "slug": "new-pandemic-in-2025",
+      "description": "This market will resolve to \"Yes\" if the World Health Organization (WHO) declares any disease a pandemic between January 1, 2025 and December 31, 2025 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe resolution source will be official announcements from the World Health Organization.",
+      "tags": [
+        {
+          "id": "414",
+          "slug": "health"
+        },
+        {
+          "id": "570",
+          "slug": "pandemics"
+        },
+        {
+          "id": "74",
+          "slug": "science"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516910",
+          "question": "New pandemic in 2025?",
+          "slug": "new-pandemic-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 18186.55371
+        }
+      ]
+    },
+    {
+      "id": "16165",
+      "slug": "doge-etf-approved-in-2025",
+      "description": "This market will resolve to \"Yes\" if any spot Dogecoin ETF receives approval from the SEC by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nApproval under Rule 19-4b will qualify for a \"Yes\" resolution, even if there has not been an S-1 approval. Similarly, an S-1 approval without a 19-4b approval will also qualify for a \"Yes\" resolution.\n\nThe primary resolution source for this market will be information from the SEC, however a consensus of credible reporting may also be used.",
+      "tags": [
+        {
+          "id": "21",
+          "slug": "crypto"
+        },
+        {
+          "id": "120",
+          "slug": "finance"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "102204",
+          "slug": "other"
+        },
+        {
+          "id": "100178",
+          "slug": "dogecoin"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516924",
+          "question": "Doge ETF approved in 2025?",
+          "slug": "doge-etf-approved-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 10324.1917
+        }
+      ]
+    },
+    {
+      "id": "16166",
+      "slug": "will-the-us-confirm-that-aliens-exist-in-2025",
+      "description": "This market will resolve to \"Yes\" if the President of the United States, any member of the Cabinet of the United States, any member of the Joint Chiefs of Staff, or any US federal agency definitively states that extraterrestrial life or technology exists by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for this market will be official information from the government of the United States, however a consensus of credible reporting will also be used.",
+      "tags": [
+        {
+          "id": "71",
+          "slug": "aliens"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        },
+        {
+          "id": "74",
+          "slug": "science"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "188",
+          "slug": "uptspt-politics"
+        },
+        {
+          "id": "1323",
+          "slug": "declassification"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516925",
+          "question": "Will the US confirm that aliens exist in 2025?",
+          "slug": "will-the-us-confirm-that-aliens-exist-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 137582.77538
+        }
+      ]
+    },
+    {
+      "id": "16167",
+      "slug": "msft-sell-any-bitcoin-in-2025",
+      "description": "This market will resolve to \"Yes\" if MicroStrategy sells any of its Bitcoin by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for this market will be information from MSTR and on-chain data, however a consensus of credible reporting will also be used.",
+      "tags": [
+        {
+          "id": "120",
+          "slug": "finance"
+        },
+        {
+          "id": "100328",
+          "slug": "economy"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "21",
+          "slug": "crypto"
+        },
+        {
+          "id": "101473",
+          "slug": "microstrategy"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516926",
+          "question": "MicroStrategy sells any Bitcoin in 2025?",
+          "slug": "msft-sell-any-bitcoin-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 12984.0678
+        }
+      ]
+    },
+    {
+      "id": "16168",
+      "slug": "what-price-will-gold-close-at-in-2025",
+      "description": "This is a market group over gold prices at the end of 2025.",
+      "tags": [
+        {
+          "id": "101589",
+          "slug": "gold"
+        },
+        {
+          "id": "101031",
+          "slug": "commodities"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "120",
+          "slug": "finance"
+        },
+        {
+          "id": "101032",
+          "slug": "metals"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "100328",
+          "slug": "economy"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516927",
+          "question": "Will Gold close under $2,500 at the end of 2025?",
+          "slug": "will-gold-close-under-2500-at-the-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 16301.64428
+        },
+        {
+          "id": "516928",
+          "question": "Will Gold close at $2,500-2,600 at the end of 2025?",
+          "slug": "will-gold-close-at-2500-2600-at-the-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 9821.26402
+        },
+        {
+          "id": "516929",
+          "question": "Will Gold close at $2,600-2,700 at the end of 2025?",
+          "slug": "will-gold-close-at-2600-2700-at-the-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 9099.13506
+        },
+        {
+          "id": "516931",
+          "question": "Will Gold close at $2,800-2,900 at the end of 2025?",
+          "slug": "will-gold-close-at-2800-2900-at-the-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 9564.12042
+        },
+        {
+          "id": "516930",
+          "question": "Will Gold close at $2,700-2,800 at the end of 2025?",
+          "slug": "will-gold-close-at-2700-2800-at-the-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 8786.58464
+        },
+        {
+          "id": "516932",
+          "question": "Will Gold close at $2,900-3,000 at the end of 2025?",
+          "slug": "will-gold-close-at-2900-3000-at-the-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 11196.13302
+        },
+        {
+          "id": "516933",
+          "question": "Will Gold close at $3,000-3,100 at the end of 2025?",
+          "slug": "will-gold-close-at-3000-3100-at-the-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 8204.77362
+        },
+        {
+          "id": "516934",
+          "question": "Will Gold close at $3,100-3,200 at the end of 2025?",
+          "slug": "will-gold-close-at-3100-3200-at-the-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 8701.9131
+        },
+        {
+          "id": "516935",
+          "question": "Will Gold close at $3,200 or more at the end of 2025?",
+          "slug": "will-gold-close-at-3200-or-more-at-the-end-of-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 14316.8595
+        }
+      ]
+    },
+    {
+      "id": "16170",
+      "slug": "us-national-bitcoin-reserve-in-2025",
+      "description": "This market will resolve to \"Yes\" if the US government holds any amount of Bitcoin in its reserves at any point between January 1, 2025, ET and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nNote that the US government confiscating Bitcoin does not count as holding Bitcoin reserves.\n\nThe primary resolution source for this market will be official information from the US government and/or the US federal reserve, however a consensus of credible reporting will also be used.",
+      "tags": [
+        {
+          "id": "235",
+          "slug": "bitcoin"
+        },
+        {
+          "id": "101944",
+          "slug": "crypto-summit"
+        },
+        {
+          "id": "188",
+          "slug": "uptspt-politics"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "21",
+          "slug": "crypto"
+        },
+        {
+          "id": "120",
+          "slug": "finance"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "101800",
+          "slug": "economic-policy"
+        },
+        {
+          "id": "101798",
+          "slug": "crypto-policy"
+        },
+        {
+          "id": "102137",
+          "slug": "featured"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516937",
+          "question": "US national Bitcoin reserve in 2025?",
+          "slug": "us-national-bitcoin-reserve-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 54507.4864
+        }
+      ]
+    },
+    {
+      "id": "16171",
+      "slug": "will-2025-be-the-hottest-year-on-record",
+      "description": "This market will resolve to \"Yes\" if the data for the Global Land-Ocean Temperature Index for 2025 shows an increase greater than that of any previously recorded year when it is released. Otherwise, this market will resolve to \"No\".\n\nAn anomaly greater than that of any previously recorded year for 2025 is necessary and sufficient to resolve this market to \"Yes\" immediately once the data becomes available, regardless of whether the figure for 2024 and/or 2025 is later revised.\n\nThe primary resolution source for this market will be the figure found in the table titled \"Land-Ocean Temperature Index (C)\" under the column \"No_Smoothing\" in the row \"2025\" (https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt). If NASA's \"Global Temperature Index\" is rendered permanently unavailable, other information from NASA may be used. If no information for 2025 is provided by NASA by March 1, 2026, 11:59 PM ET, this market will resolve based on a consensus of credible reporting.",
+      "tags": [
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "74",
+          "slug": "science"
+        },
+        {
+          "id": "87",
+          "slug": "climate"
+        },
+        {
+          "id": "92",
+          "slug": "global-warming"
+        },
+        {
+          "id": "84",
+          "slug": "weather"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516938",
+          "question": "Will 2025 be the hottest year on record?",
+          "slug": "will-2025-be-the-hottest-year-on-record",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 52803.0987
+        }
+      ]
+    },
+    {
+      "id": "16172",
+      "slug": "will-kim-jong-un-visit-us-in-2025",
+      "description": "If Supreme Leader of North Korea Kim Jong Un visits the United States between January 1 and December 31, 2025, 11:59 PM ET, this market will resolve to \"Yes\". Otherwise, this market will resolve to \"No\".\n\nFor the purpose of this market, a \"visit\" is defined as Kim Jong Un physically entering the terrestrial or maritime territory of the United States. Whether or not Kim Jong Un enters US airspace during the timeframe of this market will have no bearing on a positive resolution.\n\nThe primary resolution source for this information will be official information from the US or North Korea, however a consensus of credible reporting will also be used.",
+      "tags": [
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "351",
+          "slug": "north-korea"
+        },
+        {
+          "id": "126",
+          "slug": "trump"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "101590",
+          "slug": "kim-jong-un"
+        },
+        {
+          "id": "188",
+          "slug": "uptspt-politics"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516939",
+          "question": "Will Kim Jong Un visit US in 2025?",
+          "slug": "will-kim-jong-un-visit-us-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 11346.82655
+        }
+      ]
+    },
+    {
+      "id": "16173",
+      "slug": "harry-meghan-divorce-in-2025",
+      "description": "This market will resolve to \"Yes\" if Prince Harry, Duke of Sussex and/or Meghan, Duchess of Sussex announce their intention to divorce between December 30, 2024 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement by December 31, 2025 of their intention to divorce will be sufficient for a \"Yes\" resolution, regardless of whether the divorce later actually occurs, or whether the actual divorce occurs outside of the timeframe of this market.\n\nThe resolution source will be statements from Harry and/or Meghan, and their representatives, however a definitive consensus of credible media reporting may be considered.",
+      "tags": [
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "100190",
+          "slug": "divorce"
+        },
+        {
+          "id": "286",
+          "slug": "celebrities"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516940",
+          "question": "Harry & Meghan divorce in 2025?",
+          "slug": "harry-meghan-divorce-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 12508.9338
+        }
+      ]
+    },
+    {
+      "id": "16174",
+      "slug": "trump-divorce-in-2025",
+      "description": "This market will resolve to \"Yes\" if Donald Trump and/or Melania Trump announce their intention to divorce between December 31, 2024 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement by December 31, 2025 of their intention to divorce will be sufficient for a \"Yes\" resolution, regardless of whether the divorce later actually occurs, or whether the actual divorce occurs outside of the timeframe of this market.\n\nThe resolution source will be statements from Donald Trump and/or Melania Trump , and their representatives, however a definitive consensus of credible media reporting may be considered.",
+      "tags": [
+        {
+          "id": "101191",
+          "slug": "trump-presidency"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        },
+        {
+          "id": "100190",
+          "slug": "divorce"
+        },
+        {
+          "id": "126",
+          "slug": "trump"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "286",
+          "slug": "celebrities"
+        },
+        {
+          "id": "188",
+          "slug": "uptspt-politics"
+        },
+        {
+          "id": "1438",
+          "slug": "maga"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516941",
+          "question": "Trump divorce in 2025?",
+          "slug": "trump-divorce-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 29174.01765
+        }
+      ]
+    },
+    {
+      "id": "16175",
+      "slug": "bird-flu-vaccine-in-2025",
+      "description": "This market will resolve to \"Yes\" if any vaccine intended for humans and inoculating against H5N1 receives full FDA approval between January 1, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for this market will be information from the FDA, including their official list of approved vaccines (https://www.fda.gov/vaccines-blood-biologics/vaccines/vaccines-licensed-use-united-states).",
+      "tags": [
+        {
+          "id": "100182",
+          "slug": "h5n1"
+        },
+        {
+          "id": "101490",
+          "slug": "vaccine"
+        },
+        {
+          "id": "101547",
+          "slug": "bird-flu"
+        },
+        {
+          "id": "74",
+          "slug": "science"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516942",
+          "question": "Bird flu vaccine in 2025?",
+          "slug": "bird-flu-vaccine-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 9636.8255
+        }
+      ]
+    },
+    {
+      "id": "16176",
+      "slug": "jay-z-beyonc-divorce-in-2025",
+      "description": "This market will resolve to \"Yes\" if Beyoncé and/or Jay-Z announce their intention to divorce between January 1 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement by December 31 of their intention to divorce will be sufficient for a \"Yes\" resolution, regardless of whether the divorce later actually occurs, or whether the actual divorce occurs outside of the timeframe of this market.\n\nThe resolution source will be statements from Beyoncé and/or Jay-Z, and their representatives, however a definitive consensus of credible media reporting may be considered.",
+      "tags": [
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        },
+        {
+          "id": "100",
+          "slug": "music"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "286",
+          "slug": "celebrities"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516943",
+          "question": "Jay-Z & Beyoncé divorce in 2025?",
+          "slug": "jay-z-beyonc-divorce-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 4328.7071
+        }
+      ]
+    },
+    {
+      "id": "16177",
+      "slug": "nobel-peace-prize-2025",
+      "description": "This market will resolve to \"Yes\" if Donald Trump wins the 2025 Nobel Peace prize. Otherwise this market will resolve to \"No\".\n\nIf Donald Trump wins the prize along with another person/entity, this market will resolve to \"Yes\".\n\nThe resolution source for this market will be the first official announcement from the Norwegian Nobel Committee.",
+      "tags": [
+        {
+          "id": "100767",
+          "slug": "prize"
+        },
+        {
+          "id": "126",
+          "slug": "trump"
+        },
+        {
+          "id": "100771",
+          "slug": "nobel"
+        },
+        {
+          "id": "596",
+          "slug": "pop-culture"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "101191",
+          "slug": "trump-presidency"
+        },
+        {
+          "id": "101781",
+          "slug": "rewards"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "18",
+          "slug": "awards"
+        },
+        {
+          "id": "188",
+          "slug": "uptspt-politics"
+        },
+        {
+          "id": "1438",
+          "slug": "maga"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516944",
+          "question": "Will Donald Trump win Nobel Peace Prize in 2025?",
+          "slug": "will-donald-trump-win-nobel-peace-prize-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 238232.47454
+        },
+        {
+          "id": "520928",
+          "question": "Will Elon Musk win Nobel Peace Prize in 2025?",
+          "slug": "will-elon-musk-win-nobel-peace-prize-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 82294.92884
+        }
+      ]
+    },
+    {
+      "id": "16180",
+      "slug": "maduro-out-in-2025",
+      "description": "This market will resolve to \"Yes\" if Venezuela's president, Nicolás Maduro, is removed from power for any length of time between January 1, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPresident Nicolás Maduro will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as President of Venezuela within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+      "tags": [
+        {
+          "id": "246",
+          "slug": "venezuela"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "101970",
+          "slug": "world"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516947",
+          "question": "Maduro out in 2025?",
+          "slug": "maduro-out-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 12146.3501
+        }
+      ]
+    },
+    {
+      "id": "16181",
+      "slug": "israel-withdraws-from-gaza-in-2025",
+      "description": "This market will resolve to \"Yes\" if Israel announces it has ceased all ground operations within and has withdrawn all ground forces from Gaza between January 1 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nFor this market to resolve to \"Yes\" it is sufficient that Israel announces its ground forces have withdrawn into or behind intended buffer zones, even if that zone is established on internationally recognized Palestinian territory.\n\nThe primary resolution source for this market will be information from the Israeli government, however a consensus of credible reporting will also be used.",
+      "tags": [
+        {
+          "id": "153",
+          "slug": "hamas"
+        },
+        {
+          "id": "154",
+          "slug": "middle-east"
+        },
+        {
+          "id": "180",
+          "slug": "israel"
+        },
+        {
+          "id": "61",
+          "slug": "gaza"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "100265",
+          "slug": "geopolitics"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "101970",
+          "slug": "world"
+        },
+        {
+          "id": "101253",
+          "slug": "macro-geopolitics"
+        },
+        {
+          "id": "101794",
+          "slug": "foreign-policy"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516948",
+          "question": "Israel withdraws from Gaza in 2025?",
+          "slug": "israel-withdraws-from-gaza-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 23285.2189
+        }
+      ]
+    },
+    {
+      "id": "16182",
+      "slug": "will-a-new-country-buy-bitcoin-in-2025",
+      "description": "This market will resolve to \"Yes\" if the government of any sovereign UN member state announces between January 1 and December 31, 2025, 11:59 PM ET that they bought Bitcoin for the first time. Otherwise, this market will resolve to \"No\".\n\nThis announcement can pertain to a first purchase of Bitcoin outside of the timeframe of this market (e.g. if a country announces it made its first purchase of Bitcoin prior to this market's timeframe, but the announcement is made within the timeframe, this market will resolve to \"Yes\").\n\nThe primary resolution source will be official announcements from the governments of any purchasing UN member state, however a consensus of credible reporting will also be used.",
+      "tags": [
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "21",
+          "slug": "crypto"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "235",
+          "slug": "bitcoin"
+        },
+        {
+          "id": "102137",
+          "slug": "featured"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516949",
+          "question": "Will a new country buy Bitcoin in 2025?",
+          "slug": "will-a-new-country-buy-bitcoin-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 17079.6669
+        }
+      ]
+    },
+    {
+      "id": "16183",
+      "slug": "kraken-ipo-in-2025",
+      "description": "This market will resolve to \"Yes\" if Kraken (US-based cryptocurrency exchange) completes an Initial Public Offering (IPO) by December 31, 2025, 11:59 PM ET, as confirmed by official company announcements or credible news sources. The IPO refers to the first sale of stock by Kraken to the public on any recognized stock exchange.\n\nIf Kraken merges with another entity, is acquired, or ceases to exist before the market resolves, the market will also resolve to \"No\".\n\nThis market will resolve early if Kraken completes an IPO by December 31, 2025, 11:59 PM ET.\n\nThe resolution source for this market is a consensus of credible reporting.",
+      "tags": [
+        {
+          "id": "101300",
+          "slug": "exchange"
+        },
+        {
+          "id": "1401",
+          "slug": "tech"
+        },
+        {
+          "id": "21",
+          "slug": "crypto"
+        },
+        {
+          "id": "120",
+          "slug": "finance"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        },
+        {
+          "id": "102137",
+          "slug": "featured"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516950",
+          "question": "Kraken IPO in 2025?",
+          "slug": "kraken-ipo-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 6605.3496
+        }
+      ]
+    },
+    {
+      "id": "16186",
+      "slug": "supreme-court-vacancy-2025",
+      "description": "This market will resolve to \"Yes\" if at least one seat on the United States Supreme Court becomes vacant between January 1 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for this market will be official announcements from the U.S. Government. However, a consensus of credible reporting may also be used.  ",
+      "tags": [
+        {
+          "id": "1628",
+          "slug": "courts"
+        },
+        {
+          "id": "100187",
+          "slug": "scotus"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        }
+      ],
+      "markets": [
+        {
+          "id": "516958",
+          "question": "Supreme Court vacancy in 2025?",
+          "slug": "supreme-court-vacancy-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 5769.7971
+        }
+      ]
+    },
+    {
+      "id": "16194",
+      "slug": "nyse-marketwide-circuit-breaker-in-2025",
+      "description": "This market will resolve to \"Yes\" if a marketwide circuit breaker is triggered on the New York Stock Exchange (NYSE) at any time between January 1 and market close on December 31, 2025. Otherwise, this market will resolve to “No”.\n\nA marketwide circuit breaker is defined as a trading halt that is initiated due to significant declines in the S&P 500 Index, specifically a Level 1, Level 2, or Level 3 halt as per NYSE rules.\n\nThe primary resolution source for this market will be official information from the NYSE, however a consensus of credible reporting will also be used.",
+      "tags": [
+        {
+          "id": "120",
+          "slug": "finance"
+        },
+        {
+          "id": "100412",
+          "slug": "nyse"
+        },
+        {
+          "id": "604",
+          "slug": "stocks"
+        },
+        {
+          "id": "107",
+          "slug": "business"
+        },
+        {
+          "id": "100328",
+          "slug": "economy"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        }
+      ],
+      "markets": [
+        {
+          "id": "517000",
+          "question": "NYSE marketwide circuit breaker in 2025?",
+          "slug": "nyse-marketwide-circuit-breaker-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 22876.9679
+        }
+      ]
+    },
+    {
+      "id": "16205",
+      "slug": "how-many-spacex-starship-launches-reach-space-in-2025",
+      "description": "This is a market on the number of SpaceX Starship launches that successfully reach space in the year 2025.",
+      "tags": [
+        {
+          "id": "1325",
+          "slug": "space"
+        },
+        {
+          "id": "63",
+          "slug": "spacex"
+        },
+        {
+          "id": "282",
+          "slug": "elon-musk"
+        },
+        {
+          "id": "74",
+          "slug": "science"
+        },
+        {
+          "id": "101588",
+          "slug": "2025-predictions"
+        }
+      ],
+      "markets": [
+        {
+          "id": "517035",
+          "question": "Will less than 4 SpaceX Starship launches successfully reach Space in 2025?",
+          "slug": "will-less-than-4-spacex-starship-launches-successfully-reach-space-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 1997.2011
+        },
+        {
+          "id": "517037",
+          "question": "Will 4-6 SpaceX Starship launches successfully reach Space in 2025?",
+          "slug": "will-4-6-spacex-starship-launches-successfully-reach-space-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 3193.23136
+        },
+        {
+          "id": "517038",
+          "question": "Will 7-9 SpaceX Starship launches successfully reach Space in 2025?",
+          "slug": "will-7-9-spacex-starship-launches-successfully-reach-space-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 4711.1797
+        },
+        {
+          "id": "517039",
+          "question": "Will 10-12 SpaceX Starship launches successfully reach Space in 2025?",
+          "slug": "will-10-12-spacex-starship-launches-successfully-reach-space-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 32921.36321
+        },
+        {
+          "id": "517040",
+          "question": "Will 13-15 SpaceX Starship launches successfully reach Space in 2025?",
+          "slug": "will-13-15-spacex-starship-launches-successfully-reach-space-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 8098.00267
+        },
+        {
+          "id": "517041",
+          "question": "Will 16-18 SpaceX Starship launches successfully reach Space in 2025?",
+          "slug": "will-16-18-spacex-starship-launches-successfully-reach-space-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 6008.8551
+        },
+        {
+          "id": "517042",
+          "question": "Will 19-21 SpaceX Starship launches successfully reach Space in 2025?",
+          "slug": "will-19-21-spacex-starship-launches-successfully-reach-space-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 7840.79293
+        },
+        {
+          "id": "517043",
+          "question": "Will 22-24 SpaceX Starship launches successfully reach Space in 2025?",
+          "slug": "will-22-24-spacex-starship-launches-successfully-reach-space-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 5103.57561
+        },
+        {
+          "id": "517044",
+          "question": "Will 25 or more SpaceX Starship launches successfully reach Space in 2025?",
+          "slug": "will-25-or-more-spacex-starship-launches-successfully-reach-space-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 5960.39939
+        }
+      ]
+    },
+    {
+      "id": "16215",
+      "slug": "assad-leaves-russia-before-2026",
+      "description": "This market will resolve to \"Yes\" if it is confirmed that Bashar al-Assad has left Russia for any length of time between January 2, 2025, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nIn cases where Assad may have exited Russian airspace on a plane, he must be confirmed to have exited the plane in a country other than Russia for this market to resolve to \"Yes\".\n\nIf Assad exits Russia maritime territory on a boat to international waters, this market may resolve to \"Yes\".\n\nIf it is not confirmed by the resolution date that Assad left Russia, this market will resolve to \"No\".\n\nThe resolution source for this market will be a consensus of credible reporting.",
+      "tags": [
+        {
+          "id": "95",
+          "slug": "russia"
+        },
+        {
+          "id": "101444",
+          "slug": "assad"
+        },
+        {
+          "id": "100265",
+          "slug": "geopolitics"
+        },
+        {
+          "id": "2",
+          "slug": "politics"
+        },
+        {
+          "id": "154",
+          "slug": "middle-east"
+        },
+        {
+          "id": "101970",
+          "slug": "world"
+        }
+      ],
+      "markets": [
+        {
+          "id": "517073",
+          "question": "Assad leaves Russia before 2026?",
+          "slug": "assad-leaves-russia-before-2026",
+          "endDate": "2025-12-31T12:00:00Z",
+          "enableOrderBook": true,
+          "liquidityClob": 3391.9564
+        }
+      ]
+    }
+  ]
+}

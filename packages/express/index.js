@@ -58,6 +58,7 @@ app.listen(PORT, () => {
   console.log(`🚀 Server is running on port ${PORT}`);
   console.log(`📊 Health check: http://localhost:${PORT}/health`);
   console.log(`🔗 API base URL: http://localhost:${PORT}/api/polymarket/events`);
+  console.log(`🔗 API base URL: http://localhost:${PORT}/api/kalshi/events`);
   console.log(`🗄️  Database: Supabase PostgreSQL`);
 });
 

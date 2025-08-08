@@ -1,5 +1,6 @@
 const axios = require('axios');
 const asyncHandler = require('../middleware/asyncHandler');
+const { cyber } = require('viem/chains');
 
 const KALSHI_BASE_URL = 'https://api.elections.kalshi.com/trade-api/v2';
 
@@ -10,13 +11,29 @@ exports.getEvents = asyncHandler(async (req, res, next) => {
   try {
     const { 
       limit = 200, 
-      status = 'open'
+      status = 'open',
+      with_nested_markets,
+      cursor,
+      series_ticker
     } = req.query;
 
     const params = {
       limit,
       status
     };
+
+    // Add optional parameters if provided
+    if (with_nested_markets !== undefined) {
+      params.with_nested_markets = with_nested_markets;
+    }
+    
+    if (cursor) {
+      params.cursor = cursor;
+    }
+    
+    if (series_ticker) {
+      params.series_ticker = series_ticker;
+    }
 
     const response = await axios.get(`${KALSHI_BASE_URL}/events`, {
       params,
@@ -29,7 +46,8 @@ exports.getEvents = asyncHandler(async (req, res, next) => {
       data: response.data?.events || [],
       meta: {
         count: response.data?.events?.length || 0,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        cursor: response.data?.cursor || null
       }
     });
 

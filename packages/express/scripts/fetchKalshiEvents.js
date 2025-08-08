@@ -2,8 +2,8 @@ const axios = require('axios');
 
 const BASE_URL = 'http://localhost:5000/api/kalshi';
 const KALSHI_API_URL = 'https://api.elections.kalshi.com/trade-api/v2';
-const LIMIT = 100;
-const MAX_REQUESTS = 1000;
+const LIMIT = 10;
+const MAX_REQUESTS = 10;
 
 // Configuration for different data types
 const DATA_TYPES = {
@@ -30,7 +30,7 @@ async function fetchKalshiEvents(filters = {}) {
         break;
       }
 
-      // Build parameters - try simpler approach first
+      // Build parameters
       const params = {
         limit: LIMIT,
         with_nested_markets: true,
@@ -40,29 +40,27 @@ async function fetchKalshiEvents(filters = {}) {
       // Add optional filters
       if (filters.series_ticker) {
         params.series_ticker = filters.series_ticker;
+        console.log(`📊 Filtering by series: ${filters.series_ticker}`);
       }
       
       if (cursor) {
         params.cursor = cursor;
       }
 
-      console.log(`📡 Request #${totalRequests}: Fetching events with cursor=${cursor || 'initial'}, limit=${LIMIT}, with_nested_markets=true, status=open`);
-      console.log(`🔗 URL: ${KALSHI_API_URL}/events`);
-      console.log(`📋 Params:`, params);
+      console.log(`📡 Request #${totalRequests}: Fetching events with cursor=${cursor || 'initial'}, limit=${LIMIT}`);
       
-      // Make direct request to Kalshi API
-      const response = await axios.get(`${KALSHI_API_URL}/events`, { 
+      // Make request through local API
+      const response = await axios.get(`${BASE_URL}/events`, { 
         params,
         timeout: 10000 
       });
       
-      if (response.data) {
-        const data = response.data.events || [];
+      if (response.data.success) {
+        const data = response.data.data || [];
         const count = data.length;
+        const responseCursor = response.data.meta?.cursor;
         
         console.log(`✅ Received ${count} events`);
-        console.log(`🔍 Response keys:`, Object.keys(response.data));
-        console.log(`🔍 Cursor in response:`, response.data.cursor);
         
         if (count === 0) {
           console.log('📭 No more data found. Stopping...');
@@ -71,17 +69,18 @@ async function fetchKalshiEvents(filters = {}) {
           allData.push(...data);
           console.log(`📊 Total events collected so far: ${allData.length}`);
           
-          // Check for next cursor in the response
-          if (response.data.cursor) {
-            cursor = response.data.cursor;
-            console.log(`⏭️  Moving to next page (cursor=${cursor})\n`);
+          // Check if there's a cursor for pagination
+          if (responseCursor) {
+            cursor = responseCursor;
+            console.log(`📄 Next cursor: ${cursor}`);
+            hasMoreData = true;
           } else {
-            console.log(`🏁 No more pages available. Stopping...`);
+            console.log(`📄 No more cursor available. Stopping pagination.`);
             hasMoreData = false;
           }
         }
       } else {
-        console.error('❌ API returned no data');
+        console.error('❌ API returned error:', response.data.error);
         hasMoreData = false;
       }
       
@@ -106,8 +105,14 @@ async function fetchKalshiEvents(filters = {}) {
         totalRequests: totalRequests,
         fetchedAt: new Date().toISOString(),
         filters: filters,
-        source: 'Kalshi API',
-        offsetRange: offsetRange
+        source: 'Kalshi API via PolyTrade',
+        offsetRange: offsetRange,
+        parameters: {
+          limit: LIMIT,
+          with_nested_markets: true,
+          status: 'open',
+          ...filters
+        }
       },
       events: allData
     }, null, 2));

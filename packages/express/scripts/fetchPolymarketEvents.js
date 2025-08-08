@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 const BASE_URL = 'http://localhost:5000/api/polymarket/events';
-const LIMIT = 100;
-const MAX_REQUESTS = 1000; // Maximum number of API requests to prevent infinite loops
+const LIMIT = 10;
+const MAX_REQUESTS = 10; // Maximum number of API requests to prevent infinite loops
 const PARAMS = {
   active: true,
   closed: false,

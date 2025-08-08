@@ -5,28 +5,21 @@ import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import {
   AdjustmentsHorizontalIcon,
-  ArrowPathRoundedSquareIcon,
   ArrowTopRightOnSquareIcon,
   ArrowTrendingDownIcon,
   ArrowTrendingUpIcon,
-  ArrowsRightLeftIcon,
-  BoltIcon,
   ChartBarIcon,
-  CheckCircleIcon,
   ClockIcon,
   CurrencyDollarIcon,
-  ExclamationTriangleIcon,
-  EyeIcon,
   FireIcon,
   MagnifyingGlassIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
-import { ArbitrageOpportunity, arbitrageService } from "~~/services/api/arbitrage";
 import { KalshiEvent, KalshiMarket, kalshiAPI } from "~~/services/api/kalshi";
 import { PolymarketEvent, PolymarketMarket, polymarketAPI } from "~~/services/api/polymarket";
 
 type Platform = "all" | "polymarket" | "kalshi";
-type ViewMode = "markets" | "events" | "arbitrage";
+type ViewMode = "markets" | "events";
 type MarketData = (PolymarketMarket | KalshiMarket) & { platform: "polymarket" | "kalshi" };
 type EventData = (PolymarketEvent | KalshiEvent) & { platform: "polymarket" | "kalshi" };
 
@@ -34,20 +27,18 @@ const Markets: NextPage = () => {
   const { address: connectedAddress } = useAccount();
   const [markets, setMarkets] = useState<MarketData[]>([]);
   const [events, setEvents] = useState<EventData[]>([]);
-  const [arbitrageOpportunities, setArbitrageOpportunities] = useState<ArbitrageOpportunity[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [platformFilter, setPlatformFilter] = useState<Platform>("all");
   const [categoryFilter, setCategoryFilter] = useState("all");
-  const [sortBy, setSortBy] = useState<"volume" | "activity" | "ending" | "profit">("volume");
+  const [sortBy, setSortBy] = useState<"volume" | "activity" | "ending">("volume");
   const [viewMode, setViewMode] = useState<ViewMode>("markets");
-  const [riskFilter, setRiskFilter] = useState<"all" | "low" | "medium" | "high">("all");
 
   const fetchData = useCallback(async () => {
     try {
       setLoading(true);
 
-      if (viewMode === "markets" || viewMode === "arbitrage") {
+      if (viewMode === "markets") {
         const [polymarkets, kalshiResponse] = await Promise.all([
           polymarketAPI.getMarkets(50),
           kalshiAPI.getMarkets(50),
@@ -62,12 +53,6 @@ const Markets: NextPage = () => {
         ];
 
         setMarkets(combinedMarkets);
-
-        // Calculate arbitrage opportunities if in arbitrage mode
-        if (viewMode === "arbitrage") {
-          const opportunities = arbitrageService.findArbitrageOpportunities(polymarkets, kalshiMarkets);
-          setArbitrageOpportunities(opportunities);
-        }
       }
 
       if (viewMode === "events") {
@@ -98,7 +83,7 @@ const Markets: NextPage = () => {
 
   const getAvailableCategories = () => {
     const categories = new Set<string>();
-    if (viewMode === "markets" || viewMode === "arbitrage") {
+    if (viewMode === "markets") {
       markets.forEach(market => {
         if (market.platform === "polymarket") {
           const polymarket = market as PolymarketMarket;
@@ -288,40 +273,6 @@ const Markets: NextPage = () => {
       }
     });
 
-  const filteredArbitrage = arbitrageOpportunities
-    .filter(opportunity => {
-      // Search filter
-      if (searchTerm) {
-        const polyTitle = opportunity.polymarketMarket?.question || "";
-        const kalshiTitle = opportunity.kalshiMarket?.title || "";
-        const searchLower = searchTerm.toLowerCase();
-        if (!polyTitle.toLowerCase().includes(searchLower) && !kalshiTitle.toLowerCase().includes(searchLower)) {
-          return false;
-        }
-      }
-
-      // Risk filter
-      if (riskFilter !== "all" && opportunity.riskLevel !== riskFilter) {
-        return false;
-      }
-
-      return true;
-    })
-    .sort((a, b) => {
-      switch (sortBy) {
-        case "profit":
-          return b.profitPotential - a.profitPotential;
-        case "volume":
-          const aVolume = (a.polymarketMarket?.volume24hr || 0) + (a.kalshiMarket?.dollar_volume_24h || 0);
-          const bVolume = (b.polymarketMarket?.volume24hr || 0) + (b.kalshiMarket?.dollar_volume_24h || 0);
-          return bVolume - aVolume;
-        case "ending":
-          return a.timeToExpiry - b.timeToExpiry;
-        default:
-          return b.confidence - a.confidence;
-      }
-    });
-
   const formatVolume = (volume: any) => {
     const numVolume = Number(volume) || 0;
     if (numVolume >= 1000000) return `$${(numVolume / 1000000).toFixed(1)}M`;
@@ -487,141 +438,6 @@ const Markets: NextPage = () => {
     );
   };
 
-  const ArbitrageCard = ({ opportunity }: { opportunity: ArbitrageOpportunity }) => {
-    const riskColors = {
-      low: "text-success",
-      medium: "text-warning",
-      high: "text-error",
-    };
-
-    return (
-      <div className="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-accent/20 hover:border-accent/40">
-        <div className="card-body p-6">
-          {/* Header */}
-          <div className="flex justify-between items-start mb-4">
-            <div className="flex items-center gap-2">
-              <span className="badge badge-accent">ARBITRAGE</span>
-              <span className={`badge badge-outline ${riskColors[opportunity.riskLevel]}`}>
-                {opportunity.riskLevel.toUpperCase()} RISK
-              </span>
-              <span className="badge badge-success">
-                {arbitrageService.formatProfit(opportunity.profitPotential)} PROFIT
-              </span>
-            </div>
-            <BoltIcon className="h-5 w-5 text-accent" />
-          </div>
-
-          {/* Markets Comparison */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            {opportunity.polymarketMarket && (
-              <div className="bg-primary/10 p-3 rounded-lg border border-primary/20">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="badge badge-primary badge-sm">POLYMARKET</span>
-                  <span className="text-xs text-gray-500">{(opportunity.similarityScore * 100).toFixed(0)}% match</span>
-                </div>
-                <h4 className="font-medium text-sm line-clamp-2 mb-2">{opportunity.polymarketMarket.question}</h4>
-                <div className="text-xs text-gray-500">
-                  Last: ${opportunity.polymarketMarket.lastTradePrice?.toFixed(2)}
-                </div>
-              </div>
-            )}
-
-            {opportunity.kalshiMarket && (
-              <div className="bg-secondary/10 p-3 rounded-lg border border-secondary/20">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="badge badge-secondary badge-sm">KALSHI</span>
-                  <span className="text-xs text-gray-500">
-                    ${(Number(opportunity.kalshiMarket.last_price) / 100).toFixed(2)}
-                  </span>
-                </div>
-                <h4 className="font-medium text-sm line-clamp-2 mb-2">{opportunity.kalshiMarket.title}</h4>
-                <div className="text-xs text-gray-500">
-                  Vol: ${Number(opportunity.kalshiMarket.dollar_volume_24h || 0).toLocaleString()}
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Strategy */}
-          <div className="bg-accent/10 p-3 rounded-lg border border-accent/20 mb-4">
-            <h5 className="font-medium text-sm mb-2 text-accent">Recommended Strategy:</h5>
-            <p className="text-sm">{opportunity.strategy.action}</p>
-            <div className="grid grid-cols-2 gap-2 mt-2 text-xs">
-              <div>
-                <span className="text-gray-500">Expected Profit: </span>
-                <span className="font-medium text-success">
-                  {arbitrageService.formatProfit(opportunity.strategy.expectedProfit)}
-                </span>
-              </div>
-              <div>
-                <span className="text-gray-500">Max Risk: </span>
-                <span className={`font-medium ${riskColors[opportunity.riskLevel]}`}>
-                  {arbitrageService.formatRisk(opportunity.strategy.maxRisk)}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Warnings */}
-          {opportunity.warnings.length > 0 && (
-            <div className="alert alert-warning py-2 mb-4">
-              <ExclamationTriangleIcon className="h-4 w-4" />
-              <div className="text-xs">
-                {opportunity.warnings.slice(0, 2).map((warning, index) => (
-                  <div key={`warning-${opportunity.id || "unknown"}-${index}`}>{warning}</div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Metrics */}
-          <div className="grid grid-cols-3 gap-2 mb-4 text-xs">
-            <div className="text-center">
-              <div className="text-gray-500">Confidence</div>
-              <div className="font-medium">{(opportunity.confidence * 100).toFixed(0)}%</div>
-            </div>
-            <div className="text-center">
-              <div className="text-gray-500">Time Left</div>
-              <div className="font-medium">{opportunity.timeToExpiry.toFixed(0)}d</div>
-            </div>
-            <div className="text-center">
-              <div className="text-gray-500">Type</div>
-              <div className="font-medium text-xs">{opportunity.arbitrageType}</div>
-            </div>
-          </div>
-
-          {/* Actions */}
-          <div className="card-actions justify-between items-center">
-            <button
-              className="btn btn-ghost btn-sm"
-              onClick={() => {
-                // Open both markets
-                if (opportunity.polymarketMarket) {
-                  window.open(`https://polymarket.com/market/${opportunity.polymarketMarket.id}`, "_blank");
-                }
-                if (opportunity.kalshiMarket) {
-                  window.open(`https://kalshi.com/markets/${opportunity.kalshiMarket.ticker}`, "_blank");
-                }
-              }}
-            >
-              <EyeIcon className="h-4 w-4" />
-              View Markets
-            </button>
-
-            <div className="flex gap-2">
-              <button className="btn btn-outline btn-sm" disabled={!connectedAddress}>
-                Analyze
-              </button>
-              <button className="btn btn-accent btn-sm" disabled={!connectedAddress}>
-                Execute Arbitrage
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   const EventCard = ({ event }: { event: EventData }) => {
     const isPolymarket = event.platform === "polymarket";
     const polyEvent = event as PolymarketEvent;
@@ -754,16 +570,8 @@ const Markets: NextPage = () => {
             <div className="stat-figure text-primary">
               <ChartBarIcon className="h-8 w-8" />
             </div>
-            <div className="stat-title">
-              {viewMode === "events" ? "Total Events" : viewMode === "arbitrage" ? "Opportunities" : "Total Markets"}
-            </div>
-            <div className="stat-value text-primary">
-              {viewMode === "events"
-                ? events.length
-                : viewMode === "arbitrage"
-                  ? arbitrageOpportunities.length
-                  : markets.length}
-            </div>
+            <div className="stat-title">{viewMode === "events" ? "Total Events" : "Total Markets"}</div>
+            <div className="stat-value text-primary">{viewMode === "events" ? events.length : markets.length}</div>
           </div>
         </div>
       </div>
@@ -783,16 +591,6 @@ const Markets: NextPage = () => {
         >
           <UserGroupIcon className="h-5 w-5 mr-2" />
           Events
-        </button>
-        <button
-          className={`tab tab-lg ${viewMode === "arbitrage" ? "tab-active" : ""}`}
-          onClick={() => setViewMode("arbitrage")}
-        >
-          <ArrowsRightLeftIcon className="h-5 w-5 mr-2" />
-          Arbitrage
-          {arbitrageOpportunities.length > 0 && (
-            <span className="badge badge-accent badge-sm ml-2">{arbitrageOpportunities.length}</span>
-          )}
         </button>
       </div>
 
@@ -826,74 +624,48 @@ const Markets: NextPage = () => {
           </div>
         </div>
 
-        {viewMode === "arbitrage" ? (
-          <>
-            <div className="stat bg-base-100 rounded-lg shadow border border-accent/20">
-              <div className="stat-figure text-accent">
-                <BoltIcon className="h-8 w-8" />
-              </div>
-              <div className="stat-title text-xs">High Profit</div>
-              <div className="stat-value text-xl text-accent">
-                {arbitrageOpportunities.filter(opp => opp.profitPotential > 0.05).length}
-              </div>
-            </div>
+        <div className="stat bg-base-100 rounded-lg shadow border border-base-300">
+          <div className="stat-figure text-accent">
+            <FireIcon className="h-8 w-8" />
+          </div>
+          <div className="stat-title text-xs">High Volume</div>
+          <div className="stat-value text-xl text-accent">
+            {viewMode === "events"
+              ? events.filter(e => {
+                  const volume = e.platform === "polymarket" ? (e as PolymarketEvent).volume_num || 0 : 0;
+                  return volume > 50000;
+                }).length
+              : markets.filter(m => {
+                  const volume =
+                    m.platform === "polymarket"
+                      ? (m as PolymarketMarket).volume24hr || 0
+                      : (m as KalshiMarket).dollar_volume_24h || 0;
+                  return volume > 50000;
+                }).length}
+          </div>
+        </div>
 
-            <div className="stat bg-base-100 rounded-lg shadow border border-success/20">
-              <div className="stat-figure text-success">
-                <CheckCircleIcon className="h-8 w-8" />
-              </div>
-              <div className="stat-title text-xs">Low Risk</div>
-              <div className="stat-value text-xl text-success">
-                {arbitrageOpportunities.filter(opp => opp.riskLevel === "low").length}
-              </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="stat bg-base-100 rounded-lg shadow border border-base-300">
-              <div className="stat-figure text-accent">
-                <FireIcon className="h-8 w-8" />
-              </div>
-              <div className="stat-title text-xs">High Volume</div>
-              <div className="stat-value text-xl text-accent">
-                {viewMode === "events"
-                  ? events.filter(e => {
-                      const volume = e.platform === "polymarket" ? (e as PolymarketEvent).volume_num || 0 : 0;
-                      return volume > 50000;
-                    }).length
-                  : markets.filter(m => {
-                      const volume =
-                        m.platform === "polymarket"
-                          ? (m as PolymarketMarket).volume24hr || 0
-                          : (m as KalshiMarket).dollar_volume_24h || 0;
-                      return volume > 50000;
-                    }).length}
-              </div>
-            </div>
-
-            <div className="stat bg-base-100 rounded-lg shadow border border-base-300">
-              <div className="stat-figure text-success">
-                <ClockIcon className="h-8 w-8" />
-              </div>
-              <div className="stat-title text-xs">Ending Soon</div>
-              <div className="stat-value text-xl text-success">
-                {viewMode === "events"
-                  ? events.filter(e => {
-                      const endDate =
-                        e.platform === "polymarket" ? (e as PolymarketEvent).end_date : (e as KalshiEvent).close_date;
-                      const daysUntilEnd = (new Date(endDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24);
-                      return daysUntilEnd <= 7;
-                    }).length
-                  : markets.filter(m => {
-                      const endDate =
-                        m.platform === "polymarket" ? (m as PolymarketMarket).endDate : (m as KalshiMarket).close_date;
-                      const daysUntilEnd = (new Date(endDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24);
-                      return daysUntilEnd <= 7;
-                    }).length}
-              </div>
-            </div>
-          </>
-        )}
+        <div className="stat bg-base-100 rounded-lg shadow border border-base-300">
+          <div className="stat-figure text-success">
+            <ClockIcon className="h-8 w-8" />
+          </div>
+          <div className="stat-title text-xs">Ending Soon</div>
+          <div className="stat-value text-xl text-success">
+            {viewMode === "events"
+              ? events.filter(e => {
+                  const endDate =
+                    e.platform === "polymarket" ? (e as PolymarketEvent).end_date : (e as KalshiEvent).close_date;
+                  const daysUntilEnd = (new Date(endDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24);
+                  return daysUntilEnd <= 7;
+                }).length
+              : markets.filter(m => {
+                  const endDate =
+                    m.platform === "polymarket" ? (m as PolymarketMarket).endDate : (m as KalshiMarket).close_date;
+                  const daysUntilEnd = (new Date(endDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24);
+                  return daysUntilEnd <= 7;
+                }).length}
+          </div>
+        </div>
       </div>
 
       {/* Filters */}
@@ -908,9 +680,7 @@ const Markets: NextPage = () => {
             {/* Search */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-sm">
-                  Search {viewMode === "events" ? "Events" : viewMode === "arbitrage" ? "Opportunities" : "Markets"}
-                </span>
+                <span className="label-text text-sm">Search {viewMode === "events" ? "Events" : "Markets"}</span>
               </label>
               <div className="relative">
                 <input
@@ -924,23 +694,21 @@ const Markets: NextPage = () => {
               </div>
             </div>
 
-            {/* Platform Filter - Hide for arbitrage mode */}
-            {viewMode !== "arbitrage" && (
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-sm">Platform</span>
-                </label>
-                <select
-                  className="select select-bordered select-sm"
-                  value={platformFilter}
-                  onChange={e => setPlatformFilter(e.target.value as Platform)}
-                >
-                  <option value="all">All Platforms</option>
-                  <option value="polymarket">Polymarket Only</option>
-                  <option value="kalshi">Kalshi Only</option>
-                </select>
-              </div>
-            )}
+            {/* Platform Filter */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-sm">Platform</span>
+              </label>
+              <select
+                className="select select-bordered select-sm"
+                value={platformFilter}
+                onChange={e => setPlatformFilter(e.target.value as Platform)}
+              >
+                <option value="all">All Platforms</option>
+                <option value="polymarket">Polymarket Only</option>
+                <option value="kalshi">Kalshi Only</option>
+              </select>
+            </div>
 
             {/* Category Filter */}
             <div className="form-control">
@@ -961,25 +729,6 @@ const Markets: NextPage = () => {
               </select>
             </div>
 
-            {/* Risk Filter - Only for arbitrage mode */}
-            {viewMode === "arbitrage" && (
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-sm">Risk Level</span>
-                </label>
-                <select
-                  className="select select-bordered select-sm"
-                  value={riskFilter}
-                  onChange={e => setRiskFilter(e.target.value as any)}
-                >
-                  <option value="all">All Risk Levels</option>
-                  <option value="low">Low Risk Only</option>
-                  <option value="medium">Medium Risk Only</option>
-                  <option value="high">High Risk Only</option>
-                </select>
-              </div>
-            )}
-
             {/* Sort By */}
             <div className="form-control">
               <label className="label">
@@ -990,19 +739,9 @@ const Markets: NextPage = () => {
                 value={sortBy}
                 onChange={e => setSortBy(e.target.value as any)}
               >
-                {viewMode === "arbitrage" ? (
-                  <>
-                    <option value="profit">Profit Potential</option>
-                    <option value="volume">Combined Volume</option>
-                    <option value="ending">Time to Expiry</option>
-                  </>
-                ) : (
-                  <>
-                    <option value="volume">24h Volume</option>
-                    <option value="activity">Recent Activity</option>
-                    <option value="ending">Ending Soon</option>
-                  </>
-                )}
+                <option value="volume">24h Volume</option>
+                <option value="activity">Recent Activity</option>
+                <option value="ending">Ending Soon</option>
               </select>
             </div>
           </div>
@@ -1093,75 +832,6 @@ const Markets: NextPage = () => {
                       ? (event as PolymarketEvent).id || `poly-event-${index}`
                       : (event as KalshiEvent).event_ticker || `kalshi-event-${index}`;
                   return <EventCard key={`event-${event.platform}-${eventId}`} event={event} />;
-                })}
-              </div>
-            </>
-          )}
-        </>
-      )}
-
-      {viewMode === "arbitrage" && (
-        <>
-          {/* Arbitrage Summary */}
-          {arbitrageOpportunities.length > 0 && (
-            <div className="alert alert-info mb-6">
-              <BoltIcon className="h-6 w-6" />
-              <div>
-                <h3 className="font-bold">Arbitrage Opportunities Available!</h3>
-                <div className="text-sm">
-                  Found {arbitrageOpportunities.length} potential arbitrage opportunities. Best opportunity:{" "}
-                  {arbitrageService.formatProfit(Math.max(...arbitrageOpportunities.map(o => o.profitPotential)))}{" "}
-                  profit potential.
-                </div>
-              </div>
-            </div>
-          )}
-
-          {filteredArbitrage.length === 0 ? (
-            <div className="text-center py-12">
-              <ArrowsRightLeftIcon className="h-16 w-16 mx-auto text-gray-400 mb-4" />
-              <h3 className="text-xl font-medium text-gray-600 mb-2">
-                {arbitrageOpportunities.length === 0
-                  ? "No arbitrage opportunities found"
-                  : "No opportunities match your filters"}
-              </h3>
-              <p className="text-gray-500 mb-6">
-                {arbitrageOpportunities.length === 0
-                  ? "Markets are currently well-aligned. Check back later for new opportunities."
-                  : "Try adjusting your filters to see more opportunities."}
-              </p>
-              <button onClick={fetchData} className="btn btn-accent">
-                <ArrowPathRoundedSquareIcon className="h-4 w-4" />
-                Refresh Analysis
-              </button>
-            </div>
-          ) : (
-            <>
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold">{filteredArbitrage.length} Arbitrage Opportunities</h2>
-                <div className="flex gap-2">
-                  <div className="stats stats-horizontal shadow">
-                    <div className="stat py-2 px-4">
-                      <div className="stat-title text-xs">Avg Profit</div>
-                      <div className="stat-value text-sm text-success">
-                        {arbitrageService.formatProfit(
-                          filteredArbitrage.reduce((sum, opp) => sum + opp.profitPotential, 0) /
-                            filteredArbitrage.length,
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  <button onClick={fetchData} className="btn btn-outline btn-sm">
-                    <ArrowPathRoundedSquareIcon className="h-4 w-4" />
-                    Refresh
-                  </button>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {filteredArbitrage.map((opportunity, index) => {
-                  const opportunityId = opportunity.id || `${opportunity.arbitrageType}-${index}`;
-                  return <ArbitrageCard key={`arbitrage-${opportunityId}`} opportunity={opportunity} />;
                 })}
               </div>
             </>

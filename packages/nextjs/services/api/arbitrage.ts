@@ -42,12 +42,12 @@ export interface MarketComparison {
 }
 
 class ArbitrageService {
-  private readonly SIMILARITY_THRESHOLD = 0.7;
-  private readonly MIN_PROFIT_THRESHOLD = 0.02; // 2% minimum profit
+  private readonly SIMILARITY_THRESHOLD = 0.3; // Lowered from 0.7 to find more opportunities
+  private readonly MIN_PROFIT_THRESHOLD = 0.01; // Lowered from 0.02 to 1% minimum profit
   private readonly MAX_RISK_THRESHOLD = 0.95; // 95% max risk
 
   calculateSimilarity(polymarketQuestion: string, kalshiTitle: string): number {
-    // Simple text similarity using word overlap
+    // Enhanced text similarity using multiple methods
     const normalize = (text: string) =>
       text
         .toLowerCase()
@@ -58,30 +58,63 @@ class ArbitrageService {
     const words1 = new Set(normalize(polymarketQuestion));
     const words2 = new Set(normalize(kalshiTitle));
 
+    // Jaccard similarity (intersection over union)
     const intersection = new Set([...words1].filter(x => words2.has(x)));
     const union = new Set([...words1, ...words2]);
+    const jaccardSimilarity = intersection.size / union.size;
 
-    return intersection.size / union.size;
+    // Simple substring matching for common phrases
+    const normalizedPoly = polymarketQuestion.toLowerCase();
+    const normalizedKalshi = kalshiTitle.toLowerCase();
+
+    let substringBonus = 0;
+    if (normalizedPoly.includes("trump") && normalizedKalshi.includes("trump")) substringBonus += 0.3;
+    if (normalizedPoly.includes("election") && normalizedKalshi.includes("election")) substringBonus += 0.3;
+    if (normalizedPoly.includes("biden") && normalizedKalshi.includes("biden")) substringBonus += 0.3;
+    if (normalizedPoly.includes("2024") && normalizedKalshi.includes("2024")) substringBonus += 0.2;
+    if (normalizedPoly.includes("president") && normalizedKalshi.includes("president")) substringBonus += 0.2;
+
+    return Math.min(1, jaccardSimilarity + substringBonus);
   }
 
   findArbitrageOpportunities(polymarkets: PolymarketMarket[], kalshiMarkets: KalshiMarket[]): ArbitrageOpportunity[] {
+    console.log(
+      `Starting arbitrage analysis with ${polymarkets.length} Polymarket and ${kalshiMarkets.length} Kalshi markets`,
+    );
     const opportunities: ArbitrageOpportunity[] = [];
+    let comparisonCount = 0;
+    let similarityMatches = 0;
 
     // Find similar markets between platforms
     for (const polymarket of polymarkets) {
       for (const kalshi of kalshiMarkets) {
+        comparisonCount++;
         const similarity = this.calculateSimilarity(polymarket.question, kalshi.title);
 
         if (similarity >= this.SIMILARITY_THRESHOLD) {
+          similarityMatches++;
+          console.log(
+            `Similarity match found: ${similarity.toFixed(3)} between "${polymarket.question}" and "${kalshi.title}"`,
+          );
+
           const comparison = this.compareMarkets(polymarket, kalshi);
           const arbitrage = this.analyzeArbitrage(polymarket, kalshi, comparison, similarity);
 
           if (arbitrage && arbitrage.profitPotential >= this.MIN_PROFIT_THRESHOLD) {
+            console.log(`Profitable arbitrage found: ${arbitrage.profitPotential.toFixed(4)} profit potential`);
             opportunities.push(arbitrage);
+          } else if (arbitrage) {
+            console.log(
+              `Arbitrage found but below profit threshold: ${arbitrage.profitPotential.toFixed(4)} < ${this.MIN_PROFIT_THRESHOLD}`,
+            );
           }
         }
       }
     }
+
+    console.log(
+      `Analysis complete: ${comparisonCount} comparisons, ${similarityMatches} similarity matches, ${opportunities.length} profitable opportunities`,
+    );
 
     // Sort by profit potential
     return opportunities.sort((a, b) => b.profitPotential - a.profitPotential);

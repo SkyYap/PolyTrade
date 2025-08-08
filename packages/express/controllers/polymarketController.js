@@ -100,3 +100,320 @@ exports.getEvents = asyncHandler(async (req, res, next) => {
   }
 });
 
+// @desc    Get markets from Polymarket API
+// @route   GET /api/polymarket/markets
+// @access  Public
+exports.getMarkets = asyncHandler(async (req, res, next) => {
+  try {
+    // Extract query parameters
+    const {
+      limit,
+      offset,
+      order,
+      ascending,
+      archived,
+      active,
+      closed,
+      liquidity_min,
+      liquidity_max,
+      volume_min,
+      volume_max,
+      end_date_min,
+      end_date_max
+    } = req.query;
+
+    // Build query parameters object
+    const params = {};
+    
+    if (limit) params.limit = limit;
+    if (offset) params.offset = offset;
+    if (order) params.order = order;
+    if (ascending !== undefined) params.ascending = ascending;
+    if (archived !== undefined) params.archived = archived;
+    if (active !== undefined) params.active = active;
+    if (closed !== undefined) params.closed = closed;
+    if (liquidity_min) params.liquidity_min = liquidity_min;
+    if (liquidity_max) params.liquidity_max = liquidity_max;
+    if (volume_min) params.volume_min = volume_min;
+    if (volume_max) params.volume_max = volume_max;
+    if (end_date_min) params.end_date_min = end_date_min;
+    if (end_date_max) params.end_date_max = end_date_max;
+
+    // Make request to Polymarket API
+    const response = await axios.get(`${POLYMARKET_BASE_URL}/markets`, {
+      params,
+      timeout: 10000 // 10 second timeout
+    });
+
+    res.status(200).json({
+      success: true,
+      message: 'Markets retrieved successfully from Polymarket',
+      count: response.data?.length || 0,
+      data: response.data,
+      meta: {
+        timestamp: new Date().toISOString(),
+        source: 'Polymarket Gamma API',
+        endpoint: '/markets'
+      }
+    });
+
+  } catch (error) {
+    // Handle different types of errors
+    if (error.response) {
+      // API responded with error status
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Polymarket API Error',
+        message: error.response.data?.message || 'Failed to fetch markets from Polymarket',
+        details: error.response.data
+      });
+    } else if (error.request) {
+      // Request was made but no response received
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Polymarket API'
+      });
+    } else {
+      // Something else happened
+      next(error);
+    }
+  }
+});
+
+// @desc    Get a specific market from Polymarket API
+// @route   GET /api/polymarket/markets/:slug
+// @access  Public
+exports.getMarket = asyncHandler(async (req, res, next) => {
+  try {
+    const { slug } = req.params;
+
+    if (!slug) {
+      return res.status(400).json({
+        success: false,
+        error: 'Bad Request',
+        message: 'Market slug is required'
+      });
+    }
+
+    // Make request to Polymarket API
+    const response = await axios.get(`${POLYMARKET_BASE_URL}/markets/${slug}`, {
+      timeout: 10000 // 10 second timeout
+    });
+
+    res.status(200).json({
+      success: true,
+      message: 'Market retrieved successfully from Polymarket',
+      data: response.data,
+      meta: {
+        timestamp: new Date().toISOString(),
+        source: 'Polymarket Gamma API',
+        endpoint: `/markets/${slug}`
+      }
+    });
+
+  } catch (error) {
+    // Handle different types of errors
+    if (error.response) {
+      // API responded with error status
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Polymarket API Error',
+        message: error.response.data?.message || `Failed to fetch market ${req.params.slug} from Polymarket`,
+        details: error.response.data
+      });
+    } else if (error.request) {
+      // Request was made but no response received
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Polymarket API'
+      });
+    } else {
+      // Something else happened
+      next(error);
+    }
+  }
+});
+
+// @desc    Get price history for a market from Polymarket API
+// @route   GET /api/polymarket/markets/:slug/price-history
+// @access  Public
+exports.getPriceHistory = asyncHandler(async (req, res, next) => {
+  try {
+    const { slug } = req.params;
+    const { interval, startTs, endTs, fidelity } = req.query;
+
+    if (!slug) {
+      return res.status(400).json({
+        success: false,
+        error: 'Bad Request',
+        message: 'Market slug is required'
+      });
+    }
+
+    // Build query parameters object
+    const params = {};
+    if (interval) params.interval = interval;
+    if (startTs) params.startTs = startTs;
+    if (endTs) params.endTs = endTs;
+    if (fidelity) params.fidelity = fidelity;
+
+    // Make request to Polymarket API
+    const response = await axios.get(`${POLYMARKET_BASE_URL}/markets/${slug}/price-history`, {
+      params,
+      timeout: 10000 // 10 second timeout
+    });
+
+    res.status(200).json({
+      success: true,
+      message: 'Price history retrieved successfully from Polymarket',
+      data: response.data,
+      meta: {
+        timestamp: new Date().toISOString(),
+        source: 'Polymarket Gamma API',
+        endpoint: `/markets/${slug}/price-history`
+      }
+    });
+
+  } catch (error) {
+    // Handle different types of errors
+    if (error.response) {
+      // API responded with error status
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Polymarket API Error',
+        message: error.response.data?.message || `Failed to fetch price history for ${req.params.slug} from Polymarket`,
+        details: error.response.data
+      });
+    } else if (error.request) {
+      // Request was made but no response received
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Polymarket API'
+      });
+    } else {
+      // Something else happened
+      next(error);
+    }
+  }
+});
+
+// @desc    Get order book for a market from Polymarket API
+// @route   GET /api/polymarket/markets/:slug/book
+// @access  Public
+exports.getOrderBook = asyncHandler(async (req, res, next) => {
+  try {
+    const { slug } = req.params;
+
+    if (!slug) {
+      return res.status(400).json({
+        success: false,
+        error: 'Bad Request',
+        message: 'Market slug is required'
+      });
+    }
+
+    // Make request to Polymarket API
+    const response = await axios.get(`${POLYMARKET_BASE_URL}/markets/${slug}/book`, {
+      timeout: 10000 // 10 second timeout
+    });
+
+    res.status(200).json({
+      success: true,
+      message: 'Order book retrieved successfully from Polymarket',
+      data: response.data,
+      meta: {
+        timestamp: new Date().toISOString(),
+        source: 'Polymarket Gamma API',
+        endpoint: `/markets/${slug}/book`
+      }
+    });
+
+  } catch (error) {
+    // Handle different types of errors
+    if (error.response) {
+      // API responded with error status
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Polymarket API Error',
+        message: error.response.data?.message || `Failed to fetch order book for ${req.params.slug} from Polymarket`,
+        details: error.response.data
+      });
+    } else if (error.request) {
+      // Request was made but no response received
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Polymarket API'
+      });
+    } else {
+      // Something else happened
+      next(error);
+    }
+  }
+});
+
+// @desc    Search markets from Polymarket API
+// @route   GET /api/polymarket/search
+// @access  Public
+exports.searchMarkets = asyncHandler(async (req, res, next) => {
+  try {
+    const { query, limit, offset } = req.query;
+
+    if (!query) {
+      return res.status(400).json({
+        success: false,
+        error: 'Bad Request',
+        message: 'Search query is required'
+      });
+    }
+
+    // Build query parameters object
+    const params = { query };
+    if (limit) params.limit = limit;
+    if (offset) params.offset = offset;
+
+    // Make request to Polymarket API
+    const response = await axios.get(`${POLYMARKET_BASE_URL}/search`, {
+      params,
+      timeout: 10000 // 10 second timeout
+    });
+
+    res.status(200).json({
+      success: true,
+      message: 'Search results retrieved successfully from Polymarket',
+      count: response.data?.length || 0,
+      data: response.data,
+      meta: {
+        timestamp: new Date().toISOString(),
+        source: 'Polymarket Gamma API',
+        endpoint: '/search'
+      }
+    });
+
+  } catch (error) {
+    // Handle different types of errors
+    if (error.response) {
+      // API responded with error status
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Polymarket API Error',
+        message: error.response.data?.message || 'Failed to search markets from Polymarket',
+        details: error.response.data
+      });
+    } else if (error.request) {
+      // Request was made but no response received
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Polymarket API'
+      });
+    } else {
+      // Something else happened
+      next(error);
+    }
+  }
+});
+

@@ -3,235 +3,20 @@ const asyncHandler = require('../middleware/asyncHandler');
 
 const KALSHI_BASE_URL = 'https://api.elections.kalshi.com/trade-api/v2';
 
-// @desc    Get series information
-// @route   GET /api/kalshi/series/:seriesTicker
-// @access  Public
-exports.getSeries = asyncHandler(async (req, res, next) => {
-  try {
-    const { seriesTicker } = req.params;
-
-    if (!seriesTicker) {
-      return res.status(400).json({
-        success: false,
-        error: 'Series ticker is required',
-        message: 'Please provide a series ticker parameter'
-      });
-    }
-
-    const response = await axios.get(`${KALSHI_BASE_URL}/series/${seriesTicker}`, {
-      timeout: 10000
-    });
-
-    res.status(200).json({
-      success: true,
-      message: `Series information retrieved successfully for ${seriesTicker}`,
-      data: response.data,
-      meta: {
-        timestamp: new Date().toISOString(),
-        source: 'Kalshi API',
-        endpoint: `/series/${seriesTicker}`
-      }
-    });
-
-  } catch (error) {
-    if (error.response) {
-      return res.status(error.response.status).json({
-        success: false,
-        error: 'Kalshi API Error',
-        message: error.response.data?.message || 'Failed to fetch series information',
-        details: error.response.data
-      });
-    } else if (error.request) {
-      return res.status(503).json({
-        success: false,
-        error: 'Service Unavailable',
-        message: 'Unable to connect to Kalshi API'
-      });
-    } else {
-      next(error);
-    }
-  }
-});
-
-// @desc    Get markets with filters
-// @route   GET /api/kalshi/markets
-// @access  Public
-exports.getMarkets = asyncHandler(async (req, res, next) => {
-  try {
-    // Extract query parameters
-    const {
-      series_ticker,
-      status,
-      event_ticker,
-      limit,
-      cursor
-    } = req.query;
-
-    // Build query parameters object
-    const params = {};
-    if (series_ticker) params.series_ticker = series_ticker;
-    if (status) params.status = status;
-    if (event_ticker) params.event_ticker = event_ticker;
-    if (limit) params.limit = limit;
-    if (cursor) params.cursor = cursor;
-
-    const response = await axios.get(`${KALSHI_BASE_URL}/markets`, {
-      params,
-      timeout: 10000
-    });
-
-    res.status(200).json({
-      success: true,
-      message: 'Markets retrieved successfully from Kalshi',
-      count: response.data?.markets?.length || 0,
-      data: response.data,
-      meta: {
-        timestamp: new Date().toISOString(),
-        source: 'Kalshi API',
-        endpoint: '/markets',
-        filters: params
-      }
-    });
-
-  } catch (error) {
-    if (error.response) {
-      return res.status(error.response.status).json({
-        success: false,
-        error: 'Kalshi API Error',
-        message: error.response.data?.message || 'Failed to fetch markets',
-        details: error.response.data
-      });
-    } else if (error.request) {
-      return res.status(503).json({
-        success: false,
-        error: 'Service Unavailable',
-        message: 'Unable to connect to Kalshi API'
-      });
-    } else {
-      next(error);
-    }
-  }
-});
-
-// @desc    Get specific market details
-// @route   GET /api/kalshi/markets/:marketTicker
-// @access  Public
-exports.getMarket = asyncHandler(async (req, res, next) => {
-  try {
-    const { marketTicker } = req.params;
-
-    if (!marketTicker) {
-      return res.status(400).json({
-        success: false,
-        error: 'Market ticker is required',
-        message: 'Please provide a market ticker parameter'
-      });
-    }
-
-    const response = await axios.get(`${KALSHI_BASE_URL}/markets/${marketTicker}`, {
-      timeout: 10000
-    });
-
-    res.status(200).json({
-      success: true,
-      message: `Market details retrieved successfully for ${marketTicker}`,
-      data: response.data,
-      meta: {
-        timestamp: new Date().toISOString(),
-        source: 'Kalshi API',
-        endpoint: `/markets/${marketTicker}`
-      }
-    });
-
-  } catch (error) {
-    if (error.response) {
-      return res.status(error.response.status).json({
-        success: false,
-        error: 'Kalshi API Error',
-        message: error.response.data?.message || 'Failed to fetch market details',
-        details: error.response.data
-      });
-    } else if (error.request) {
-      return res.status(503).json({
-        success: false,
-        error: 'Service Unavailable',
-        message: 'Unable to connect to Kalshi API'
-      });
-    } else {
-      next(error);
-    }
-  }
-});
-
-// @desc    Get market orderbook
-// @route   GET /api/kalshi/markets/:marketTicker/orderbook
-// @access  Public
-exports.getMarketOrderbook = asyncHandler(async (req, res, next) => {
-  try {
-    const { marketTicker } = req.params;
-
-    if (!marketTicker) {
-      return res.status(400).json({
-        success: false,
-        error: 'Market ticker is required',
-        message: 'Please provide a market ticker parameter'
-      });
-    }
-
-    const response = await axios.get(`${KALSHI_BASE_URL}/markets/${marketTicker}/orderbook`, {
-      timeout: 10000
-    });
-
-    res.status(200).json({
-      success: true,
-      message: `Orderbook retrieved successfully for ${marketTicker}`,
-      data: response.data,
-      meta: {
-        timestamp: new Date().toISOString(),
-        source: 'Kalshi API',
-        endpoint: `/markets/${marketTicker}/orderbook`
-      }
-    });
-
-  } catch (error) {
-    if (error.response) {
-      return res.status(error.response.status).json({
-        success: false,
-        error: 'Kalshi API Error',
-        message: error.response.data?.message || 'Failed to fetch orderbook',
-        details: error.response.data
-      });
-    } else if (error.request) {
-      return res.status(503).json({
-        success: false,
-        error: 'Service Unavailable',
-        message: 'Unable to connect to Kalshi API'
-      });
-    } else {
-      next(error);
-    }
-  }
-});
-
-// @desc    Get events with filters
+// @desc    Get events from Kalshi API
 // @route   GET /api/kalshi/events
 // @access  Public
 exports.getEvents = asyncHandler(async (req, res, next) => {
   try {
-    // Extract query parameters
-    const {
-      series_ticker,
-      status,
-      limit,
-      cursor
+    const { 
+      limit = 200, 
+      status = 'open'
     } = req.query;
 
-    // Build query parameters object
-    const params = {};
-    if (series_ticker) params.series_ticker = series_ticker;
-    if (status) params.status = status;
-    if (limit) params.limit = limit;
-    if (cursor) params.cursor = cursor;
+    const params = {
+      limit,
+      status
+    };
 
     const response = await axios.get(`${KALSHI_BASE_URL}/events`, {
       params,
@@ -241,13 +26,10 @@ exports.getEvents = asyncHandler(async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: 'Events retrieved successfully from Kalshi',
-      count: response.data?.events?.length || 0,
-      data: response.data,
+      data: response.data?.events || [],
       meta: {
-        timestamp: new Date().toISOString(),
-        source: 'Kalshi API',
-        endpoint: '/events',
-        filters: params
+        count: response.data?.events?.length || 0,
+        timestamp: new Date().toISOString()
       }
     });
 
@@ -256,8 +38,7 @@ exports.getEvents = asyncHandler(async (req, res, next) => {
       return res.status(error.response.status).json({
         success: false,
         error: 'Kalshi API Error',
-        message: error.response.data?.message || 'Failed to fetch events',
-        details: error.response.data
+        message: error.response.data?.message || 'Failed to fetch events from Kalshi'
       });
     } else if (error.request) {
       return res.status(503).json({
@@ -271,33 +52,22 @@ exports.getEvents = asyncHandler(async (req, res, next) => {
   }
 });
 
-// @desc    Get specific event details
-// @route   GET /api/kalshi/events/:eventTicker
+// @desc    Get single event from Kalshi API
+// @route   GET /api/kalshi/events/:ticker
 // @access  Public
 exports.getEvent = asyncHandler(async (req, res, next) => {
   try {
-    const { eventTicker } = req.params;
+    const { ticker } = req.params;
 
-    if (!eventTicker) {
-      return res.status(400).json({
-        success: false,
-        error: 'Event ticker is required',
-        message: 'Please provide an event ticker parameter'
-      });
-    }
-
-    const response = await axios.get(`${KALSHI_BASE_URL}/events/${eventTicker}`, {
+    const response = await axios.get(`${KALSHI_BASE_URL}/events/${ticker}`, {
       timeout: 10000
     });
 
     res.status(200).json({
       success: true,
-      message: `Event details retrieved successfully for ${eventTicker}`,
-      data: response.data,
+      event: response.data?.event || null,
       meta: {
-        timestamp: new Date().toISOString(),
-        source: 'Kalshi API',
-        endpoint: `/events/${eventTicker}`
+        timestamp: new Date().toISOString()
       }
     });
 
@@ -306,8 +76,7 @@ exports.getEvent = asyncHandler(async (req, res, next) => {
       return res.status(error.response.status).json({
         success: false,
         error: 'Kalshi API Error',
-        message: error.response.data?.message || 'Failed to fetch event details',
-        details: error.response.data
+        message: error.response.data?.message || 'Failed to fetch event from Kalshi'
       });
     } else if (error.request) {
       return res.status(503).json({
@@ -319,4 +88,304 @@ exports.getEvent = asyncHandler(async (req, res, next) => {
       next(error);
     }
   }
-}); 
+});
+
+// @desc    Get markets from Kalshi API
+// @route   GET /api/kalshi/markets
+// @access  Public
+exports.getMarkets = asyncHandler(async (req, res, next) => {
+  try {
+    const { 
+      limit = 100, 
+      status = 'open',
+      cursor
+    } = req.query;
+
+    const params = {
+      limit,
+      status
+    };
+
+    if (cursor) {
+      params.cursor = cursor;
+    }
+
+    const response = await axios.get(`${KALSHI_BASE_URL}/markets`, {
+      params,
+      timeout: 10000
+    });
+
+    res.status(200).json({
+      success: true,
+      data: {
+        markets: response.data?.markets || [],
+        cursor: response.data?.cursor
+      },
+      meta: {
+        count: response.data?.markets?.length || 0,
+        timestamp: new Date().toISOString()
+      }
+    });
+
+  } catch (error) {
+    if (error.response) {
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Kalshi API Error',
+        message: error.response.data?.message || 'Failed to fetch markets from Kalshi'
+      });
+    } else if (error.request) {
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Kalshi API'
+      });
+    } else {
+      next(error);
+    }
+  }
+});
+
+// @desc    Get single market from Kalshi API
+// @route   GET /api/kalshi/markets/:ticker
+// @access  Public
+exports.getMarket = asyncHandler(async (req, res, next) => {
+  try {
+    const { ticker } = req.params;
+
+    const response = await axios.get(`${KALSHI_BASE_URL}/markets/${ticker}`, {
+      timeout: 10000
+    });
+
+    res.status(200).json({
+      success: true,
+      market: response.data?.market || null,
+      meta: {
+        timestamp: new Date().toISOString()
+      }
+    });
+
+  } catch (error) {
+    if (error.response) {
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Kalshi API Error',
+        message: error.response.data?.message || 'Failed to fetch market from Kalshi'
+      });
+    } else if (error.request) {
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Kalshi API'
+      });
+    } else {
+      next(error);
+    }
+  }
+});
+
+// @desc    Get order book from Kalshi API
+// @route   GET /api/kalshi/markets/:ticker/orderbook
+// @access  Public
+exports.getOrderBook = asyncHandler(async (req, res, next) => {
+  try {
+    const { ticker } = req.params;
+    const { depth = 10 } = req.query;
+
+    const response = await axios.get(`${KALSHI_BASE_URL}/markets/${ticker}/orderbook`, {
+      params: { depth },
+      timeout: 10000
+    });
+
+    res.status(200).json({
+      success: true,
+      orderbook: response.data?.orderbook || null,
+      meta: {
+        ticker,
+        depth,
+        timestamp: new Date().toISOString()
+      }
+    });
+
+  } catch (error) {
+    if (error.response) {
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Kalshi API Error',
+        message: error.response.data?.message || 'Failed to fetch order book from Kalshi'
+      });
+    } else if (error.request) {
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Kalshi API'
+      });
+    } else {
+      next(error);
+    }
+  }
+});
+
+// @desc    Get series from Kalshi API
+// @route   GET /api/kalshi/series
+// @access  Public
+exports.getSeries = asyncHandler(async (req, res, next) => {
+  try {
+    const { 
+      limit = 100,
+      cursor
+    } = req.query;
+
+    const params = { limit };
+    
+    if (cursor) {
+      params.cursor = cursor;
+    }
+
+    const response = await axios.get(`${KALSHI_BASE_URL}/series`, {
+      params,
+      timeout: 10000
+    });
+
+    res.status(200).json({
+      success: true,
+      series: response.data?.series || [],
+      cursor: response.data?.cursor,
+      meta: {
+        count: response.data?.series?.length || 0,
+        timestamp: new Date().toISOString()
+      }
+    });
+
+  } catch (error) {
+    if (error.response) {
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Kalshi API Error',
+        message: error.response.data?.message || 'Failed to fetch series from Kalshi'
+      });
+    } else if (error.request) {
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Kalshi API'
+      });
+    } else {
+      next(error);
+    }
+  }
+});
+
+// @desc    Get trades from Kalshi API
+// @route   GET /api/kalshi/markets/:ticker/trades
+// @access  Public
+exports.getTrades = asyncHandler(async (req, res, next) => {
+  try {
+    const { ticker } = req.params;
+    const { 
+      limit = 100,
+      cursor
+    } = req.query;
+
+    const params = { limit };
+    
+    if (cursor) {
+      params.cursor = cursor;
+    }
+
+    const response = await axios.get(`${KALSHI_BASE_URL}/markets/${ticker}/trades`, {
+      params,
+      timeout: 10000
+    });
+
+    res.status(200).json({
+      success: true,
+      trades: response.data?.trades || [],
+      cursor: response.data?.cursor,
+      meta: {
+        ticker,
+        count: response.data?.trades?.length || 0,
+        timestamp: new Date().toISOString()
+      }
+    });
+
+  } catch (error) {
+    if (error.response) {
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Kalshi API Error',
+        message: error.response.data?.message || 'Failed to fetch trades from Kalshi'
+      });
+    } else if (error.request) {
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Kalshi API'
+      });
+    } else {
+      next(error);
+    }
+  }
+});
+
+// @desc    Search markets from Kalshi API
+// @route   GET /api/kalshi/search
+// @access  Public
+exports.searchMarkets = asyncHandler(async (req, res, next) => {
+  try {
+    const { 
+      query,
+      limit = 50
+    } = req.query;
+
+    if (!query) {
+      return res.status(400).json({
+        success: false,
+        error: 'Bad Request',
+        message: 'query parameter is required'
+      });
+    }
+
+    // Kalshi doesn't have a direct search endpoint, so we'll get markets and filter
+    const response = await axios.get(`${KALSHI_BASE_URL}/markets`, {
+      params: { 
+        limit: Math.min(limit * 2, 200), // Get more to filter
+        status: 'open'
+      },
+      timeout: 10000
+    });
+
+    const markets = response.data?.markets || [];
+    const filteredMarkets = markets.filter(market => 
+      market.title?.toLowerCase().includes(query.toLowerCase()) ||
+      market.subtitle?.toLowerCase().includes(query.toLowerCase())
+    ).slice(0, limit);
+
+    res.status(200).json({
+      success: true,
+      markets: filteredMarkets,
+      meta: {
+        query,
+        count: filteredMarkets.length,
+        timestamp: new Date().toISOString()
+      }
+    });
+
+  } catch (error) {
+    if (error.response) {
+      return res.status(error.response.status).json({
+        success: false,
+        error: 'Kalshi API Error',
+        message: error.response.data?.message || 'Failed to search markets from Kalshi'
+      });
+    } else if (error.request) {
+      return res.status(503).json({
+        success: false,
+        error: 'Service Unavailable',
+        message: 'Unable to connect to Kalshi API'
+      });
+    } else {
+      next(error);
+    }
+  }
+});

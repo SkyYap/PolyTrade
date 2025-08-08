@@ -109,7 +109,17 @@ class PolymarketAPI {
         endDate: market.end_date_iso || market.endDate || market.end_date,
         createdAt: market.created_at || market.createdAt || new Date().toISOString(),
         category: market.category || "Uncategorized",
-        tags: market.tags || [],
+        tags: Array.isArray(market.tags)
+          ? market.tags
+              .map((tag: any) =>
+                typeof tag === "string"
+                  ? tag
+                  : tag && typeof tag === "object" && tag.label
+                    ? tag.label
+                    : tag?.toString() || "",
+              )
+              .filter(Boolean)
+          : [],
         outcomes: market.outcomes || ["Yes", "No"],
         outcomePrices: market.outcome_prices || market.outcomePrices || '["0.5", "0.5"]',
         volume24hr: Number(market.volume24hr || market.volume_24h || market.volume || 0),
@@ -178,7 +188,17 @@ class PolymarketAPI {
             endDate: market.end_date_iso || market.endDate || market.end_date,
             createdAt: market.created_at || market.createdAt || new Date().toISOString(),
             category: market.category || event.title || "Uncategorized",
-            tags: market.tags || event.tags || [],
+            tags: Array.isArray(market.tags || event.tags)
+              ? (market.tags || event.tags)
+                  .map((tag: any) =>
+                    typeof tag === "string"
+                      ? tag
+                      : tag && typeof tag === "object" && tag.label
+                        ? tag.label
+                        : tag?.toString() || "",
+                  )
+                  .filter(Boolean)
+              : [],
             outcomes: market.outcomes || ["Yes", "No"],
             outcomePrices: market.outcome_prices || market.outcomePrices || '["0.5", "0.5"]',
             volume24hr: Number(market.volume24hr || market.volume_24h || market.volume || 0),
@@ -200,7 +220,17 @@ class PolymarketAPI {
             maker_base_fee: Number(market.maker_base_fee || 0),
             taker_base_fee: Number(market.taker_base_fee || 0),
           })) || [],
-        tags: event.tags || [],
+        tags: Array.isArray(event.tags)
+          ? event.tags
+              .map((tag: any) =>
+                typeof tag === "string"
+                  ? tag
+                  : tag && typeof tag === "object" && tag.label
+                    ? tag.label
+                    : tag?.toString() || "",
+              )
+              .filter(Boolean)
+          : [],
         cyom_eligible: event.cyom_eligible || false,
         liquidity_num: Number(event.liquidity_num || event.liquidity || 0),
         volume_num: Number(event.volume_num || event.volume || 0),

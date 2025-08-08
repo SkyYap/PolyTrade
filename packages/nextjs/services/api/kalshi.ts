@@ -109,7 +109,17 @@ class KalshiAPI {
             subtitle: market.subtitle,
             event_ticker: market.event_ticker,
             series_ticker: market.series_ticker,
-            tags: market.tags || [],
+            tags: Array.isArray(market.tags)
+              ? market.tags
+                  .map((tag: any) =>
+                    typeof tag === "string"
+                      ? tag
+                      : tag && typeof tag === "object" && tag.label
+                        ? tag.label
+                        : tag?.toString() || "",
+                  )
+                  .filter(Boolean)
+              : [],
             created_time: market.created_time,
             updated_time: market.updated_time,
             close_date: market.close_date,
@@ -163,10 +173,11 @@ class KalshiAPI {
       if (status) endpoint += `&status=${status}`;
 
       const response = await this.fetchFromBackend(endpoint);
+      console.log("Kalshi Events Response:", response);
 
       return {
         events:
-          response.events?.map((event: any) => ({
+          response?.map((event: any) => ({
             event_ticker: event.event_ticker,
             title: event.title,
             subtitle: event.subtitle,
@@ -186,7 +197,17 @@ class KalshiAPI {
                 subtitle: market.subtitle,
                 event_ticker: market.event_ticker,
                 series_ticker: market.series_ticker,
-                tags: market.tags || [],
+                tags: Array.isArray(market.tags)
+                  ? market.tags
+                      .map((tag: any) =>
+                        typeof tag === "string"
+                          ? tag
+                          : tag && typeof tag === "object" && tag.label
+                            ? tag.label
+                            : tag?.toString() || "",
+                      )
+                      .filter(Boolean)
+                  : [],
                 created_time: market.created_time,
                 updated_time: market.updated_time,
                 close_date: market.close_date,
@@ -202,7 +223,17 @@ class KalshiAPI {
                 dollar_volume_24h: market.dollar_volume_24h ? Number(market.dollar_volume_24h) : undefined,
                 open_interest: market.open_interest ? Number(market.open_interest) : undefined,
               })) || [],
-            tags: event.tags || [],
+            tags: Array.isArray(event.tags)
+              ? event.tags
+                  .map((tag: any) =>
+                    typeof tag === "string"
+                      ? tag
+                      : tag && typeof tag === "object" && tag.label
+                        ? tag.label
+                        : tag?.toString() || "",
+                  )
+                  .filter(Boolean)
+              : [],
           })) || [],
         cursor: response.cursor,
         count: response.count,
@@ -210,7 +241,7 @@ class KalshiAPI {
     } catch (error) {
       console.error("Error fetching Kalshi events:", error);
       return {
-        events: [],
+        events: this.getSampleEvents(),
       };
     }
   }
@@ -229,7 +260,17 @@ class KalshiAPI {
         subtitle: market.subtitle,
         event_ticker: market.event_ticker,
         series_ticker: market.series_ticker,
-        tags: market.tags || [],
+        tags: Array.isArray(market.tags)
+          ? market.tags
+              .map((tag: any) =>
+                typeof tag === "string"
+                  ? tag
+                  : tag && typeof tag === "object" && tag.label
+                    ? tag.label
+                    : tag?.toString() || "",
+              )
+              .filter(Boolean)
+          : [],
         created_time: market.created_time,
         updated_time: market.updated_time,
         close_date: market.close_date,
@@ -331,6 +372,122 @@ class KalshiAPI {
         last_price: 7175,
         dollar_volume_24h: 78000,
         open_interest: 18000,
+      },
+    ];
+  }
+
+  private getSampleEvents(): KalshiEvent[] {
+    return [
+      {
+        event_ticker: "POTUS",
+        title: "2024 Presidential Election",
+        subtitle: "Who will win the 2024 US Presidential Election?",
+        category: "Politics",
+        sub_category: "Elections",
+        status: "open",
+        created_time: "2024-01-01T00:00:00Z",
+        updated_time: "2025-08-08T12:00:00Z",
+        close_date: "2024-11-05T23:59:59Z",
+        settlement_date: "2024-11-06T00:00:00Z",
+        mutually_exclusive: true,
+        description: "This event will resolve based on the winner of the 2024 US Presidential Election.",
+        markets: [
+          {
+            ticker: "POTUS25",
+            title: "Will Donald Trump win the 2024 presidential election?",
+            event_ticker: "POTUS",
+            series_ticker: "POTUS25",
+            tags: ["Politics", "Election", "President"],
+            created_time: "2024-01-01T00:00:00Z",
+            updated_time: "2025-08-08T12:00:00Z",
+            close_date: "2024-11-05T23:59:59Z",
+            expiration_date: "2024-11-06T00:00:00Z",
+            type: "binary",
+            status: "open",
+            yes_ask: 5500,
+            yes_bid: 5450,
+            no_ask: 4550,
+            no_bid: 4500,
+            last_price: 5475,
+            dollar_volume_24h: 125000,
+            open_interest: 45000,
+          },
+        ],
+        tags: ["Politics", "Election", "President"],
+      },
+      {
+        event_ticker: "CRYPTO",
+        title: "Cryptocurrency Markets 2025",
+        subtitle: "Price movements and milestones for major cryptocurrencies",
+        category: "Finance",
+        sub_category: "Cryptocurrency",
+        status: "open",
+        created_time: "2024-12-01T00:00:00Z",
+        updated_time: "2025-08-08T12:00:00Z",
+        close_date: "2025-12-31T23:59:59Z",
+        settlement_date: "2026-01-01T00:00:00Z",
+        mutually_exclusive: false,
+        description: "Markets related to cryptocurrency price movements and adoption milestones in 2025.",
+        markets: [
+          {
+            ticker: "BTC100K",
+            title: "Will Bitcoin reach $100,000 by end of 2025?",
+            event_ticker: "CRYPTO",
+            series_ticker: "BTC100K",
+            tags: ["Crypto", "Bitcoin", "Price"],
+            created_time: "2024-12-01T00:00:00Z",
+            updated_time: "2025-08-08T12:00:00Z",
+            close_date: "2025-12-31T23:59:59Z",
+            expiration_date: "2026-01-01T00:00:00Z",
+            type: "binary",
+            status: "open",
+            yes_ask: 6800,
+            yes_bid: 6750,
+            no_ask: 3250,
+            no_bid: 3200,
+            last_price: 6775,
+            dollar_volume_24h: 89000,
+            open_interest: 32000,
+          },
+        ],
+        tags: ["Crypto", "Bitcoin", "Finance"],
+      },
+      {
+        event_ticker: "TECH",
+        title: "Technology Breakthroughs 2025",
+        subtitle: "Major AI and technology developments",
+        category: "Technology",
+        sub_category: "AI",
+        status: "open",
+        created_time: "2024-11-01T00:00:00Z",
+        updated_time: "2025-08-08T12:00:00Z",
+        close_date: "2025-12-31T23:59:59Z",
+        settlement_date: "2026-01-01T00:00:00Z",
+        mutually_exclusive: false,
+        description: "Markets related to AI breakthroughs and technology developments in 2025.",
+        markets: [
+          {
+            ticker: "AIBREAK",
+            title: "Will there be a major AI breakthrough announced in 2025?",
+            event_ticker: "TECH",
+            series_ticker: "AIBREAK",
+            tags: ["AI", "Technology", "OpenAI"],
+            created_time: "2024-11-01T00:00:00Z",
+            updated_time: "2025-08-08T12:00:00Z",
+            close_date: "2025-12-31T23:59:59Z",
+            expiration_date: "2026-01-01T00:00:00Z",
+            type: "binary",
+            status: "open",
+            yes_ask: 7200,
+            yes_bid: 7150,
+            no_ask: 2850,
+            no_bid: 2800,
+            last_price: 7175,
+            dollar_volume_24h: 78000,
+            open_interest: 18000,
+          },
+        ],
+        tags: ["AI", "Technology", "Innovation"],
       },
     ];
   }

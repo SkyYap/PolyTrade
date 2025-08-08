@@ -102,21 +102,49 @@ const Markets: NextPage = () => {
       markets.forEach(market => {
         if (market.platform === "polymarket") {
           const polymarket = market as PolymarketMarket;
-          if (polymarket.category) categories.add(polymarket.category);
-          polymarket.tags?.forEach((tag: string) => categories.add(tag));
+          if (polymarket.category && typeof polymarket.category === "string") {
+            categories.add(polymarket.category);
+          }
+          polymarket.tags?.forEach((tag: any) => {
+            if (typeof tag === "string") {
+              categories.add(tag);
+            } else if (tag && typeof tag === "object" && tag.label) {
+              categories.add(tag.label);
+            }
+          });
         } else {
-          (market as KalshiMarket).tags?.forEach((tag: string) => categories.add(tag));
+          (market as KalshiMarket).tags?.forEach((tag: any) => {
+            if (typeof tag === "string") {
+              categories.add(tag);
+            } else if (tag && typeof tag === "object" && tag.label) {
+              categories.add(tag.label);
+            }
+          });
         }
       });
     } else if (viewMode === "events") {
       events.forEach(event => {
         if (event.platform === "polymarket") {
           const polyEvent = event as PolymarketEvent;
-          polyEvent.tags?.forEach((tag: string) => categories.add(tag));
+          polyEvent.tags?.forEach((tag: any) => {
+            if (typeof tag === "string") {
+              categories.add(tag);
+            } else if (tag && typeof tag === "object" && tag.label) {
+              categories.add(tag.label);
+            }
+          });
         } else {
           const kalshiEvent = event as KalshiEvent;
-          if (kalshiEvent.category) categories.add(kalshiEvent.category);
-          kalshiEvent.tags?.forEach((tag: string) => categories.add(tag));
+          if (kalshiEvent.category && typeof kalshiEvent.category === "string") {
+            categories.add(kalshiEvent.category);
+          }
+          kalshiEvent.tags?.forEach((tag: any) => {
+            if (typeof tag === "string") {
+              categories.add(tag);
+            } else if (tag && typeof tag === "object" && tag.label) {
+              categories.add(tag.label);
+            }
+          });
         }
       });
     }
@@ -145,7 +173,14 @@ const Markets: NextPage = () => {
           market.platform === "polymarket"
             ? (market as PolymarketMarket).tags || []
             : (market as KalshiMarket).tags || [];
-        if (!tags.includes(categoryFilter)) {
+
+        const stringTags = tags
+          .map((tag: any) =>
+            typeof tag === "string" ? tag : tag && typeof tag === "object" && tag.label ? tag.label : "",
+          )
+          .filter(Boolean);
+
+        if (!stringTags.includes(categoryFilter)) {
           return false;
         }
       }
@@ -208,7 +243,14 @@ const Markets: NextPage = () => {
       if (categoryFilter !== "all") {
         const tags =
           event.platform === "polymarket" ? (event as PolymarketEvent).tags || [] : (event as KalshiEvent).tags || [];
-        if (!tags.includes(categoryFilter)) {
+
+        const stringTags = tags
+          .map((tag: any) =>
+            typeof tag === "string" ? tag : tag && typeof tag === "object" && tag.label ? tag.label : "",
+          )
+          .filter(Boolean);
+
+        if (!stringTags.includes(categoryFilter)) {
           return false;
         }
       }
@@ -303,7 +345,10 @@ const Markets: NextPage = () => {
     const title = isPolymarket ? polymarket.question : kalshi.title;
     const endDate = isPolymarket ? polymarket.endDate : kalshi.close_date;
     const volume24h = isPolymarket ? Number(polymarket.volume24hr) || 0 : Number(kalshi.dollar_volume_24h) || 0;
-    const tags = isPolymarket ? polymarket.tags || [polymarket.category] : kalshi.tags || [];
+    const rawTags = isPolymarket ? polymarket.tags || [polymarket.category] : kalshi.tags || [];
+    const tags = rawTags
+      .map((tag: any) => (typeof tag === "string" ? tag : tag && typeof tag === "object" && tag.label ? tag.label : ""))
+      .filter(Boolean);
 
     // Get prices - Parse from string format for Polymarket
     let yesPrice = 0,
@@ -523,7 +568,7 @@ const Markets: NextPage = () => {
               <ExclamationTriangleIcon className="h-4 w-4" />
               <div className="text-xs">
                 {opportunity.warnings.slice(0, 2).map((warning, index) => (
-                  <div key={index}>{warning}</div>
+                  <div key={`warning-${opportunity.id || "unknown"}-${index}`}>{warning}</div>
                 ))}
               </div>
             </div>
@@ -631,14 +676,20 @@ const Markets: NextPage = () => {
               <div className="space-y-1">
                 {(isPolymarket ? polyEvent.markets : kalshiEvent.markets)
                   ?.slice(0, 3)
-                  .map((market: any, index: number) => (
-                    <div key={index} className="text-xs bg-base-200 p-2 rounded">
-                      <div className="font-medium line-clamp-1">{isPolymarket ? market.question : market.title}</div>
-                      <div className="text-gray-500">
-                        Volume: {formatVolume(isPolymarket ? market.volume24hr || 0 : market.dollar_volume_24h || 0)}
+                  .map((market: any, index: number) => {
+                    const marketId = isPolymarket
+                      ? market.id || `poly-market-${index}`
+                      : market.ticker || `kalshi-market-${index}`;
+                    const eventId = isPolymarket ? polyEvent.id : kalshiEvent.event_ticker;
+                    return (
+                      <div key={`${eventId}-market-${marketId}-${index}`} className="text-xs bg-base-200 p-2 rounded">
+                        <div className="font-medium line-clamp-1">{isPolymarket ? market.question : market.title}</div>
+                        <div className="text-gray-500">
+                          Volume: {formatVolume(isPolymarket ? market.volume24hr || 0 : market.dollar_volume_24h || 0)}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 {marketCount > 3 && (
                   <div className="text-xs text-gray-500 text-center">+{marketCount - 3} more markets</div>
                 )}
@@ -1001,9 +1052,13 @@ const Markets: NextPage = () => {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredMarkets.map((market, index) => (
-                  <MarketCard key={`${market.platform}-${index}`} market={market} />
-                ))}
+                {filteredMarkets.map((market, index) => {
+                  const marketId =
+                    market.platform === "polymarket"
+                      ? (market as PolymarketMarket).id || `poly-${index}`
+                      : (market as KalshiMarket).ticker || `kalshi-${index}`;
+                  return <MarketCard key={`market-${market.platform}-${marketId}-${index}`} market={market} />;
+                })}
               </div>
             </>
           )}
@@ -1032,9 +1087,13 @@ const Markets: NextPage = () => {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredEvents.map((event, index) => (
-                  <EventCard key={`${event.platform}-${index}`} event={event} />
-                ))}
+                {filteredEvents.map((event, index) => {
+                  const eventId =
+                    event.platform === "polymarket"
+                      ? (event as PolymarketEvent).id || `poly-event-${index}`
+                      : (event as KalshiEvent).event_ticker || `kalshi-event-${index}`;
+                  return <EventCard key={`event-${event.platform}-${eventId}`} event={event} />;
+                })}
               </div>
             </>
           )}
@@ -1100,9 +1159,10 @@ const Markets: NextPage = () => {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {filteredArbitrage.map((opportunity, index) => (
-                  <ArbitrageCard key={`${opportunity.id}-${index}`} opportunity={opportunity} />
-                ))}
+                {filteredArbitrage.map((opportunity, index) => {
+                  const opportunityId = opportunity.id || `${opportunity.arbitrageType}-${index}`;
+                  return <ArbitrageCard key={`arbitrage-${opportunityId}`} opportunity={opportunity} />;
+                })}
               </div>
             </>
           )}

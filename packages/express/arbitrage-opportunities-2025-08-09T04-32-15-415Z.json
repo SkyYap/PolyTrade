@@ -1,0 +1,1469 @@
+{
+  "metadata": {
+    "generatedAt": "2025-08-09T04:32:15.415Z",
+    "totalOpportunities": 35,
+    "categories": {
+      "exact": 0,
+      "high": 0,
+      "medium": 3,
+      "low": 32
+    },
+    "thresholds": {
+      "EXACT_MATCH": 0.95,
+      "HIGH_SIMILARITY": 0.8,
+      "MEDIUM_SIMILARITY": 0.6,
+      "LOW_SIMILARITY": 0.4
+    }
+  },
+  "opportunities": {
+    "exact": [],
+    "high": [],
+    "medium": [
+      {
+        "score": 0.71,
+        "factors": [
+          "Title similarity: 50.0%",
+          "Entity matching: 100.0%",
+          "Category match: Yes",
+          "Date proximity: 48.7 months"
+        ],
+        "polymarket": {
+          "eventId": "16480",
+          "eventSlug": "elon-musk-trillionaire-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Elon Musk's net worth, as listed on the Bloomberg Billionaires Index, reaches or exceeds $1 trillion at any point by December 31, 2025, 11:59 PM ET. Otherwise this market will resolve to \"No\".\n\nThe resolution source for this market will be the Bloomberg Billionaires Index (https://www.bloomberg.com/billionaires/), however a consensus of credible reporting may also be used.\n",
+          "marketId": "517834",
+          "marketQuestion": "Elon Musk trillionaire in 2025?",
+          "marketSlug": "elon-musk-trillionaire-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 48265.57581,
+          "tags": [
+            "elon-musk",
+            "business",
+            "tesla",
+            "trump-presidency",
+            "2025-predictions",
+            "tech"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXTRILLIONAIRE-30",
+          "eventTitle": "Who will be the world's first trillionaire?",
+          "eventSubTitle": "Before Jan 1, 2030",
+          "eventCategory": "Economics",
+          "marketTicker": "KXTRILLIONAIRE-30-EM",
+          "yesSubTitle": "Elon Musk",
+          "noSubTitle": "Elon Musk",
+          "closeTime": "2030-01-01T15:00:00Z",
+          "yesAsk": 41,
+          "noAsk": 64,
+          "liquidity": 32376758,
+          "rules": "If Elon Musk is the world's first trillionare before Jan 1, 2030 then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.71,
+        "factors": [
+          "Title similarity: 50.0%",
+          "Entity matching: 100.0%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "17075",
+          "eventSlug": "kamala-harris-divorce-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Kamala Harris and/or Douglas Emhoff announce their intention to divorce between January 21 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement by December 31, 2025 of their intention to divorce will be sufficient for a \"Yes\" resolution, regardless of whether the divorce later actually occurs, or whether the actual divorce occurs outside of the timeframe of this market.\n\nThe resolution source will be statements from Kamala Harris and/or Douglas Emhoff, and their representatives, however a definitive consensus of credible media reporting may be considered.",
+          "marketId": "519589",
+          "marketQuestion": "Kamala Harris divorce in 2025?",
+          "marketSlug": "kamala-harris-divorce-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 14431.75946,
+          "tags": [
+            "celebrities",
+            "politics",
+            "pop-culture"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPRESPERSON-28",
+          "eventTitle": "Next US Presidential Election Winner?",
+          "eventSubTitle": "In 2028",
+          "eventCategory": "Elections",
+          "marketTicker": "KXPRESPERSON-28-KHAR",
+          "yesSubTitle": "Kamala Harris",
+          "noSubTitle": "Kamala Harris",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 3,
+          "noAsk": 98,
+          "liquidity": 489516215,
+          "rules": "If Kamala Harris is the next person inaugurated as President for the term beginning in 2029, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.6433333333333333,
+        "factors": [
+          "Title similarity: 33.3%",
+          "Entity matching: 100.0%",
+          "Category match: Yes",
+          "Date proximity: 48.7 months"
+        ],
+        "polymarket": {
+          "eventId": "16086",
+          "eventSlug": "which-ceos-will-be-out-in-2025",
+          "eventDescription": "This is a market group over which CEOs will be out of their position by December 31, 2025.",
+          "marketId": "516847",
+          "marketQuestion": "Sam Altman out as OpenAI CEO in 2025?",
+          "marketSlug": "sam-altman-out-as-openai-ceo-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 4072.0943,
+          "tags": [
+            "business",
+            "economy",
+            "2025-predictions",
+            "ai",
+            "big-tech"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXTRILLIONAIRE-30",
+          "eventTitle": "Who will be the world's first trillionaire?",
+          "eventSubTitle": "Before Jan 1, 2030",
+          "eventCategory": "Economics",
+          "marketTicker": "KXTRILLIONAIRE-30-SA",
+          "yesSubTitle": "Sam Altman",
+          "noSubTitle": "Sam Altman",
+          "closeTime": "2030-01-01T15:00:00Z",
+          "yesAsk": 6,
+          "noAsk": 98,
+          "liquidity": 41947286,
+          "rules": "If Sam Altman is the world's first trillionare before Jan 1, 2030 then the market resolves to Yes."
+        }
+      }
+    ],
+    "low": [
+      {
+        "score": 0.55,
+        "factors": [
+          "Title similarity: 60.0%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 109.6 months"
+        ],
+        "polymarket": {
+          "eventId": "16146",
+          "eventSlug": "lana-del-rey-divorce-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Lana Del Rey and/or Jeremy Dufrene announce their intention to divorce between December 29, 2024 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement by December 31, 2025 of their intention to divorce will be sufficient for a \"Yes\" resolution, regardless of whether the divorce later actually occurs, or whether the actual divorce occurs outside of the timeframe of this market.\n\nThe resolution source will be statements from Lana Del Rey and/or Jeremy Dufrene or their representatives, however a definitive consensus of credible media reporting may be considered.",
+          "marketId": "516905",
+          "marketQuestion": "Lana Del Rey divorce in 2025?",
+          "marketSlug": "lana-del-rey-divorce-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 6636.3259,
+          "tags": [
+            "music",
+            "pop-culture",
+            "2025-predictions",
+            "celebrities"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPERFORMBONDSONG-35",
+          "eventTitle": "Who will perform the next James Bond theme?",
+          "eventSubTitle": "Before 2035",
+          "eventCategory": "Entertainment",
+          "marketTicker": "KXPERFORMBONDSONG-35-LAN",
+          "yesSubTitle": "Lana Del Rey",
+          "noSubTitle": "Lana Del Rey",
+          "closeTime": "2035-01-01T15:00:00Z",
+          "yesAsk": 19,
+          "noAsk": 89,
+          "liquidity": 345456,
+          "rules": "If Lana Del Rey performs the next James Bond film theme, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.51,
+        "factors": [
+          "Title similarity: 50.0%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 58.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16092",
+          "eventSlug": "us-recession-in-2025",
+          "eventDescription": "This market will resolve to “Yes”, if either of the following conditions are met:\n\n1.  The National Bureau of Economic Research (NBER) publicly announces that a recession has occurred in the United States, at any point in 2025, with the announcement made by December 31, 2025, 11:59 PM ET.\n\n2.  The seasonally adjusted annualized percent change in quarterly U.S. real GDP from the previous quarter is less than 0.0 for two consecutive quarters between Q4 2024 and Q4 2025 (inclusive), as reported by the Bureau of Economic Analysis (BEA). \n\nOtherwise, this market will resolve to \"No\". \n\nNote that advance estimates will be considered. For example, if upon release, the advance estimate for Q2 2025 was negative, and the Q1 2025's most recent, up-to-date estimate was also negative, this market would resolve to \"Yes\". If on December 31, 2025 the latest estimate for quarterly GDP in Q3 2025 was negative, this market will stay open until the Advance estimate of Q4 2025 is published, at which point it will resolve to \"Yes\" if Q4 2025 was negative or if the NBER declares a recession by then.\n\nThe resolution source will be the official announcements from the NBER and the BEA’s estimate of seasonally adjusted annualized percent change in quarterly US real GDP from previous quarters as released by the Bureau of Economic Analysis (BEA), https://www.bea.gov/data/gdp/gross-domestic-product",
+          "marketId": "516710",
+          "marketQuestion": "US recession in 2025?",
+          "marketSlug": "us-recession-in-2025",
+          "endDate": "2026-02-28T12:00:00Z",
+          "liquidity": 75985.8902,
+          "tags": [
+            "business",
+            "economy",
+            "2025-predictions",
+            "xtrd-1",
+            "macro-graph",
+            "economic-policy"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "USCLIMATE",
+          "eventTitle": "US meets its climate goals?",
+          "eventSubTitle": "2025/2030 goals",
+          "eventCategory": "Climate and Weather",
+          "marketTicker": "USCLIMATE-2025",
+          "yesSubTitle": "By 2025",
+          "noSubTitle": "Not By 2025",
+          "closeTime": "2030-12-31T15:00:00Z",
+          "yesAsk": 20,
+          "noAsk": 84,
+          "liquidity": 30593302,
+          "rules": "If the US has 4909.9 million metric tonnes of CO2 emissions or fewer in a year by 2025, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.51,
+        "factors": [
+          "Title similarity: 50.0%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 49.7 months"
+        ],
+        "polymarket": {
+          "eventId": "16480",
+          "eventSlug": "elon-musk-trillionaire-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Elon Musk's net worth, as listed on the Bloomberg Billionaires Index, reaches or exceeds $1 trillion at any point by December 31, 2025, 11:59 PM ET. Otherwise this market will resolve to \"No\".\n\nThe resolution source for this market will be the Bloomberg Billionaires Index (https://www.bloomberg.com/billionaires/), however a consensus of credible reporting may also be used.\n",
+          "marketId": "517834",
+          "marketQuestion": "Elon Musk trillionaire in 2025?",
+          "marketSlug": "elon-musk-trillionaire-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 48265.57581,
+          "tags": [
+            "elon-musk",
+            "business",
+            "tesla",
+            "trump-presidency",
+            "2025-predictions",
+            "tech"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXTIMEDECADE20S-30",
+          "eventTitle": "Who will Time name as Person of the Decade?",
+          "eventSubTitle": "For the 2020s",
+          "eventCategory": "Politics",
+          "marketTicker": "KXTIMEDECADE20S-30-EMUS",
+          "yesSubTitle": "Elon Musk",
+          "noSubTitle": "Elon Musk",
+          "closeTime": "2030-01-31T15:00:00Z",
+          "yesAsk": 25,
+          "noAsk": 84,
+          "liquidity": 347758,
+          "rules": "If Elon Musk is Time's Person of the Decade for the 2020s, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.49333333333333335,
+        "factors": [
+          "Title similarity: 33.3%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16755",
+          "eventSlug": "gavin-newsom-out-as-california-governor-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Gavin Newsom is no longer serving as Governor of California for any length of time between January 13 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn announcement of Gavin Newsom's resignation/removal before this market's end date will immediately resolve this market to \"Yes\", regardless of when the announced resignation/removal goes into effect.\n\nThis market's resolution source will be a consensus of credible reporting.\n",
+          "marketId": "518576",
+          "marketQuestion": "Gavin Newsom out as California Governor in 2025?",
+          "marketSlug": "gavin-newsom-out-as-california-governor-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 16622.97062,
+          "tags": [
+            "politics",
+            "california",
+            "palisades",
+            "fire",
+            "los-angeles",
+            "la",
+            "all-in",
+            "creators",
+            "la-protests",
+            "2025-predictions"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPRESPERSON-28",
+          "eventTitle": "Next US Presidential Election Winner?",
+          "eventSubTitle": "In 2028",
+          "eventCategory": "Elections",
+          "marketTicker": "KXPRESPERSON-28-GNEWS",
+          "yesSubTitle": "Gavin Newsom",
+          "noSubTitle": "Gavin Newsom",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 14,
+          "noAsk": 88,
+          "liquidity": 1100780203,
+          "rules": "If Gavin Newsom is the next person inaugurated as President for the term beginning in 2029, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.4766666666666667,
+        "factors": [
+          "Title similarity: 16.7%",
+          "Entity matching: 66.7%",
+          "Category match: Yes",
+          "Date proximity: 60.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16171",
+          "eventSlug": "will-2025-be-the-hottest-year-on-record",
+          "eventDescription": "This market will resolve to \"Yes\" if the data for the Global Land-Ocean Temperature Index for 2025 shows an increase greater than that of any previously recorded year when it is released. Otherwise, this market will resolve to \"No\".\n\nAn anomaly greater than that of any previously recorded year for 2025 is necessary and sufficient to resolve this market to \"Yes\" immediately once the data becomes available, regardless of whether the figure for 2024 and/or 2025 is later revised.\n\nThe primary resolution source for this market will be the figure found in the table titled \"Land-Ocean Temperature Index (C)\" under the column \"No_Smoothing\" in the row \"2025\" (https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt). If NASA's \"Global Temperature Index\" is rendered permanently unavailable, other information from NASA may be used. If no information for 2025 is provided by NASA by March 1, 2026, 11:59 PM ET, this market will resolve based on a consensus of credible reporting.",
+          "marketId": "516938",
+          "marketQuestion": "Will 2025 be the hottest year on record?",
+          "marketSlug": "will-2025-be-the-hottest-year-on-record",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 66090.66457,
+          "tags": [
+            "2025-predictions",
+            "science",
+            "climate",
+            "global-warming",
+            "weather",
+            "pop-culture"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "USCLIMATE",
+          "eventTitle": "US meets its climate goals?",
+          "eventSubTitle": "2025/2030 goals",
+          "eventCategory": "Climate and Weather",
+          "marketTicker": "USCLIMATE-2025",
+          "yesSubTitle": "By 2025",
+          "noSubTitle": "Not By 2025",
+          "closeTime": "2030-12-31T15:00:00Z",
+          "yesAsk": 20,
+          "noAsk": 84,
+          "liquidity": 30593302,
+          "rules": "If the US has 4909.9 million metric tonnes of CO2 emissions or fewer in a year by 2025, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.46,
+        "factors": [
+          "Title similarity: 25.0%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 109.6 months"
+        ],
+        "polymarket": {
+          "eventId": "16180",
+          "eventSlug": "maduro-out-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Venezuela's president, Nicolás Maduro, is removed from power for any length of time between January 1, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPresident Nicolás Maduro will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as President of Venezuela within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "516947",
+          "marketQuestion": "Maduro out in 2025?",
+          "marketSlug": "maduro-out-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 10431.4501,
+          "tags": [
+            "venezuela",
+            "politics",
+            "2025-predictions",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXLALEADEROUT-35",
+          "eventTitle": "Which of these Latin America leaders will leave office next?",
+          "eventSubTitle": "Before 2035",
+          "eventCategory": "Politics",
+          "marketTicker": "KXLALEADEROUT-35-NM",
+          "yesSubTitle": "Nicolás Maduro",
+          "noSubTitle": "Nicolás Maduro",
+          "closeTime": "2035-01-01T15:00:00Z",
+          "yesAsk": 5,
+          "noAsk": 100,
+          "liquidity": 116322,
+          "rules": "If President of Venezuela is the first leader among the above to leave office, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.45999999999999996,
+        "factors": [
+          "Title similarity: 40.0%",
+          "Entity matching: 66.7%",
+          "Category match: No",
+          "Date proximity: 0.0 months"
+        ],
+        "polymarket": {
+          "eventId": "16215",
+          "eventSlug": "assad-leaves-russia-before-2026",
+          "eventDescription": "This market will resolve to \"Yes\" if it is confirmed that Bashar al-Assad has left Russia for any length of time between January 2, 2025, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nIn cases where Assad may have exited Russian airspace on a plane, he must be confirmed to have exited the plane in a country other than Russia for this market to resolve to \"Yes\".\n\nIf Assad exits Russia maritime territory on a boat to international waters, this market may resolve to \"Yes\".\n\nIf it is not confirmed by the resolution date that Assad left Russia, this market will resolve to \"No\".\n\nThe resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "517073",
+          "marketQuestion": "Assad leaves Russia before 2026?",
+          "marketSlug": "assad-leaves-russia-before-2026",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 3745.8892,
+          "tags": [
+            "russia",
+            "assad",
+            "geopolitics",
+            "politics",
+            "middle-east",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXMUSKTRILLION",
+          "eventTitle": "When will Elon Musk become a trillionaire?",
+          "eventSubTitle": "Trillionaire",
+          "eventCategory": "Economics",
+          "marketTicker": "KXMUSKTRILLION-26",
+          "yesSubTitle": "Before 2026",
+          "noSubTitle": "Before 2026",
+          "closeTime": "2026-01-01T15:00:00Z",
+          "yesAsk": 4,
+          "noAsk": 99,
+          "liquidity": 98087173,
+          "rules": "If Elon Musk has a net worth more than 1000 billion before Jan 1, 2026, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.45999999999999996,
+        "factors": [
+          "Title similarity: 40.0%",
+          "Entity matching: 66.7%",
+          "Category match: No",
+          "Date proximity: 0.0 months"
+        ],
+        "polymarket": {
+          "eventId": "16215",
+          "eventSlug": "assad-leaves-russia-before-2026",
+          "eventDescription": "This market will resolve to \"Yes\" if it is confirmed that Bashar al-Assad has left Russia for any length of time between January 2, 2025, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nIn cases where Assad may have exited Russian airspace on a plane, he must be confirmed to have exited the plane in a country other than Russia for this market to resolve to \"Yes\".\n\nIf Assad exits Russia maritime territory on a boat to international waters, this market may resolve to \"Yes\".\n\nIf it is not confirmed by the resolution date that Assad left Russia, this market will resolve to \"No\".\n\nThe resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "517073",
+          "marketQuestion": "Assad leaves Russia before 2026?",
+          "marketSlug": "assad-leaves-russia-before-2026",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 3745.8892,
+          "tags": [
+            "russia",
+            "assad",
+            "geopolitics",
+            "politics",
+            "middle-east",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXHALFTRIL",
+          "eventTitle": "When will there be a half-trillionaire?",
+          "eventSubTitle": "Half-trillionaire",
+          "eventCategory": "Economics",
+          "marketTicker": "KXHALFTRIL-26",
+          "yesSubTitle": "Before 2026",
+          "noSubTitle": "Before 2026",
+          "closeTime": "2026-01-01T15:00:00Z",
+          "yesAsk": 23,
+          "noAsk": 83,
+          "liquidity": 33389580,
+          "rules": "If there is a person with an estimated net worth of $500 billion or more before Jan 1, 2026, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.44333333333333336,
+        "factors": [
+          "Title similarity: 33.3%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 49.7 months"
+        ],
+        "polymarket": {
+          "eventId": "16086",
+          "eventSlug": "which-ceos-will-be-out-in-2025",
+          "eventDescription": "This is a market group over which CEOs will be out of their position by December 31, 2025.",
+          "marketId": "516847",
+          "marketQuestion": "Sam Altman out as OpenAI CEO in 2025?",
+          "marketSlug": "sam-altman-out-as-openai-ceo-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 4072.0943,
+          "tags": [
+            "business",
+            "economy",
+            "2025-predictions",
+            "ai",
+            "big-tech"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXTIMEDECADE20S-30",
+          "eventTitle": "Who will Time name as Person of the Decade?",
+          "eventSubTitle": "For the 2020s",
+          "eventCategory": "Politics",
+          "marketTicker": "KXTIMEDECADE20S-30-SALT",
+          "yesSubTitle": "Sam Altman",
+          "noSubTitle": "Sam Altman",
+          "closeTime": "2030-01-31T15:00:00Z",
+          "yesAsk": 11,
+          "noAsk": 99,
+          "liquidity": 1260702,
+          "rules": "If Sam Altman is Time's Person of the Decade for the 2020s, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.44333333333333336,
+        "factors": [
+          "Title similarity: 33.3%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 60.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16099",
+          "eventSlug": "usdt-depeg-in-2025",
+          "eventDescription": "This market will resolve to “Yes” immediately if all Coinbase 1 minute candles for USDT-USD for any 24 hour period are below 98 cents, for candles between 01 Jan '25 00:00 and 31 Dec '25 23:59 in the ET timezone. Otherwise, this market will resolve to “No”.\n\nBelow 98 cents means all candles in the period have a final “High” price below 0.98000 (i.e. 0.97999 or lower). A 24h period of USDT below 98 cents that starts on the last day in 2025 will count.\n\nThe resolution source for this market is https://www.coinbase.com/, specifically the USDT-USD “High” prices currently available at https://www.coinbase.com/advanced-trade/spot/USDT-USD with “1m” and “Candles” selected on the top bar. To see the “High” prices, mouse over particular candles and look at the value after “H” at the top of the chart.\n\nPlease note that this market is about the price according to Coinbase USDT-USD. If Coinbase stops having the necessary USDT information to resolve this market, a consensus of credible sources for whether USDT was below 98 cents for 24h+ may be used to resolve this market.",
+          "marketId": "516713",
+          "marketQuestion": "USDT depeg in 2025?",
+          "marketSlug": "usdt-depeg-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 57182.8379,
+          "tags": [
+            "stablecoins",
+            "depeg",
+            "2025-predictions",
+            "crypto"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "USCLIMATE",
+          "eventTitle": "US meets its climate goals?",
+          "eventSubTitle": "2025/2030 goals",
+          "eventCategory": "Climate and Weather",
+          "marketTicker": "USCLIMATE-2025",
+          "yesSubTitle": "By 2025",
+          "noSubTitle": "Not By 2025",
+          "closeTime": "2030-12-31T15:00:00Z",
+          "yesAsk": 20,
+          "noAsk": 84,
+          "liquidity": 30593302,
+          "rules": "If the US has 4909.9 million metric tonnes of CO2 emissions or fewer in a year by 2025, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.44333333333333336,
+        "factors": [
+          "Title similarity: 33.3%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 48.7 months"
+        ],
+        "polymarket": {
+          "eventId": "16426",
+          "eventSlug": "andrew-tate-guilty-of-human-trafficking-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if social media personality and former professional kickboxer Andrew Tate is found guilty in any jurisdiction of any country of any charge related to sex/human trafficking between January 1 and December 31, 2025 ET. Otherwise, this market will resolve to \"No\".\n\nThe resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "517565",
+          "marketQuestion": "Andrew Tate guilty of human trafficking in 2025?",
+          "marketSlug": "andrew-tate-guilty-of-human-trafficking-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 4948.8207,
+          "tags": [
+            "celebrities",
+            "court",
+            "pop-culture",
+            "2025-predictions",
+            "courts"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXNEXTUKPM-30",
+          "eventTitle": "Who will be the next Prime Minister of the UK?",
+          "eventSubTitle": "Before 2030",
+          "eventCategory": "Politics",
+          "marketTicker": "KXNEXTUKPM-30-AT",
+          "yesSubTitle": "Andrew Tate",
+          "noSubTitle": "Andrew Tate",
+          "closeTime": "2030-01-01T15:00:00Z",
+          "yesAsk": 2,
+          "noAsk": 99,
+          "liquidity": 57966112,
+          "rules": "If Andrew Tate is the next Prime Minister of United Kingdom before 2030, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.44333333333333336,
+        "factors": [
+          "Title similarity: 33.3%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 60.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16548",
+          "eventSlug": "us-government-shutdown-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if the U.S. Office of Personnel Management announces that the U.S. federal government is shut down due to a lapse in appropriations by December 31, 2025, 11:59 PM. Otherwise this market will resolve to \"No\".\n\nIf the Office of Personnel Management announces a partial shutdown this will count, however announcements of office closures due to holidays or inclement weather will not qualify. \n\nThe resolution source for this market will be the website of the U.S. Office of Personnel Management (https://www.opm.gov/policy-data-oversight/snow-dismissal-procedures/current-status/).",
+          "marketId": "518036",
+          "marketQuestion": "US government shutdown in 2025?",
+          "marketSlug": "us-government-shutdown-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 8379.7314,
+          "tags": [
+            "uptspt-politics",
+            "congress",
+            "politics",
+            "trump-presidency",
+            "house",
+            "funding",
+            "economic-policy",
+            "trump",
+            "2025-predictions"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "USCLIMATE",
+          "eventTitle": "US meets its climate goals?",
+          "eventSubTitle": "2025/2030 goals",
+          "eventCategory": "Climate and Weather",
+          "marketTicker": "USCLIMATE-2025",
+          "yesSubTitle": "By 2025",
+          "noSubTitle": "Not By 2025",
+          "closeTime": "2030-12-31T15:00:00Z",
+          "yesAsk": 20,
+          "noAsk": 84,
+          "liquidity": 30593302,
+          "rules": "If the US has 4909.9 million metric tonnes of CO2 emissions or fewer in a year by 2025, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.44333333333333336,
+        "factors": [
+          "Title similarity: 33.3%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 60.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16864",
+          "eventSlug": "gta-vi-released-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if it Grand Theft Auto VI is officially released in the US by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nFor the purposes of this market, \"release\" refers to the game becoming publicly available for purchase or download in the US. Early access, beta versions, other forms of pre-release availability, or leaks will not count as an official release. If the release is only for certain consoles (e.g. Xbox Series X/S) it will count.\n\nThe resolution source will be official information from Rockstar Games or its parent company, Take-Two Interactive.",
+          "marketId": "519052",
+          "marketQuestion": "GTA VI released in 2025?",
+          "marketSlug": "gta-vi-released-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 11239.86199,
+          "tags": [
+            "gta-6",
+            "pop-culture",
+            "tech",
+            "video-games",
+            "gta-vi"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "USCLIMATE",
+          "eventTitle": "US meets its climate goals?",
+          "eventSubTitle": "2025/2030 goals",
+          "eventCategory": "Climate and Weather",
+          "marketTicker": "USCLIMATE-2025",
+          "yesSubTitle": "By 2025",
+          "noSubTitle": "Not By 2025",
+          "closeTime": "2030-12-31T15:00:00Z",
+          "yesAsk": 20,
+          "noAsk": 84,
+          "liquidity": 30593302,
+          "rules": "If the US has 4909.9 million metric tonnes of CO2 emissions or fewer in a year by 2025, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.4266666666666667,
+        "factors": [
+          "Title similarity: 16.7%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16527",
+          "eventSlug": "trump-takes-panama-canal-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if the Panama Canal comes under US control by December 31, 2025, 11:59 PM ET. Otherwise this market will resolve to \"No\".\n\nFor the purposes of this market, US control means the United States assumes primary operational authority over the canal, either via diplomatic agreement, military action, or any other means.\n\nAn official announcement made by the United States and Panama that the Panama Canal will come under US control will qualify, even if the actual transfer of control is yet to occur. Only announcements of official agreements or actions (e.g. executive order, signed legislation, etc.) will count - mere posts on Social Media will not.\n\nThe resolution source for this market will be official information from the US Government and the Government of Panama, however a consensus of credible reporting confirming that the Panama Canal has come under US sovereignty will also qualify.",
+          "marketId": "517962",
+          "marketQuestion": "Trump takes Panama Canal in 2025?",
+          "marketSlug": "trump-takes-panama-canal-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 19992.8102,
+          "tags": [
+            "world",
+            "trump-presidency",
+            "politics",
+            "geopolitics",
+            "uptspt-politics",
+            "trump",
+            "foreign-policy",
+            "2025-predictions"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPRESPERSON-28",
+          "eventTitle": "Next US Presidential Election Winner?",
+          "eventSubTitle": "In 2028",
+          "eventCategory": "Elections",
+          "marketTicker": "KXPRESPERSON-28-DTRUJR",
+          "yesSubTitle": "Donald J. Trump Jr.",
+          "noSubTitle": "Donald J. Trump Jr.",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 2,
+          "noAsk": 99,
+          "liquidity": 405660430,
+          "rules": "If Donald J. Trump Jr. is the next person inaugurated as President for the term beginning in 2029, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.4266666666666667,
+        "factors": [
+          "Title similarity: 16.7%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16527",
+          "eventSlug": "trump-takes-panama-canal-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if the Panama Canal comes under US control by December 31, 2025, 11:59 PM ET. Otherwise this market will resolve to \"No\".\n\nFor the purposes of this market, US control means the United States assumes primary operational authority over the canal, either via diplomatic agreement, military action, or any other means.\n\nAn official announcement made by the United States and Panama that the Panama Canal will come under US control will qualify, even if the actual transfer of control is yet to occur. Only announcements of official agreements or actions (e.g. executive order, signed legislation, etc.) will count - mere posts on Social Media will not.\n\nThe resolution source for this market will be official information from the US Government and the Government of Panama, however a consensus of credible reporting confirming that the Panama Canal has come under US sovereignty will also qualify.",
+          "marketId": "517962",
+          "marketQuestion": "Trump takes Panama Canal in 2025?",
+          "marketSlug": "trump-takes-panama-canal-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 19992.8102,
+          "tags": [
+            "world",
+            "trump-presidency",
+            "politics",
+            "geopolitics",
+            "uptspt-politics",
+            "trump",
+            "foreign-policy",
+            "2025-predictions"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPRESPERSON-28",
+          "eventTitle": "Next US Presidential Election Winner?",
+          "eventSubTitle": "In 2028",
+          "eventCategory": "Elections",
+          "marketTicker": "KXPRESPERSON-28-DTRU",
+          "yesSubTitle": "Donald J. Trump",
+          "noSubTitle": "Donald J. Trump",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 5,
+          "noAsk": 96,
+          "liquidity": 466340153,
+          "rules": "If Donald J. Trump is the next person inaugurated as President for the term beginning in 2029, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.4266666666666667,
+        "factors": [
+          "Title similarity: 16.7%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 48.7 months"
+        ],
+        "polymarket": {
+          "eventId": "16817",
+          "eventSlug": "which-countries-will-donald-trump-visit-in-2025",
+          "eventDescription": "If U.S. President Donald Trump visits a listed country between January 15 and December 31, 2025 11:59 PM ET, the relevant market will resolve to \"Yes\". Otherwise, this market will resolve to \"No\".\n\nFor the purpose of this market, a \"visit\" is defined as Trump physically entering the terrestrial or maritime territory of the listed country. Whether or not Trump enters the country's airspace during the timeframe of this market will have no bearing on a positive resolution.\n\nThe primary resolution source for this information will be official information from government of the United States of America, official information from Trump or released by his verified social media accounts (e.g. https://twitter.com/POTUS), however, a consensus of credible reporting will also be used.\n",
+          "marketId": "518869",
+          "marketQuestion": "Will Donald Trump visit Germany in 2025?",
+          "marketSlug": "which-countries-will-donald-trump-visit-in-2025-will-donald-trump-visit-germany-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 12622.4079,
+          "tags": [
+            "uptspt-politics",
+            "foreign-policy",
+            "trump",
+            "politics",
+            "trump-presidency",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXEUEXITCOUNTRY-30",
+          "eventTitle": "Which countries will vote to leave the EU before 2030?",
+          "eventSubTitle": "Before 2030",
+          "eventCategory": "Politics",
+          "marketTicker": "KXEUEXITCOUNTRY-30-GER",
+          "yesSubTitle": "Germany",
+          "noSubTitle": "Germany",
+          "closeTime": "2030-01-01T15:00:00Z",
+          "yesAsk": 9,
+          "noAsk": 99,
+          "liquidity": 2642855,
+          "rules": "If Germany votes to leave the EU before Jan 1, 2030, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.4266666666666667,
+        "factors": [
+          "Title similarity: 16.7%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 48.7 months"
+        ],
+        "polymarket": {
+          "eventId": "16817",
+          "eventSlug": "which-countries-will-donald-trump-visit-in-2025",
+          "eventDescription": "If U.S. President Donald Trump visits a listed country between January 15 and December 31, 2025 11:59 PM ET, the relevant market will resolve to \"Yes\". Otherwise, this market will resolve to \"No\".\n\nFor the purpose of this market, a \"visit\" is defined as Trump physically entering the terrestrial or maritime territory of the listed country. Whether or not Trump enters the country's airspace during the timeframe of this market will have no bearing on a positive resolution.\n\nThe primary resolution source for this information will be official information from government of the United States of America, official information from Trump or released by his verified social media accounts (e.g. https://twitter.com/POTUS), however, a consensus of credible reporting will also be used.\n",
+          "marketId": "518871",
+          "marketQuestion": "Will Donald Trump visit France in 2025?",
+          "marketSlug": "which-countries-will-donald-trump-visit-in-2025-will-donald-trump-visit-france-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 2183.5091,
+          "tags": [
+            "uptspt-politics",
+            "foreign-policy",
+            "trump",
+            "politics",
+            "trump-presidency",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXEUREF-30",
+          "eventTitle": "What countries will hold referenda on leaving the EU?",
+          "eventSubTitle": "Before 2030",
+          "eventCategory": "Politics",
+          "marketTicker": "KXEUREF-30-FRA",
+          "yesSubTitle": "France",
+          "noSubTitle": "France",
+          "closeTime": "2030-01-01T15:00:00Z",
+          "yesAsk": 12,
+          "noAsk": 96,
+          "liquidity": 293353,
+          "rules": "If France holds a national referendum on leaving the European Union before Jan 1, 2030, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.4266666666666667,
+        "factors": [
+          "Title similarity: 16.7%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 48.7 months"
+        ],
+        "polymarket": {
+          "eventId": "16817",
+          "eventSlug": "which-countries-will-donald-trump-visit-in-2025",
+          "eventDescription": "If U.S. President Donald Trump visits a listed country between January 15 and December 31, 2025 11:59 PM ET, the relevant market will resolve to \"Yes\". Otherwise, this market will resolve to \"No\".\n\nFor the purpose of this market, a \"visit\" is defined as Trump physically entering the terrestrial or maritime territory of the listed country. Whether or not Trump enters the country's airspace during the timeframe of this market will have no bearing on a positive resolution.\n\nThe primary resolution source for this information will be official information from government of the United States of America, official information from Trump or released by his verified social media accounts (e.g. https://twitter.com/POTUS), however, a consensus of credible reporting will also be used.\n",
+          "marketId": "518871",
+          "marketQuestion": "Will Donald Trump visit France in 2025?",
+          "marketSlug": "which-countries-will-donald-trump-visit-in-2025-will-donald-trump-visit-france-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 2183.5091,
+          "tags": [
+            "uptspt-politics",
+            "foreign-policy",
+            "trump",
+            "politics",
+            "trump-presidency",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXEUEXITCOUNTRY-30",
+          "eventTitle": "Which countries will vote to leave the EU before 2030?",
+          "eventSubTitle": "Before 2030",
+          "eventCategory": "Politics",
+          "marketTicker": "KXEUEXITCOUNTRY-30-FRA",
+          "yesSubTitle": "France",
+          "noSubTitle": "France",
+          "closeTime": "2030-01-01T15:00:00Z",
+          "yesAsk": 5,
+          "noAsk": 99,
+          "liquidity": 2666724,
+          "rules": "If France votes to leave the EU before Jan 1, 2030, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.41714285714285715,
+        "factors": [
+          "Title similarity: 14.3%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 37.2 months"
+        ],
+        "polymarket": {
+          "eventId": "16475",
+          "eventSlug": "will-trump-acquire-greenland-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if the United States officially announces that Greenland will come under US sovereignty by December 31, 2025, 11:59 PM ET. Otherwise this market will resolve to \"No\".\n\nSovereignty is defined as the transfer of the majority of the territory of Greenland from its current status as an autonomous territory within the Kingdom of Denmark to being under the formal governance or jurisdiction of the United States, either as a state, territory, or other classification within the US system.\n\nAn official announcement made by the United States and Denmark that Greenland will come under US sovereignty will qualify, even if the actual transfer of sovereignty is yet to occur. Only announcements of official agreements or actions (e.g. executive order, signed legislation, etc.) will count - mere posts on Social Media will not.\n\nThe resolution source for this market will be official information from the governments of the US, Greenland, and Denmark , however a consensus of credible reporting confirming that Greenland has come under U.S. sovereignty will also qualify.",
+          "marketId": "517817",
+          "marketQuestion": "Will Trump acquire Greenland in 2025?",
+          "marketSlug": "will-trump-acquire-greenland-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 101849.50438,
+          "tags": [
+            "trump-presidency",
+            "trump",
+            "politics",
+            "denmark",
+            "buy",
+            "maga",
+            "uptspt-politics",
+            "foreign-policy",
+            "greenland",
+            "2025-predictions"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXSTATE51-29",
+          "eventTitle": "What will be the 51st state?",
+          "eventSubTitle": "During Trump's term",
+          "eventCategory": "Politics",
+          "marketTicker": "KXSTATE51-29-GL",
+          "yesSubTitle": "Any part of Greenland",
+          "noSubTitle": "Any part of Greenland",
+          "closeTime": "2029-01-20T15:00:00Z",
+          "yesAsk": 7,
+          "noAsk": 97,
+          "liquidity": 44114205,
+          "rules": "If the 51st state is Any part of Greenland before Jan 20, 2029, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.41714285714285715,
+        "factors": [
+          "Title similarity: 14.3%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "17251",
+          "eventSlug": "trump-removed-via-25th-amendment-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Donald Trump is formally removed from the office of the President of the United States by means of the process outlined in Section 4 of the 25th Amendment to the US Constitution by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nIf the Vice President becomes Acting President via the process outlined in Section 3 of the 25th Amendment, it will not effect the resolution of this market. Only Trump’s removal from office via the process outlined in Section 4 of the 25th Amendment will qualify for a \"Yes\" resolution.\n\nIf Trump ceases to be POTUS before this market's expiration date for any other reason, this market may immediately resolve to \"No\".\n\nThe resolution source for this market will be official information from the US government.",
+          "marketId": "520173",
+          "marketQuestion": "Trump removed via 25th Amendment in 2025?",
+          "marketSlug": "trump-removed-via-25th-amendment-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 25575.6063,
+          "tags": [
+            "uptspt-politics",
+            "politics",
+            "2025-predictions",
+            "trump-presidency",
+            "maga",
+            "trump"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPRESPERSON-28",
+          "eventTitle": "Next US Presidential Election Winner?",
+          "eventSubTitle": "In 2028",
+          "eventCategory": "Elections",
+          "marketTicker": "KXPRESPERSON-28-DTRUJR",
+          "yesSubTitle": "Donald J. Trump Jr.",
+          "noSubTitle": "Donald J. Trump Jr.",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 2,
+          "noAsk": 99,
+          "liquidity": 405660430,
+          "rules": "If Donald J. Trump Jr. is the next person inaugurated as President for the term beginning in 2029, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.41714285714285715,
+        "factors": [
+          "Title similarity: 14.3%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "17251",
+          "eventSlug": "trump-removed-via-25th-amendment-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Donald Trump is formally removed from the office of the President of the United States by means of the process outlined in Section 4 of the 25th Amendment to the US Constitution by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nIf the Vice President becomes Acting President via the process outlined in Section 3 of the 25th Amendment, it will not effect the resolution of this market. Only Trump’s removal from office via the process outlined in Section 4 of the 25th Amendment will qualify for a \"Yes\" resolution.\n\nIf Trump ceases to be POTUS before this market's expiration date for any other reason, this market may immediately resolve to \"No\".\n\nThe resolution source for this market will be official information from the US government.",
+          "marketId": "520173",
+          "marketQuestion": "Trump removed via 25th Amendment in 2025?",
+          "marketSlug": "trump-removed-via-25th-amendment-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 25575.6063,
+          "tags": [
+            "uptspt-politics",
+            "politics",
+            "2025-predictions",
+            "trump-presidency",
+            "maga",
+            "trump"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPRESPERSON-28",
+          "eventTitle": "Next US Presidential Election Winner?",
+          "eventSubTitle": "In 2028",
+          "eventCategory": "Elections",
+          "marketTicker": "KXPRESPERSON-28-DTRU",
+          "yesSubTitle": "Donald J. Trump",
+          "noSubTitle": "Donald J. Trump",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 5,
+          "noAsk": 96,
+          "liquidity": 466340153,
+          "rules": "If Donald J. Trump is the next person inaugurated as President for the term beginning in 2029, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.41000000000000003,
+        "factors": [
+          "Title similarity: 25.0%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 85.2 months"
+        ],
+        "polymarket": {
+          "eventId": "16106",
+          "eventSlug": "nuclear-weapon-detonation-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if a nuclear weapon is detonated anywhere in the world between January 1  and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nFor the purpose of this market's resolution, any detonation of a nuclear weapon anywhere on the planet Earth or in space will be sufficient to trigger a \"Yes\" resolution. This includes offensive usages, nuclear tests, and accidental detonations.\n\nUse/launch of a nuclear weapon that fails to detonate, a fake weapon that never detonates, or a dirty bomb that distributes radioactive material by means of a conventional explosion are not sufficient to trigger a \"Yes\" resolution of this market. Only a successful nuclear detonation will result in a \"Yes\" resolution.\n\nThis market may resolve to \"Yes\" as soon as a nuclear detonation is confirmed by a preponderance of credible reporting.\n\nFor the purpose of this market's resolution, determination as to whether a detonation was nuclear will be made by a preponderance of credible reporting.\n",
+          "marketId": "516717",
+          "marketQuestion": "Nuclear weapon detonation in 2025?",
+          "marketSlug": "nuclear-weapon-detonation-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 39107.4513,
+          "tags": [
+            "2025-predictions",
+            "geopolitics",
+            "politics",
+            "india-pakistan",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPRIMEENGCONSUMPTION-30",
+          "eventTitle": "What will be the largest source of global primary energy consumption in 2030?",
+          "eventSubTitle": "In 2030",
+          "eventCategory": "Climate and Weather",
+          "marketTicker": "KXPRIMEENGCONSUMPTION-30-NUCLEAR",
+          "yesSubTitle": "Nuclear",
+          "noSubTitle": "Nuclear",
+          "closeTime": "2032-12-30T15:00:00Z",
+          "yesAsk": 9,
+          "noAsk": 94,
+          "liquidity": 466024,
+          "rules": "If Nuclear is the largest source of global primary energy consumption in 2030, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.41000000000000003,
+        "factors": [
+          "Title similarity: 25.0%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 60.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16794",
+          "eventSlug": "us-enacts-ai-safety-bill-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if a bill that includes at least one of the following provisions is signed into federal law in the United States  by December 31, 2025, 11:59 PM ET. \n\n- Prohibition on Creation or Release: Forbids the creation or release of specific AI systems or models.\n\n- Training Restrictions: Sets limits on how AI systems can be trained, such as restricting access to previously available training data or imposing a maximum limit on the number of parameters used for training.\n\n- Usage Restrictions:  Prevents AI systems from being used in certain applications, such as interacting with customers, interfacing with other applications, or performing actions on the web.\n\n- Human-in-the-Loop Requirements: Requires AI systems to include mechanisms ensuring human oversight or involvement in their operation.\n\nOtherwise this market will resolve to \"No\". \n\nThe resolution source will be official U.S. federal government (e.g., Congress.gov) however a consensus of credible reporting may also be used. ",
+          "marketId": "518718",
+          "marketQuestion": "U.S. enacts AI safety bill in 2025?",
+          "marketSlug": "us-enacts-ai-safety-bill-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 4125.37457,
+          "tags": [
+            "congress",
+            "uptspt-politics",
+            "2025-predictions",
+            "ai",
+            "openai",
+            "sam-altman",
+            "sceince",
+            "tech",
+            "artificial-intelligence"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "USCLIMATE",
+          "eventTitle": "US meets its climate goals?",
+          "eventSubTitle": "2025/2030 goals",
+          "eventCategory": "Climate and Weather",
+          "marketTicker": "USCLIMATE-2025",
+          "yesSubTitle": "By 2025",
+          "noSubTitle": "Not By 2025",
+          "closeTime": "2030-12-31T15:00:00Z",
+          "yesAsk": 20,
+          "noAsk": 84,
+          "liquidity": 30593302,
+          "rules": "If the US has 4909.9 million metric tonnes of CO2 emissions or fewer in a year by 2025, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.41000000000000003,
+        "factors": [
+          "Title similarity: 25.0%",
+          "Entity matching: 100.0%",
+          "Category match: No",
+          "Date proximity: 60.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16819",
+          "eventSlug": "us-national-xrp-reserve-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if the US government holds any amount of XRP in its reserves at any point between January 15, 2025, ET and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nNote that the US government confiscating XRP does not count as holding XRP reserves.\n\nThe primary resolution source for this market will be official information from the US government and/or the US federal reserve, however a consensus of credible reporting will also be used.",
+          "marketId": "518873",
+          "marketQuestion": "US national XRP reserve in 2025?",
+          "marketSlug": "us-national-xrp-reserve-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 23041.345,
+          "tags": [
+            "crypto-summit",
+            "trump",
+            "economic-policy",
+            "crypto-policy",
+            "other",
+            "politics",
+            "ripple",
+            "xrp",
+            "crypto",
+            "finance",
+            "2025-predictions",
+            "uptspt-politics"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "USCLIMATE",
+          "eventTitle": "US meets its climate goals?",
+          "eventSubTitle": "2025/2030 goals",
+          "eventCategory": "Climate and Weather",
+          "marketTicker": "USCLIMATE-2025",
+          "yesSubTitle": "By 2025",
+          "noSubTitle": "Not By 2025",
+          "closeTime": "2030-12-31T15:00:00Z",
+          "yesAsk": 20,
+          "noAsk": 84,
+          "liquidity": 30593302,
+          "rules": "If the US has 4909.9 million metric tonnes of CO2 emissions or fewer in a year by 2025, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.41000000000000003,
+        "factors": [
+          "Title similarity: 12.5%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "17077",
+          "eventSlug": "trump-abolishes-the-federal-income-tax-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if the US federal income tax is eliminated between January 21 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nFor the purposes of this market, \"abolishing the federal income tax\" means the elimination of federal income tax obligations for individuals in the US, not merely reductions, suspensions, or alterations to tax rates, brackets, or enforcement policies. The market will not consider executive orders, temporary measures, or proposals that do not become law.\n\nThe primary resolution source for this market will be official information from the US federal government, including announcements from Donald Trump and the IRS, however a consensus of credible reporting will also be used.",
+          "marketId": "519591",
+          "marketQuestion": "Trump abolishes the Federal Income Tax in 2025?",
+          "marketSlug": "trump-abolishes-the-federal-income-tax-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 32606.1422,
+          "tags": [
+            "economic-policy",
+            "uptspt-politics",
+            "trump-presidency",
+            "trump",
+            "politics"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPRESPERSON-28",
+          "eventTitle": "Next US Presidential Election Winner?",
+          "eventSubTitle": "In 2028",
+          "eventCategory": "Elections",
+          "marketTicker": "KXPRESPERSON-28-DTRUJR",
+          "yesSubTitle": "Donald J. Trump Jr.",
+          "noSubTitle": "Donald J. Trump Jr.",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 2,
+          "noAsk": 99,
+          "liquidity": 405660430,
+          "rules": "If Donald J. Trump Jr. is the next person inaugurated as President for the term beginning in 2029, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.41000000000000003,
+        "factors": [
+          "Title similarity: 12.5%",
+          "Entity matching: 50.0%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "17077",
+          "eventSlug": "trump-abolishes-the-federal-income-tax-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if the US federal income tax is eliminated between January 21 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nFor the purposes of this market, \"abolishing the federal income tax\" means the elimination of federal income tax obligations for individuals in the US, not merely reductions, suspensions, or alterations to tax rates, brackets, or enforcement policies. The market will not consider executive orders, temporary measures, or proposals that do not become law.\n\nThe primary resolution source for this market will be official information from the US federal government, including announcements from Donald Trump and the IRS, however a consensus of credible reporting will also be used.",
+          "marketId": "519591",
+          "marketQuestion": "Trump abolishes the Federal Income Tax in 2025?",
+          "marketSlug": "trump-abolishes-the-federal-income-tax-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 32606.1422,
+          "tags": [
+            "economic-policy",
+            "uptspt-politics",
+            "trump-presidency",
+            "trump",
+            "politics"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "KXPRESPERSON-28",
+          "eventTitle": "Next US Presidential Election Winner?",
+          "eventSubTitle": "In 2028",
+          "eventCategory": "Elections",
+          "marketTicker": "KXPRESPERSON-28-DTRU",
+          "yesSubTitle": "Donald J. Trump",
+          "noSubTitle": "Donald J. Trump",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 5,
+          "noAsk": 96,
+          "liquidity": 466340153,
+          "rules": "If Donald J. Trump is the next person inaugurated as President for the term beginning in 2029, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.40714285714285714,
+        "factors": [
+          "Title similarity: 24.3%",
+          "Entity matching: 33.3%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16109",
+          "eventSlug": "putin-out-as-president-of-russia-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Russia's president, Vladimir Putin, is removed from power for any length of time between December 28, 2024, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPresident Vladimir Putin will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as President of Russia within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "516720",
+          "marketQuestion": "Putin out as President of Russia in 2025?",
+          "marketSlug": "putin-out-as-president-of-russia-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 53606.3117,
+          "tags": [
+            "2025-predictions",
+            "russia",
+            "geopolitics",
+            "ukraine",
+            "politics",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "POWER-28",
+          "eventTitle": "Who will win the House, Senate, and Presidency?",
+          "eventSubTitle": "In 2029",
+          "eventCategory": "Politics",
+          "marketTicker": "POWER-28-RH-RS-DP",
+          "yesSubTitle": "R-House, R-Senate, D-President",
+          "noSubTitle": "R-House, R-Senate, D-President",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 14,
+          "noAsk": 92,
+          "liquidity": 596937460,
+          "rules": "If the Republican party wins the House, the Republican party wins the Senate, and the Democratic party wins the Presidency in the 2028 election, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.40714285714285714,
+        "factors": [
+          "Title similarity: 24.3%",
+          "Entity matching: 33.3%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16109",
+          "eventSlug": "putin-out-as-president-of-russia-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Russia's president, Vladimir Putin, is removed from power for any length of time between December 28, 2024, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPresident Vladimir Putin will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as President of Russia within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "516720",
+          "marketQuestion": "Putin out as President of Russia in 2025?",
+          "marketSlug": "putin-out-as-president-of-russia-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 53606.3117,
+          "tags": [
+            "2025-predictions",
+            "russia",
+            "geopolitics",
+            "ukraine",
+            "politics",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "POWER-28",
+          "eventTitle": "Who will win the House, Senate, and Presidency?",
+          "eventSubTitle": "In 2029",
+          "eventCategory": "Politics",
+          "marketTicker": "POWER-28-RH-DS-RP",
+          "yesSubTitle": "R-House, D-Senate, R-President",
+          "noSubTitle": "R-House, D-Senate, R-President",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 2,
+          "noAsk": 99,
+          "liquidity": 395235417,
+          "rules": "If the Republican party wins the House, the Democratic party wins the Senate, and the Republican party wins the Presidency in the 2028 election, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.40714285714285714,
+        "factors": [
+          "Title similarity: 24.3%",
+          "Entity matching: 33.3%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16109",
+          "eventSlug": "putin-out-as-president-of-russia-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Russia's president, Vladimir Putin, is removed from power for any length of time between December 28, 2024, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPresident Vladimir Putin will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as President of Russia within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "516720",
+          "marketQuestion": "Putin out as President of Russia in 2025?",
+          "marketSlug": "putin-out-as-president-of-russia-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 53606.3117,
+          "tags": [
+            "2025-predictions",
+            "russia",
+            "geopolitics",
+            "ukraine",
+            "politics",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "POWER-28",
+          "eventTitle": "Who will win the House, Senate, and Presidency?",
+          "eventSubTitle": "In 2029",
+          "eventCategory": "Politics",
+          "marketTicker": "POWER-28-RH-DS-DP",
+          "yesSubTitle": "R-House, D-Senate, D-President",
+          "noSubTitle": "R-House, D-Senate, D-President",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 2,
+          "noAsk": 99,
+          "liquidity": 369167561,
+          "rules": "If the Republican party wins the House, the Democratic party wins the Senate, and the Democratic party wins the Presidency in the 2028 election, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.40714285714285714,
+        "factors": [
+          "Title similarity: 24.3%",
+          "Entity matching: 33.3%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16109",
+          "eventSlug": "putin-out-as-president-of-russia-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Russia's president, Vladimir Putin, is removed from power for any length of time between December 28, 2024, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPresident Vladimir Putin will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as President of Russia within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "516720",
+          "marketQuestion": "Putin out as President of Russia in 2025?",
+          "marketSlug": "putin-out-as-president-of-russia-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 53606.3117,
+          "tags": [
+            "2025-predictions",
+            "russia",
+            "geopolitics",
+            "ukraine",
+            "politics",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "POWER-28",
+          "eventTitle": "Who will win the House, Senate, and Presidency?",
+          "eventSubTitle": "In 2029",
+          "eventCategory": "Politics",
+          "marketTicker": "POWER-28-DH-RS-RP",
+          "yesSubTitle": "D-House, R-Senate, R-President",
+          "noSubTitle": "D-House, R-Senate, R-President",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 19,
+          "noAsk": 85,
+          "liquidity": 852146888,
+          "rules": "If the Democratic party wins the House, the Republican party wins the Senate, and the Republican party wins the Presidency in the 2028 election, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.40714285714285714,
+        "factors": [
+          "Title similarity: 24.3%",
+          "Entity matching: 33.3%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16109",
+          "eventSlug": "putin-out-as-president-of-russia-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Russia's president, Vladimir Putin, is removed from power for any length of time between December 28, 2024, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPresident Vladimir Putin will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as President of Russia within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "516720",
+          "marketQuestion": "Putin out as President of Russia in 2025?",
+          "marketSlug": "putin-out-as-president-of-russia-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 53606.3117,
+          "tags": [
+            "2025-predictions",
+            "russia",
+            "geopolitics",
+            "ukraine",
+            "politics",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "POWER-28",
+          "eventTitle": "Who will win the House, Senate, and Presidency?",
+          "eventSubTitle": "In 2029",
+          "eventCategory": "Politics",
+          "marketTicker": "POWER-28-DH-RS-DP",
+          "yesSubTitle": "D-House, R-Senate, D-President",
+          "noSubTitle": "D-House, R-Senate, D-President",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 24,
+          "noAsk": 80,
+          "liquidity": 795891923,
+          "rules": "If the Democratic party wins the House, the Republican party wins the Senate, and the Democratic party wins the Presidency in the 2028 election, then the market resolves to Yes."
+        }
+      },
+      {
+        "score": 0.40714285714285714,
+        "factors": [
+          "Title similarity: 24.3%",
+          "Entity matching: 33.3%",
+          "Category match: Yes",
+          "Date proximity: 46.9 months"
+        ],
+        "polymarket": {
+          "eventId": "16109",
+          "eventSlug": "putin-out-as-president-of-russia-in-2025",
+          "eventDescription": "This market will resolve to \"Yes\" if Russia's president, Vladimir Putin, is removed from power for any length of time between December 28, 2024, and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPresident Vladimir Putin will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as President of Russia within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+          "marketId": "516720",
+          "marketQuestion": "Putin out as President of Russia in 2025?",
+          "marketSlug": "putin-out-as-president-of-russia-in-2025",
+          "endDate": "2025-12-31T12:00:00Z",
+          "liquidity": 53606.3117,
+          "tags": [
+            "2025-predictions",
+            "russia",
+            "geopolitics",
+            "ukraine",
+            "politics",
+            "world"
+          ]
+        },
+        "kalshi": {
+          "eventTicker": "POWER-28",
+          "eventTitle": "Who will win the House, Senate, and Presidency?",
+          "eventSubTitle": "In 2029",
+          "eventCategory": "Politics",
+          "marketTicker": "POWER-28-DH-DS-RP",
+          "yesSubTitle": "D-House, D-Senate, R-President",
+          "noSubTitle": "D-House, D-Senate, R-President",
+          "closeTime": "2029-11-07T15:00:00Z",
+          "yesAsk": 6,
+          "noAsk": 98,
+          "liquidity": 391840008,
+          "rules": "If the Democratic party wins the House, the Democratic party wins the Senate, and the Republican party wins the Presidency in the 2028 election, then the market resolves to Yes."
+        }
+      }
+    ]
+  }
+}

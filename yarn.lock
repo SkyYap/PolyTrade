@@ -2948,6 +2948,7 @@ __metadata:
     eslint-config-next: ~15.2.3
     eslint-config-prettier: ~10.1.1
     eslint-plugin-prettier: ~5.2.4
+    has-tostringtag: ^1.0.2
     kubo-rpc-client: ~5.0.2
     next: ~15.2.3
     next-nprogress-bar: ~2.3.13
@@ -2961,6 +2962,7 @@ __metadata:
     tailwindcss: 4.1.3
     type-fest: ~4.26.1
     typescript: ~5.8.2
+    use-debounce: ^10.0.5
     usehooks-ts: ~3.1.0
     vercel: ~39.1.3
     viem: 2.31.1
@@ -3488,11 +3490,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=13.7.0":
-  version: 24.2.0
-  resolution: "@types/node@npm:24.2.0"
+  version: 24.2.1
+  resolution: "@types/node@npm:24.2.1"
   dependencies:
     undici-types: ~7.10.0
-  checksum: f5abd0c74312e758711a51ab26858426a2fc6de4576d930759aa645b530db354116049497d0a20ed504ddfc6c3b85dee9253b9bae42be19f1a788c18393123e6
+  checksum: d7a12a35bcb6ade13787bd9b40d8f59b96170f228dfbd19326170b4df2a66ae86cf21eec6867e92f979405235431e580a9668b167aa3ce8e89531c00792551d3
   languageName: node
   linkType: hard
 
@@ -3504,20 +3506,20 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^20.10.7":
-  version: 20.19.9
-  resolution: "@types/node@npm:20.19.9"
+  version: 20.19.10
+  resolution: "@types/node@npm:20.19.10"
   dependencies:
     undici-types: ~6.21.0
-  checksum: 3e3948ee0507ad079c20a335c492e6a1638bc362534fd7083e1d54237e72cbd422a4f24f170669a998b66d17214c8a03ea52d4dc02ba61fc0aed252f667b270e
+  checksum: e294ec0d37ce5a1ae9e4c255ef837b584d793a4d2f89472d580024a4c008de0d5df595c919e96e95fcdf56bf55d567213f90c0c5874b369a30526bedfaa3f418
   languageName: node
   linkType: hard
 
 "@types/node@npm:~18.19.50":
-  version: 18.19.121
-  resolution: "@types/node@npm:18.19.121"
+  version: 18.19.122
+  resolution: "@types/node@npm:18.19.122"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 700fd19a909e11a7e7d06bf4fc2ee2e255566f723bf15b8dc436d32f5654da8ad7669fe6b28f8c71f1e2cebeb8be61636d70363e97809dd052dde0ea0e8c8193
+  checksum: 08f30c349d9719c6953789641da385e01af776107da4dd07820a5036c4ecbc24fd04036e7cc7d7036f275d6ae27bd0949c3423f7e1c0b8e512b728efa70951ea
   languageName: node
   linkType: hard
 
@@ -5289,9 +5291,9 @@ __metadata:
   linkType: hard
 
 "bowser@npm:^2.9.0":
-  version: 2.11.0
-  resolution: "bowser@npm:2.11.0"
-  checksum: 29c3f01f22e703fa6644fc3b684307442df4240b6e10f6cfe1b61c6ca5721073189ca97cdeedb376081148c8518e33b1d818a57f781d70b0b70e1f31fb48814f
+  version: 2.12.0
+  resolution: "bowser@npm:2.12.0"
+  checksum: 5cad256b1655a1d2b40d875e7ef505d33231ac415056a086a59a7983e3ca1427a463a324cb37743f48c6dd9a2d6fc01214a595922e090f203fd5c6137a5e05e8
   languageName: node
   linkType: hard
 
@@ -5338,16 +5340,16 @@ __metadata:
   linkType: hard
 
 "browserslist@npm:^4.24.4":
-  version: 4.25.1
-  resolution: "browserslist@npm:4.25.1"
+  version: 4.25.2
+  resolution: "browserslist@npm:4.25.2"
   dependencies:
-    caniuse-lite: ^1.0.30001726
-    electron-to-chromium: ^1.5.173
+    caniuse-lite: ^1.0.30001733
+    electron-to-chromium: ^1.5.199
     node-releases: ^2.0.19
     update-browserslist-db: ^1.1.3
   bin:
     browserslist: cli.js
-  checksum: 2a7e4317e809b09a436456221a1fcb8ccbd101bada187ed217f7a07a9e42ced822c7c86a0a4333d7d1b4e6e0c859d201732ffff1585d6bcacd8d226f6ddce7e3
+  checksum: 104f151563a797f95cda7ae862938939c41b89975960cba4615a389238cdd98dcf2ec4ea804c97374c39457f1f476bc58cfd2826fdccff5dba91e2ca45f5b1b3
   languageName: node
   linkType: hard
 
@@ -5509,7 +5511,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001579, caniuse-lite@npm:^1.0.30001702, caniuse-lite@npm:^1.0.30001726":
+"caniuse-lite@npm:^1.0.30001579, caniuse-lite@npm:^1.0.30001702, caniuse-lite@npm:^1.0.30001733":
   version: 1.0.30001733
   resolution: "caniuse-lite@npm:1.0.30001733"
   checksum: cf9d0701ef5617231072be7db74a077ac7a453c8672fe0f17df14aee73f8f253b42cd0d95e1f150ff73453edb115b7131e98b416070b798c8f41b25606f15292
@@ -6436,7 +6438,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-to-chromium@npm:^1.5.173":
+"electron-to-chromium@npm:^1.5.199":
   version: 1.5.199
   resolution: "electron-to-chromium@npm:1.5.199"
   checksum: e34ec35366a083b54dd489a23d2e7d7bf21f2971cf52a9f47bc63a64fdbc53adda1c4e15bd7bb33648f045e9f251fc9585e47651f760fdc11b4e9fb793b419ce
@@ -10581,11 +10583,11 @@ __metadata:
   linkType: hard
 
 "napi-postinstall@npm:^0.3.0":
-  version: 0.3.2
-  resolution: "napi-postinstall@npm:0.3.2"
+  version: 0.3.3
+  resolution: "napi-postinstall@npm:0.3.3"
   bin:
     napi-postinstall: lib/cli.js
-  checksum: 5c0483abe06e0b8dedd84c420764045aa9c384a192a518bfbffe42993c2aab0ac0605868cf9a0801b45f4443066cd431e47303273a1c9021ab6a1782cf8f8aa3
+  checksum: b18f36be61045821423f6fdfa68fcf27ef781d2f7d65ef16c611ee2d815439c7db0c2482f3982d26b0bdafbaaa0e8387cbc84172080079c506364686971d76fb
   languageName: node
   linkType: hard
 
@@ -14323,6 +14325,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 4da1c82d7a2409cee6c882748a40f4a083decf238308bf12c3d0166f0e338f8d512f37b8d11987eb5a421f14b9b5b991edf3e11ed25c3bb7a6559081f8359b44
+  languageName: node
+  linkType: hard
+
+"use-debounce@npm:^10.0.5":
+  version: 10.0.5
+  resolution: "use-debounce@npm:10.0.5"
+  peerDependencies:
+    react: "*"
+  checksum: 8aa1c5bc1fc725031f9e255eac2e333b1ee8b52c1acfa2e675f1e5eae2f81eb2edc35467a8c52c4200cb064af42723b5fb9e46274813cc77a29f1d3a2a8b017c
   languageName: node
   linkType: hard
 

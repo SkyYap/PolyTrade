@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
+import Link from "next/link";
 import {
   AdjustmentsHorizontalIcon,
   ArrowPathRoundedSquareIcon,
@@ -19,6 +20,7 @@ import {
   EyeIcon,
   FireIcon,
   MagnifyingGlassIcon,
+  PlusIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import { ArbitrageOpportunity, arbitrageService } from "~~/services/api/arbitrage";
@@ -749,20 +751,30 @@ const Markets: NextPage = () => {
           <p className="text-gray-600">Trade on real-world events across Polymarket and Kalshi</p>
         </div>
 
-        <div className="stats shadow mt-4 md:mt-0">
-          <div className="stat">
-            <div className="stat-figure text-primary">
-              <ChartBarIcon className="h-8 w-8" />
-            </div>
-            <div className="stat-title">
-              {viewMode === "events" ? "Total Events" : viewMode === "arbitrage" ? "Opportunities" : "Total Markets"}
-            </div>
-            <div className="stat-value text-primary">
-              {viewMode === "events"
-                ? events.length
-                : viewMode === "arbitrage"
-                  ? arbitrageOpportunities.length
-                  : markets.length}
+        <div className="flex items-center gap-4 mt-4 md:mt-0">
+          {/* Create Market Button */}
+          {connectedAddress && (
+            <Link href="/markets/create" className="btn btn-primary">
+              <PlusIcon className="h-5 w-5" />
+              Create Market
+            </Link>
+          )}
+
+          <div className="stats shadow">
+            <div className="stat">
+              <div className="stat-figure text-primary">
+                <ChartBarIcon className="h-8 w-8" />
+              </div>
+              <div className="stat-title">
+                {viewMode === "events" ? "Total Events" : viewMode === "arbitrage" ? "Opportunities" : "Total Markets"}
+              </div>
+              <div className="stat-value text-primary">
+                {viewMode === "events"
+                  ? events.length
+                  : viewMode === "arbitrage"
+                    ? arbitrageOpportunities.length
+                    : markets.length}
+              </div>
             </div>
           </div>
         </div>

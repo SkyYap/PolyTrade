@@ -1,6 +1,5 @@
 const axios = require('axios');
 const asyncHandler = require('../middleware/asyncHandler');
-const { cyber } = require('viem/chains');
 
 const KALSHI_BASE_URL = 'https://api.elections.kalshi.com/trade-api/v2';
 

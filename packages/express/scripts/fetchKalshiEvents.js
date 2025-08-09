@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const BASE_URL = 'http://localhost:5000/api/kalshi';
 const KALSHI_API_URL = 'https://api.elections.kalshi.com/trade-api/v2';
-const LIMIT = 10;
+const LIMIT = 100;
 const MAX_REQUESTS = 10;
 
 // Configuration for different data types

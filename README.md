@@ -6,6 +6,7 @@
   <a href="#features">Features</a> |
   <a href="#quickstart">Quick Start</a>
 </h4>
+![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
 
 🎯 **Cross-Platform Prediction Market Arbitrage Platform** - An advanced DeFi application that identifies and executes arbitrage opportunities across multiple prediction market platforms including Polymarket, Kalshi, and PredictIt.
 

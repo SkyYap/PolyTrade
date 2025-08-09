@@ -8,7 +8,7 @@
 </h4>
 
 
-![Debug Contracts tab](packages\nextjs\components\assets\dashboard.png)
+![Debug Contracts tab](https://github.com/SkyYap/PolyTrade/blob/main/packages/nextjs/components/assets/dashboard.png)
 
 
 🎯 **Cross-Platform Prediction Market Arbitrage Platform** - An advanced DeFi application that identifies and executes arbitrage opportunities across multiple prediction market platforms including Polymarket, Kalshi, and PredictIt.

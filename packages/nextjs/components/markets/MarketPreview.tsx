@@ -46,14 +46,6 @@ export const MarketPreview: React.FC<MarketPreviewProps> = ({
     return diffDays;
   };
 
-  const getPlatformColors = () => {
-    return data.platform === "polymarket" 
-      ? { bg: "bg-primary/10", text: "text-primary", badge: "badge-primary" }
-      : { bg: "bg-secondary/10", text: "text-secondary", badge: "badge-secondary" };
-  };
-
-  const platformColors = getPlatformColors();
-
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -85,11 +77,11 @@ export const MarketPreview: React.FC<MarketPreviewProps> = ({
       {/* Market Card Preview */}
       <div className="card bg-base-100 shadow-xl">
         <div className="card-body">
-          {/* Platform & Status */}
+          {/* Status */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className={`badge ${platformColors.badge} badge-sm`}>
-                {data.platform}
+              <span className="badge badge-primary badge-sm">
+                PolyTrade
               </span>
               <span className="badge badge-outline badge-sm">
                 {data.category}
@@ -268,10 +260,8 @@ export const MarketPreview: React.FC<MarketPreviewProps> = ({
               <span className="font-medium">~$5-15 (gas fees)</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span>Platform Listing Fee</span>
-              <span className="font-medium">
-                {data.platform === "polymarket" ? "Free" : "~$10-50"}
-              </span>
+              <span>PolyTrade Platform Fee</span>
+              <span className="font-medium">Free</span>
             </div>
             <div className="flex justify-between text-sm">
               <span>Initial Liquidity (optional)</span>
@@ -280,9 +270,7 @@ export const MarketPreview: React.FC<MarketPreviewProps> = ({
             <div className="divider my-2"></div>
             <div className="flex justify-between font-semibold">
               <span>Total Platform Costs</span>
-              <span className="text-primary">
-                {data.platform === "polymarket" ? "~$5-15" : "~$15-65"}
-              </span>
+              <span className="text-primary">~$5-15</span>
             </div>
           </div>
         </div>

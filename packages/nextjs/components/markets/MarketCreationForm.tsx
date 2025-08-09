@@ -205,71 +205,94 @@ export const MarketCreationForm: React.FC<MarketCreationFormProps> = ({
   const isFormValid = validation?.isValid && data.question && data.category && data.endDate;
 
   return (
-    <div className="card bg-base-100 shadow-xl">
-      <div className="card-body">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-            <DocumentTextIcon className="w-5 h-5 text-primary" />
+    <div className="card bg-gradient-to-br from-base-100 to-base-200 border border-base-300 shadow-2xl">
+      <div className="card-body p-8">
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
+            <DocumentTextIcon className="w-7 h-7 text-white" />
           </div>
-          <h2 className="card-title text-2xl">Market Details</h2>
+          <div>
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Market Details
+            </h2>
+            <p className="text-base-content/60 text-sm">Configure your prediction market</p>
+          </div>
         </div>
 
-        <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }} className="space-y-6">
-          {/* Question */}
+        <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }} className="space-y-8">
+          {/* Enhanced Question Section */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold">Market Question *</span>
-              <span className="label-text-alt">{data.question.length}/200</span>
+              <span className="label-text font-bold text-lg flex items-center gap-2">
+                <span className="w-6 h-6 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <span className="text-primary text-xs">?</span>
+                </span>
+                Market Question *
+              </span>
+              <span className="label-text-alt font-medium">
+                <span className={data.question.length > 180 ? 'text-warning' : 'text-base-content/60'}>
+                  {data.question.length}
+                </span>
+                /200
+              </span>
             </label>
-            <textarea
-              className={`textarea textarea-bordered h-24 ${
-                data.question && validation && !validation.isValid ? "textarea-error" : ""
-              }`}
-              placeholder="e.g., Will Bitcoin reach $100,000 by December 31, 2025?"
-              value={data.question}
-              onChange={(e) => onChange({ question: e.target.value })}
-              maxLength={200}
-            />
+            <div className="relative">
+              <textarea
+                className={`textarea textarea-bordered h-28 resize-none text-base leading-relaxed transition-all duration-200 ${
+                  data.question && validation && !validation.isValid 
+                    ? "textarea-error focus:border-error" 
+                    : "focus:border-primary focus:outline-primary/20"
+                }`}
+                placeholder="e.g., Will Bitcoin reach $100,000 by December 31, 2025?"
+                value={data.question}
+                onChange={(e) => onChange({ question: e.target.value })}
+                maxLength={200}
+              />
+              <div className="absolute bottom-3 right-3">
+                {isValidating ? (
+                  <div className="loading loading-spinner loading-xs text-primary"></div>
+                ) : validation?.isValid ? (
+                  <div className="w-5 h-5 bg-success rounded-full flex items-center justify-center">
+                    <span className="text-success-content text-xs">✓</span>
+                  </div>
+                ) : null}
+              </div>
+            </div>
             <label className="label">
-              <span className="label-text-alt text-xs text-base-content/60">
-                Be specific and unambiguous. Include clear resolution criteria.
+              <span className="label-text-alt text-sm text-base-content/60 flex items-start gap-2">
+                <span className="text-info">💡</span>
+                Be specific and unambiguous. Include clear resolution criteria for best results.
               </span>
             </label>
           </div>
 
-          {/* Platform & Category Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-semibold">Platform *</span>
-              </label>
-              <select
-                className="select select-bordered"
-                value={data.platform}
-                onChange={(e) => onChange({ platform: e.target.value as "polymarket" | "kalshi" })}
-              >
-                <option value="polymarket">Polymarket</option>
-                <option value="kalshi">Kalshi</option>
-              </select>
-            </div>
-
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-semibold">Category *</span>
-              </label>
-              <select
-                className="select select-bordered"
-                value={data.category}
-                onChange={(e) => onChange({ category: e.target.value })}
-              >
-                <option value="">Select a category</option>
-                {CATEGORIES.map((category) => (
-                  <option key={category} value={category.toLowerCase()}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </div>
+          {/* Category Selection */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-bold text-lg flex items-center gap-2">
+                <span className="w-6 h-6 bg-secondary/10 rounded-lg flex items-center justify-center">
+                  <span className="text-secondary text-xs">📁</span>
+                </span>
+                Market Category *
+              </span>
+            </label>
+            <select
+              className="select select-bordered text-base focus:border-secondary focus:outline-secondary/20 transition-all duration-200"
+              value={data.category}
+              onChange={(e) => onChange({ category: e.target.value })}
+            >
+              <option value="">Select a category...</option>
+              {CATEGORIES.map((category) => (
+                <option key={category} value={category.toLowerCase()}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            <label className="label">
+              <span className="label-text-alt text-sm text-base-content/60">
+                Choose the most relevant category for your market
+              </span>
+            </label>
           </div>
 
           {/* Outcome Type */}
@@ -485,25 +508,55 @@ export const MarketCreationForm: React.FC<MarketCreationFormProps> = ({
             </div>
           </div>
 
-          {/* Submit Button */}
-          <div className="card-actions justify-end pt-4">
-            <button
-              type="submit"
-              disabled={!isFormValid || isValidating}
-              className="btn btn-primary btn-lg"
-            >
-              {isValidating ? (
-                <>
-                  <span className="loading loading-spinner loading-sm"></span>
-                  Validating...
-                </>
-              ) : (
-                <>
-                  <BoltIcon className="w-5 h-5" />
-                  Preview Market
-                </>
-              )}
-            </button>
+          {/* Enhanced Submit Button */}
+          <div className="pt-6 border-t border-base-300">
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+              <div className="text-sm text-base-content/60">
+                {validation?.isValid ? (
+                  <span className="flex items-center gap-2 text-success">
+                    <span className="w-4 h-4 bg-success rounded-full flex items-center justify-center">
+                      <span className="text-success-content text-xs">✓</span>
+                    </span>
+                    Ready to preview
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-2">
+                    <span className="w-4 h-4 bg-base-300 rounded-full flex items-center justify-center">
+                      <span className="text-base-content/60 text-xs">•</span>
+                    </span>
+                    Complete form to continue
+                  </span>
+                )}
+              </div>
+              
+              <button
+                type="submit"
+                disabled={!isFormValid || isValidating}
+                className={`btn btn-lg shadow-lg transition-all duration-200 ${
+                  isFormValid && !isValidating 
+                    ? 'btn-primary hover:shadow-xl hover:scale-105' 
+                    : 'btn-disabled'
+                }`}
+              >
+                {isValidating ? (
+                  <>
+                    <span className="loading loading-spinner loading-sm"></span>
+                    Validating...
+                  </>
+                ) : isFormValid ? (
+                  <>
+                    <BoltIcon className="w-5 h-5" />
+                    Preview Market
+                    <span className="badge badge-accent badge-sm ml-2">Next</span>
+                  </>
+                ) : (
+                  <>
+                    <DocumentTextIcon className="w-5 h-5" />
+                    Complete Form
+                  </>
+                )}
+              </button>
+            </div>
           </div>
         </form>
       </div>

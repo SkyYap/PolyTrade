@@ -4,6 +4,833 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    MarketCreationContract: {
+      address: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "_owner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "fallback",
+          stateMutability: "payable",
+        },
+        {
+          type: "receive",
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "MAXIMUM_RISK_THRESHOLD",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "MINIMUM_PROFIT_THRESHOLD",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "arbitrageOpportunities",
+          inputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "id",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "polymarketMarketId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "kalshiMarketId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "profitPotential",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "riskLevel",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "similarityScore",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "isActive",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "createdAt",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "arbitrageType",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "calculateRiskLevel",
+          inputs: [
+            {
+              name: "_profitPotential",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_similarityScore",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "riskLevel",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "pure",
+        },
+        {
+          type: "function",
+          name: "categoryMarkets",
+          inputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "createArbitrageOpportunity",
+          inputs: [
+            {
+              name: "_polymarketId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_kalshiId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_profitPotential",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_similarityScore",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_arbitrageType",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [
+            {
+              name: "opportunityId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "createMarket",
+          inputs: [
+            {
+              name: "_question",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_platform",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_category",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_endDate",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_liquidityThreshold",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "marketId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "deactivateArbitrageOpportunity",
+          inputs: [
+            {
+              name: "_opportunityId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "deactivateMarket",
+          inputs: [
+            {
+              name: "_marketId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "emergencyWithdraw",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "executeArbitrage",
+          inputs: [
+            {
+              name: "_opportunityId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "getActiveArbitrageOpportunities",
+          inputs: [],
+          outputs: [
+            {
+              name: "activeOpportunities",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getArbitrageOpportunity",
+          inputs: [
+            {
+              name: "_opportunityId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "opportunity",
+              type: "tuple",
+              internalType:
+                "struct MarketCreationContract.ArbitrageOpportunity",
+              components: [
+                {
+                  name: "id",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "polymarketMarketId",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "kalshiMarketId",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "profitPotential",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "riskLevel",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "similarityScore",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "isActive",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "createdAt",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "arbitrageType",
+                  type: "string",
+                  internalType: "string",
+                },
+              ],
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getCategoryMarkets",
+          inputs: [
+            {
+              name: "_category",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [
+            {
+              name: "marketIds",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getContractStats",
+          inputs: [],
+          outputs: [
+            {
+              name: "stats",
+              type: "uint256[3]",
+              internalType: "uint256[3]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getMarket",
+          inputs: [
+            {
+              name: "_marketId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "market",
+              type: "tuple",
+              internalType: "struct MarketCreationContract.Market",
+              components: [
+                {
+                  name: "id",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "question",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "platform",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "creator",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "createdAt",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "isActive",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "liquidityThreshold",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "category",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "endDate",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+              ],
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getUserMarkets",
+          inputs: [
+            {
+              name: "_user",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "marketIds",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "marketHashes",
+          inputs: [
+            {
+              name: "",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "markets",
+          inputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "id",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "question",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "platform",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "creator",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "createdAt",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "isActive",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "liquidityThreshold",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "category",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "endDate",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "totalArbitrageOpportunities",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "totalMarketsCreated",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "userMarkets",
+          inputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "validateMarket",
+          inputs: [
+            {
+              name: "_question",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_endDate",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_liquidityThreshold",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "validation",
+              type: "tuple",
+              internalType: "struct MarketCreationContract.MarketValidation",
+              components: [
+                {
+                  name: "isValid",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "issues",
+                  type: "string[]",
+                  internalType: "string[]",
+                },
+                {
+                  name: "confidenceScore",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "meetsLiquidityRequirement",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "hasReasonableTimeframe",
+                  type: "bool",
+                  internalType: "bool",
+                },
+              ],
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "event",
+          name: "ArbitrageExecuted",
+          inputs: [
+            {
+              name: "opportunityId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "executor",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+            {
+              name: "actualProfit",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ArbitrageOpportunityDetected",
+          inputs: [
+            {
+              name: "opportunityId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "polymarketMarketId",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+            {
+              name: "kalshiMarketId",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+            {
+              name: "profitPotential",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+            {
+              name: "riskLevel",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+            {
+              name: "arbitrageType",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "MarketCreated",
+          inputs: [
+            {
+              name: "marketId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "question",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+            {
+              name: "platform",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+            {
+              name: "creator",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "category",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+            {
+              name: "endDate",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "MarketValidated",
+          inputs: [
+            {
+              name: "marketId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "isValid",
+              type: "bool",
+              indexed: false,
+              internalType: "bool",
+            },
+            {
+              name: "confidenceScore",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deployedOnBlock: 1,
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;

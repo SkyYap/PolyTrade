@@ -11,8 +11,10 @@ import {
   EyeIcon,
   PlusIcon,
   TrophyIcon,
+  ArrowPathIcon,
 } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/scaffold-eth";
+import { portfolioService, type PortfolioPosition, type ArbitrageExecution } from "~~/services/api/portfolio";
 
 interface Position {
   id: string;
@@ -126,31 +128,77 @@ const mockTransactions: Transaction[] = [
 const Portfolio: NextPage = () => {
   const { address: connectedAddress } = useAccount();
   const { data: balance } = useBalance({ address: connectedAddress });
-  const [positions, setPositions] = useState<Position[]>([]);
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-  const [activeTab, setActiveTab] = useState<"positions" | "history">("positions");
+  const [positions, setPositions] = useState<PortfolioPosition[]>([]);
+  const [executions, setExecutions] = useState<ArbitrageExecution[]>([]);
+  const [activeTab, setActiveTab] = useState<"positions" | "arbitrage" | "history">("positions");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate API call
+    // Fetch portfolio data
     const fetchPortfolioData = async () => {
       setLoading(true);
-      // TODO: Replace with actual API calls to your Express backend
-      setTimeout(() => {
-        setPositions(mockPositions);
-        setTransactions(mockTransactions);
+      try {
+        if (connectedAddress) {
+          // Load positions from portfolio service
+          const portfolioPositions = portfolioService.getPositions();
+          setPositions(portfolioPositions);
+          
+          // Load execution history
+          const executionHistory = await portfolioService.getExecutionHistory();
+          setExecutions(executionHistory);
+        }
+      } catch (error) {
+        console.error("Error loading portfolio data:", error);
+      } finally {
         setLoading(false);
-      }, 1000);
+      }
     };
 
-    if (connectedAddress) {
-      fetchPortfolioData();
-    }
+    fetchPortfolioData();
   }, [connectedAddress]);
+
+  const refreshPortfolio = async () => {
+    setLoading(true);
+    try {
+      const portfolioPositions = portfolioService.getPositions();
+      setPositions(portfolioPositions);
+      
+      const executionHistory = await portfolioService.getExecutionHistory();
+      setExecutions(executionHistory);
+    } catch (error) {
+      console.error("Error refreshing portfolio:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const clearPortfolio = () => {
+    if (confirm("Are you sure you want to clear all portfolio data? This action cannot be undone.")) {
+      portfolioService.clearPortfolio();
+      setPositions([]);
+      setExecutions([]);
+    }
+  };
+
+  const resetExecution = async (opportunityId: string) => {
+    if (confirm("Are you sure you want to reset this execution? This will remove related positions.")) {
+      try {
+        await portfolioService.removeExecutionFromPortfolio(opportunityId);
+        await refreshPortfolio();
+        alert("Execution reset successfully!");
+      } catch (error) {
+        console.error("Error resetting execution:", error);
+        alert("Failed to reset execution. Please try again.");
+      }
+    }
+  };
 
   const totalValue = positions.reduce((sum, pos) => sum + pos.value, 0);
   const totalPnL = positions.reduce((sum, pos) => sum + pos.pnl, 0);
   const totalPnLPercent = totalValue > 0 ? (totalPnL / (totalValue - totalPnL)) * 100 : 0;
+  const activePositions = positions.filter(p => p.status === "active").length;
+  const arbitragePositions = positions.filter(p => p.strategy?.arbitrageType).length;
+  const totalArbitrageProfit = executions.reduce((sum, exec) => sum + exec.expectedProfit, 0);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("en-US", {
@@ -200,14 +248,26 @@ const Portfolio: NextPage = () => {
           </div>
         </div>
 
-        <Link href="/markets" className="btn btn-primary mt-4 md:mt-0">
-          <PlusIcon className="h-4 w-4" />
-          Browse Markets
-        </Link>
+        <div className="flex gap-2 mt-4 md:mt-0">
+          <button onClick={refreshPortfolio} className="btn btn-outline" disabled={loading}>
+            <ArrowPathIcon className="h-4 w-4" />
+            Refresh
+          </button>
+          <button onClick={clearPortfolio} className="btn btn-error btn-outline" disabled={loading}>
+            Clear Portfolio
+          </button>
+          <Link href="/arbitrage" className="btn btn-secondary">
+            Arbitrage
+          </Link>
+          <Link href="/markets" className="btn btn-primary">
+            <PlusIcon className="h-4 w-4" />
+            Browse Markets
+          </Link>
+        </div>
       </div>
 
       {/* Portfolio Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
         <div className="stat bg-base-100 rounded-lg shadow-lg">
           <div className="stat-figure text-primary">
             <CurrencyDollarIcon className="h-8 w-8" />
@@ -245,7 +305,17 @@ const Portfolio: NextPage = () => {
             <ClockIcon className="h-8 w-8" />
           </div>
           <div className="stat-title">Active Positions</div>
-          <div className="stat-value text-accent">{positions.filter(p => p.status === "active").length}</div>
+          <div className="stat-value text-accent">{activePositions}</div>
+          <div className="stat-desc">{arbitragePositions} arbitrage</div>
+        </div>
+
+        <div className="stat bg-base-100 rounded-lg shadow-lg">
+          <div className="stat-figure text-warning">
+            <ArrowPathIcon className="h-8 w-8" />
+          </div>
+          <div className="stat-title">Arbitrage Profit</div>
+          <div className="stat-value text-warning">{formatCurrency(totalArbitrageProfit)}</div>
+          <div className="stat-desc">{executions.length} executions</div>
         </div>
       </div>
 
@@ -256,6 +326,12 @@ const Portfolio: NextPage = () => {
           onClick={() => setActiveTab("positions")}
         >
           Positions
+        </button>
+        <button
+          className={`tab ${activeTab === "arbitrage" ? "tab-active" : ""}`}
+          onClick={() => setActiveTab("arbitrage")}
+        >
+          Arbitrage History
         </button>
         <button
           className={`tab ${activeTab === "history" ? "tab-active" : ""}`}
@@ -283,6 +359,7 @@ const Portfolio: NextPage = () => {
                 <thead>
                   <tr>
                     <th>Market</th>
+                    <th>Platform</th>
                     <th>Position</th>
                     <th>Shares</th>
                     <th>Avg Price</th>
@@ -301,7 +378,17 @@ const Portfolio: NextPage = () => {
                             {position.question}
                           </div>
                           <div className="text-sm text-gray-500">{position.category}</div>
+                          {position.strategy && (
+                            <div className="badge badge-xs badge-outline mt-1">
+                              {position.strategy.arbitrageType}
+                            </div>
+                          )}
                         </div>
+                      </td>
+                      <td>
+                        <span className={`badge ${position.platform === "polymarket" ? "badge-primary" : "badge-secondary"}`}>
+                          {position.platform.toUpperCase()}
+                        </span>
                       </td>
                       <td>
                         <span className={`badge ${position.position === "YES" ? "badge-success" : "badge-error"}`}>
@@ -326,8 +413,94 @@ const Portfolio: NextPage = () => {
                           <button className="btn btn-xs btn-ghost">
                             <EyeIcon className="h-3 w-3" />
                           </button>
-                          <button className="btn btn-xs btn-error btn-outline">Sell</button>
+                          <button 
+                            className="btn btn-xs btn-error btn-outline"
+                            onClick={() => portfolioService.removePosition(position.id).then(() => refreshPortfolio())}
+                          >
+                            Close
+                          </button>
                         </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Arbitrage History Tab */}
+      {activeTab === "arbitrage" && (
+        <div>
+          {executions.length === 0 ? (
+            <div className="text-center py-12">
+              <ArrowPathIcon className="h-16 w-16 mx-auto text-gray-400 mb-4" />
+              <h3 className="text-xl font-medium text-gray-600 mb-2">No arbitrage executions yet</h3>
+              <p className="text-gray-500 mb-6">Your arbitrage executions will appear here.</p>
+              <Link href="/arbitrage" className="btn btn-primary">
+                Browse Arbitrage Opportunities
+              </Link>
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="table table-zebra w-full">
+                <thead>
+                  <tr>
+                    <th>Opportunity ID</th>
+                    <th>Investment</th>
+                    <th>Expected Profit</th>
+                    <th>Status</th>
+                    <th>Executed At</th>
+                    <th>Positions</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {executions.map(execution => (
+                    <tr key={execution.id}>
+                      <td>
+                        <div className="font-mono text-xs">{execution.opportunityId}</div>
+                      </td>
+                      <td>{formatCurrency(execution.totalInvestment)}</td>
+                      <td className="text-success">{formatCurrency(execution.expectedProfit)}</td>
+                      <td>
+                        <span
+                          className={`badge badge-sm ${
+                            execution.status === "completed"
+                              ? "badge-success"
+                              : execution.status === "executing"
+                                ? "badge-warning"
+                                : execution.status === "failed"
+                                  ? "badge-error"
+                                  : "badge-info"
+                          }`}
+                        >
+                          {execution.status}
+                        </span>
+                      </td>
+                      <td>{formatDate(execution.executedAt)}</td>
+                      <td>
+                        <div className="space-y-1">
+                          {execution.polymarketPosition && (
+                            <div className="badge badge-primary badge-xs">
+                              PM: {execution.polymarketPosition.position} {execution.polymarketPosition.shares}
+                            </div>
+                          )}
+                          {execution.kalshiPosition && (
+                            <div className="badge badge-secondary badge-xs">
+                              Kalshi: {execution.kalshiPosition.position} {execution.kalshiPosition.shares}
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                      <td>
+                        <button 
+                          className="btn btn-xs btn-warning"
+                          onClick={() => resetExecution(execution.opportunityId)}
+                        >
+                          Reset
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -341,7 +514,7 @@ const Portfolio: NextPage = () => {
       {/* Trading History Tab */}
       {activeTab === "history" && (
         <div>
-          {transactions.length === 0 ? (
+          {mockTransactions.length === 0 ? (
             <div className="text-center py-12">
               <ClockIcon className="h-16 w-16 mx-auto text-gray-400 mb-4" />
               <h3 className="text-xl font-medium text-gray-600 mb-2">No trading history</h3>
@@ -363,7 +536,7 @@ const Portfolio: NextPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {transactions.map(tx => (
+                  {mockTransactions.map((tx: any) => (
                     <tr key={tx.id}>
                       <td>
                         <span className={`badge ${tx.type === "buy" ? "badge-success" : "badge-warning"}`}>

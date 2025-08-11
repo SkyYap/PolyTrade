@@ -8,6 +8,7 @@ import {
   ArrowPathIcon,
   ArrowTrendingUpIcon,
   BoltIcon,
+  CheckCircleIcon,
   CurrencyDollarIcon,
   ExclamationTriangleIcon,
   FireIcon,
@@ -15,6 +16,7 @@ import {
   MagnifyingGlassIcon,
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
+import { portfolioService, type ArbitrageExecution } from "~~/services/api/portfolio";
 
 // Define the data structure based on the JSON file
 interface ArbitrageOpportunity {
@@ -74,6 +76,9 @@ const Arbitrage: NextPage = () => {
   const [lastUpdated, setLastUpdated] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const opportunitiesPerPage = 9;
+  const [executingOpportunities, setExecutingOpportunities] = useState<Set<string>>(new Set());
+  const [executedOpportunities, setExecutedOpportunities] = useState<Set<string>>(new Set());
+  const [executionResults, setExecutionResults] = useState<Map<string, ArbitrageExecution>>(new Map());
 
   useEffect(() => {
     loadArbitrageData();
@@ -230,6 +235,110 @@ const Arbitrage: NextPage = () => {
     setCurrentPage(1);
   }, [searchTerm, similarityFilter, minScore, sortBy]);
 
+  // Load existing executions on mount
+  useEffect(() => {
+    const loadExecutions = async () => {
+      try {
+        const executions = await portfolioService.getExecutionHistory();
+        const executedIds = new Set(executions.map(exec => exec.opportunityId));
+        setExecutedOpportunities(executedIds);
+        
+        const resultsMap = new Map();
+        executions.forEach(exec => resultsMap.set(exec.opportunityId, exec));
+        setExecutionResults(resultsMap);
+      } catch (error) {
+        console.error("Error loading executions:", error);
+      }
+    };
+
+    if (connectedAddress) {
+      loadExecutions();
+    }
+  }, [connectedAddress]);
+
+  const executeArbitrage = async (opportunity: ArbitrageOpportunity) => {
+    if (!connectedAddress) {
+      alert("Please connect your wallet first");
+      return;
+    }
+
+    const opportunityId = `${opportunity.polymarket.marketId}_${opportunity.kalshi.eventTicker}`;
+    
+    try {
+      setExecutingOpportunities(prev => new Set([...prev, opportunityId]));
+
+      // Execute the arbitrage
+      const execution = await portfolioService.executeArbitrage(opportunity);
+      
+      // Update states
+      setExecutedOpportunities(prev => new Set([...prev, opportunityId]));
+      setExecutionResults(prev => new Map([...prev, [opportunityId, execution]]));
+      
+      // Show success message
+      alert(`Arbitrage executed successfully! Expected profit: $${execution.expectedProfit.toFixed(2)}`);
+      
+    } catch (error) {
+      console.error("Error executing arbitrage:", error);
+      alert("Failed to execute arbitrage. Please try again.");
+    } finally {
+      setExecutingOpportunities(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(opportunityId);
+        return newSet;
+      });
+    }
+  };
+
+  const resetExecution = async (opportunity: ArbitrageOpportunity) => {
+    const opportunityId = `${opportunity.polymarket.marketId}_${opportunity.kalshi.eventTicker}`;
+    
+    if (confirm("Are you sure you want to reset this execution? This will remove it from your portfolio.")) {
+      try {
+        // Remove from executed opportunities
+        setExecutedOpportunities(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(opportunityId);
+          return newSet;
+        });
+        
+        // Remove from execution results
+        setExecutionResults(prev => {
+          const newMap = new Map(prev);
+          newMap.delete(opportunityId);
+          return newMap;
+        });
+        
+        // Remove related positions from portfolio
+        await portfolioService.removeExecutionFromPortfolio(opportunityId);
+        
+        alert("Execution reset successfully!");
+      } catch (error) {
+        console.error("Error resetting execution:", error);
+        alert("Failed to reset execution. Please try again.");
+      }
+    }
+  };
+
+  const resetAllExecutions = async () => {
+    if (confirm("Are you sure you want to reset ALL executions? This will remove all arbitrage positions from your portfolio.")) {
+      try {
+        // Clear all executed opportunities
+        setExecutedOpportunities(new Set());
+        
+        // Clear all execution results
+        setExecutionResults(new Map());
+        
+        // Clear portfolio
+        portfolioService.clearPortfolio();
+        
+        alert("All executions reset successfully!");
+      } catch (error) {
+        console.error("Error resetting all executions:", error);
+        alert("Failed to reset executions. Please try again.");
+      }
+    }
+  };
+
   const getSimilarityColor = (score: number) => {
     if (score >= 0.95) return "badge-success";
     if (score >= 0.8) return "badge-warning";
@@ -267,109 +376,152 @@ const Arbitrage: NextPage = () => {
     }).format(amount);
   };
 
-  const ArbitrageCard = ({ opportunity }: { opportunity: ArbitrageOpportunity }) => (
-    <div className="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-300 hover:border-primary/30">
-      <div className="card-body p-6">
-        {/* Header */}
-        <div className="flex justify-between items-start mb-4">
-          <div className="flex items-center gap-2">
-            <span className={`badge ${getSimilarityColor(opportunity.score)} gap-1`}>
-              {getSimilarityLabel(opportunity.score)}
-            </span>
-            <span className="badge badge-primary">{(opportunity.score * 100).toFixed(1)}%</span>
-            {opportunity.score >= 0.8 && (
-              <span className="badge badge-error gap-1">
-                <FireIcon className="h-3 w-3" />
-                HOT
+  const ArbitrageCard = ({ opportunity }: { opportunity: ArbitrageOpportunity }) => {
+    const opportunityId = `${opportunity.polymarket.marketId}_${opportunity.kalshi.eventTicker}`;
+    const isExecuting = executingOpportunities.has(opportunityId);
+    const isExecuted = executedOpportunities.has(opportunityId);
+    const executionResult = executionResults.get(opportunityId);
+
+    return (
+      <div className="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-300 hover:border-primary/30">
+        <div className="card-body p-6">
+          {/* Header */}
+          <div className="flex justify-between items-start mb-4">
+            <div className="flex items-center gap-2">
+              <span className={`badge ${getSimilarityColor(opportunity.score)} gap-1`}>
+                {getSimilarityLabel(opportunity.score)}
               </span>
-            )}
-          </div>
-          <div className="text-sm text-gray-500">{formatDate(opportunity.polymarket.endDate)}</div>
-        </div>
-
-        {/* Market Questions */}
-        <div className="space-y-3 mb-4">
-          <div className="bg-primary/5 p-3 rounded-lg border border-primary/20">
-            <div className="flex items-center gap-2 mb-1">
-              <div className="w-3 h-3 bg-primary rounded-full"></div>
-              <span className="text-xs font-medium text-primary">POLYMARKET</span>
+              <span className="badge badge-primary">{(opportunity.score * 100).toFixed(1)}%</span>
+              {opportunity.score >= 0.8 && (
+                <span className="badge badge-error gap-1">
+                  <FireIcon className="h-3 w-3" />
+                  HOT
+                </span>
+              )}
+              {isExecuted && (
+                <span className="badge badge-success gap-1">
+                  <CheckCircleIcon className="h-3 w-3" />
+                  EXECUTED
+                </span>
+              )}
             </div>
-            <p className="text-sm font-medium line-clamp-2">
-              {opportunity.polymarket.marketQuestion}
-            </p>
-            <div className="flex justify-between items-center mt-2 text-xs">
-              <span>ID: {opportunity.polymarket.marketId}</span>
-              <span className="text-gray-500">
-                Liquidity: {formatCurrency(opportunity.polymarket.liquidity)}
-              </span>
-            </div>
+            <div className="text-sm text-gray-500">{formatDate(opportunity.polymarket.endDate)}</div>
           </div>
 
-          <div className="bg-secondary/5 p-3 rounded-lg border border-secondary/20">
-            <div className="flex items-center gap-2 mb-1">
-              <div className="w-3 h-3 bg-secondary rounded-full"></div>
-              <span className="text-xs font-medium text-secondary">KALSHI</span>
-            </div>
-            <p className="text-sm font-medium line-clamp-2">{opportunity.kalshi.eventTitle}</p>
-            <div className="flex justify-between items-center mt-2 text-xs">
-              <span>Ticker: {opportunity.kalshi.eventTicker}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Similarity Details */}
-        <div className="bg-success/5 p-3 rounded-lg border border-success/20 mb-4">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-success">Similarity Score</span>
-            <span className="text-lg font-bold text-success">
-              {(opportunity.score * 100).toFixed(1)}%
-            </span>
-          </div>
-          <div className="text-xs text-gray-600 space-y-1">
-            {opportunity.factors.map((factor, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div className="w-1 h-1 bg-success rounded-full"></div>
-                {factor}
+          {/* Execution Result */}
+          {isExecuted && executionResult && (
+            <div className="bg-success/10 p-3 rounded-lg border border-success/20 mb-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-success">Execution Completed</span>
+                <span className="text-sm font-bold text-success">
+                  Expected Profit: ${executionResult.expectedProfit.toFixed(2)}
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
+              <div className="text-xs text-gray-600">
+                Investment: ${executionResult.totalInvestment.toFixed(2)} • 
+                Status: {executionResult.status} • 
+                Executed: {new Date(executionResult.executedAt).toLocaleString()}
+              </div>
+            </div>
+          )}
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 gap-4 mb-4 text-center">
-          <div>
-            <div className="text-xs text-gray-500">Liquidity</div>
-            <div className="font-semibold">{formatCurrency(opportunity.polymarket.liquidity)}</div>
-          </div>
-          <div>
-            <div className="text-xs text-gray-500">Tags</div>
-            <div className="font-semibold text-xs">
-              {opportunity.polymarket.tags.slice(0, 2).join(", ")}
-              {opportunity.polymarket.tags.length > 2 && "..."}
+          {/* Market Questions */}
+          <div className="space-y-3 mb-4">
+            <div className="bg-primary/5 p-3 rounded-lg border border-primary/20">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
+                <span className="text-xs font-medium text-primary">POLYMARKET</span>
+              </div>
+              <p className="text-sm font-medium line-clamp-2">
+                {opportunity.polymarket.marketQuestion}
+              </p>
+              <div className="flex justify-between items-center mt-2 text-xs">
+                <span>ID: {opportunity.polymarket.marketId}</span>
+                <span className="text-gray-500">
+                  Liquidity: {formatCurrency(opportunity.polymarket.liquidity)}
+                </span>
+              </div>
+            </div>
+
+            <div className="bg-secondary/5 p-3 rounded-lg border border-secondary/20">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                <span className="text-xs font-medium text-secondary">KALSHI</span>
+              </div>
+              <p className="text-sm font-medium line-clamp-2">{opportunity.kalshi.eventTitle}</p>
+              <div className="flex justify-between items-center mt-2 text-xs">
+                <span>Ticker: {opportunity.kalshi.eventTicker}</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Actions */}
-        <div className="card-actions justify-between items-center">
-          <button className="btn btn-ghost btn-sm">
-            <InformationCircleIcon className="h-4 w-4" />
-            Details
-          </button>
+          {/* Similarity Details */}
+          <div className="bg-success/5 p-3 rounded-lg border border-success/20 mb-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-medium text-success">Similarity Score</span>
+              <span className="text-lg font-bold text-success">
+                {(opportunity.score * 100).toFixed(1)}%
+              </span>
+            </div>
+            <div className="text-xs text-gray-600 space-y-1">
+              {opportunity.factors.map((factor, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-success rounded-full"></div>
+                  {factor}
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <div className="flex gap-2">
-            <button className="btn btn-outline btn-sm" disabled={!connectedAddress}>
-              Analyze
+          {/* Stats */}
+          <div className="grid grid-cols-2 gap-4 mb-4 text-center">
+            <div>
+              <div className="text-xs text-gray-500">Liquidity</div>
+              <div className="font-semibold">{formatCurrency(opportunity.polymarket.liquidity)}</div>
+            </div>
+            <div>
+              <div className="text-xs text-gray-500">Tags</div>
+              <div className="font-semibold text-xs">
+                {opportunity.polymarket.tags.slice(0, 2).join(", ")}
+                {opportunity.polymarket.tags.length > 2 && "..."}
+              </div>
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="card-actions justify-between items-center">
+            <button className="btn btn-ghost btn-sm">
+              <InformationCircleIcon className="h-4 w-4" />
+              Details
             </button>
-            <button className="btn btn-primary btn-sm" disabled={!connectedAddress}>
-              <BoltIcon className="h-4 w-4" />
-              Execute
-            </button>
+
+            <div className="flex gap-2">
+              <button className="btn btn-outline btn-sm" disabled={!connectedAddress || isExecuting || isExecuted}>
+                Analyze
+              </button>
+              {isExecuted ? (
+                <button 
+                  className="btn btn-warning btn-sm"
+                  onClick={() => resetExecution(opportunity)}
+                >
+                  Reset
+                </button>
+              ) : (
+                <button 
+                  className={`btn btn-primary btn-sm ${isExecuting ? 'loading' : ''}`}
+                  disabled={!connectedAddress || isExecuting}
+                  onClick={() => executeArbitrage(opportunity)}
+                >
+                  {!isExecuting && <BoltIcon className="h-4 w-4" />}
+                  {isExecuting ? 'Executing...' : 'Execute'}
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -398,6 +550,14 @@ const Arbitrage: NextPage = () => {
               {!loading && <ArrowPathIcon className="h-4 w-4" />}
               Refresh
             </button>
+            {executedOpportunities.size > 0 && (
+              <button
+                onClick={resetAllExecutions}
+                className="btn btn-warning btn-sm"
+              >
+                Reset All
+              </button>
+            )}
           </div>
         </div>
       </div>

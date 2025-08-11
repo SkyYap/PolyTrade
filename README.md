@@ -311,3 +311,6 @@ We welcome contributions to PolyTrade! Whether it's:
 - 🔧 Platform integrations
 
 Please see [CONTRIBUTING.MD](CONTRIBUTING.md) for guidelines.
+
+## Similar industry person
+https://getarbitragebets.com/
